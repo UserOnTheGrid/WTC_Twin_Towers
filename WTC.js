@@ -1,29 +1,28 @@
 // Import three.js
 import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+const scene = new THREE.Scene(); // Scene
+const WTC_Complex = new THREE.Group();
+const TwinTowers = new THREE.Group();
 
 function main(){
     // Make our canvas
+    scene.background = new THREE.Color(0xff0000);
     const canvas = document.querySelector('#c');
     const renderer = new THREE.WebGLRenderer({antialias: true, canvas});
     renderer.setSize(window.innerWidth, window.innerHeight);
 
     // Set up Camera
     // Frustrum settings
-    const fov = 75; // Field of View
+    const fov = 100; // Field of View
     const aspect = window.innerWidth / window.innerHeight; // Ratio of view's height and width
     const near = 0.1; // Minimum fov value closest to the camera
-    const far = 5; // Maximum fov value farthest from the camera
+    const far = 50; // Maximum fov value farthest from the camera
     const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+    const controls = new OrbitControls(camera, renderer.domElement);
 
-    camera.position.z = 5; // Move camera 2 units away from the origin on the z-axis to view the shape
-
-    const height = 13.62;
-    const width = 2.09;
-    const depth = 2.09;
-    
-    // Make the scene
-    const scene = new THREE.Scene(); // Scene
-    const geo = new THREE.BoxGeometry(width, height, depth); // Geometry
+    camera.position.set(0, 0, 10);
 
     // Apply lighting
     const color = 0xFFFFFF;
@@ -31,14 +30,194 @@ function main(){
     const light = new THREE.DirectionalLight(color, intensity);
     light.position.set(-1, 2, 4);
     scene.add(light);
-    //const mat = new THREE.MeshBasicMaterial({color: 0x00ff00}); // Material
-    const mat = new THREE.MeshPhongMaterial({color: 0x00ff00}); // Material
-    
-    // Add mesh to scene
-    const cube = new THREE.Mesh(geo, mat); // Make a cube mesh
-    scene.add(cube); // Scene is the parent of the cube mesh
-    renderer.render(scene, camera);
+
+    // Build World Trade Center Complex + Sphere
+    Build_Towers();
+    Build_Marriott();
+    Build_WTC7();
+
+    scene.add(WTC_Complex);
+
+    function render(time){
+        time *= 0.001; // Time is in SECONDS
+            const speed = 1;
+            const rot = time * speed;
+            //WTC_Complex.rotation.y = rot;
+            //console.log("Camera X: " + camera.position.x + "\nCamera Y: " + camera.position.y + "\nCamera Z: " + camera.position.z);
+            //console.log("Camera Rotation X: " + camera.rotation.x + "\nCamera Rotation Y: " + camera.rotation.y + "\nCamera Rotation Z: " + camera.rotation.z);
+
+        renderer.render(scene, camera);
+
+        requestAnimationFrame(render);
+    }
     requestAnimationFrame(render);
 }
+
+function Build_Towers(){
+    const WTC1 = new THREE.Group();
+    const WTC2 = new THREE.Group();
+    const tower_height = 13.62;
+    const tower_width = 2.09;
+    const tower_depth = 2.09;
+
+    // WTC1/2 Body
+    const tower_geo = new THREE.BoxGeometry(tower_width, tower_height, tower_depth); // Geometry
+    const tower_mat = new THREE.MeshPhongMaterial({color: 0x00ffff}); // Material
+    const tower1_mesh = makeShape(tower_geo, tower_mat, 0, 0, 0); // Make a cube mesh
+    const tower2_mesh = makeShape(tower_geo, tower_mat, 3.25, 0, -2.25); // Make a cube mesh
+
+    // WTC1 Antenna
+    const antenna_height = 3.60;
+    const antenna_radius = 0.1;
+    const antenna_geo = new THREE.CylinderGeometry(antenna_radius, antenna_radius, antenna_height, 32);
+    const antenna_mat = new THREE.MeshPhongMaterial({color: 0xffffff});
+    const antenna_mesh = makeShape(antenna_geo, antenna_mat, 0, (tower_height / 2) + (antenna_height / 2), 0);
+
+    WTC1.add(tower1_mesh);
+    WTC1.add(antenna_mesh);
+
+    WTC2.add(tower2_mesh);
+
+    TwinTowers.add(WTC1); // Scene is the parent of the cube mesh
+    TwinTowers.add(WTC2); // Scene is the parent of the cube mesh
+
+    WTC_Complex.add(TwinTowers);
+}
+
+function Build_Marriott(){
+    var height = 2.42; // Approximate Height of Triangular Roof is the remainder of the Parthenon's height minus the height of the columns and the roof base
+    const hotel_geo = new THREE.BufferGeometry();
+
+    // width = x, height = y, length = z
+    const vertices = new Float32Array([
+        // Floor Level
+        1.25, 0, 0, // v0
+        2.5, 0, 0, // v1
+        4.6, 0, -0.75, // v2
+        4.6, 0, -0.15, // v3
+        2.5, 0, 0.55, // v4
+        1.25, 0, 0.55, // v5
+
+        // Roof Level
+        1.25, height, 0, // v6
+        2.5, height, 0, // v7
+        4.6, height, -0.75, // v8
+        4.6, height, -0.15, // v9
+        2.5, height, 0.55, // v10
+        1.25, height, 0.55, // v11
+    ]);
+
+    // Connects all of the vertices together
+    const indices = [
+        // floor
+        0, 1, 4,
+        4, 1, 2,
+        2, 3, 4,
+        4, 5, 0,
+
+        // north wall
+        0, 5, 6,
+        5, 11, 6,
+
+        // west wall
+        0, 6, 1,
+        1, 6, 7,
+        1, 7, 2,
+        2, 7, 8,
+
+        // south wall
+        2, 8, 3,
+        8, 9, 3,
+
+        // east wall
+        3, 9, 4,
+        9, 10, 4,
+        11, 5, 4,
+        4, 10, 11,
+
+        // roof
+        6, 7, 10,
+        10, 7, 8,
+        8, 9, 10,
+        10, 11, 6
+    ];
+    
+    hotel_geo.setIndex( indices );
+    // itemSize = 3 because there are 3 values (components) per vertex
+    hotel_geo.setAttribute( 'position', new THREE.BufferAttribute( vertices, 3 ) );
+    hotel_geo.setAttribute( 'normal', new THREE.BufferAttribute( vertices, 3 ) );
+    const hotel_mat = new THREE.MeshPhongMaterial({color: 0xffffff, side: THREE.DoubleSide});
+    const WTC3 = makeShape(hotel_geo, hotel_mat, 0, -6.81, 0);
+
+    WTC_Complex.add(WTC3);
+}
+
+function Build_WTC7(){
+    var height = 6.10;
+    const WTC7_geo = new THREE.BufferGeometry();
+
+    // width = x, height = y, length = z
+    const vertices = new Float32Array([
+        // Floor Level
+        -4.7, 0, 0.25, // v0
+        -6.15, 0, 0.75, // v1
+        -6.15, 0, -2.5, // v2
+        -4.7, 0, -2.15, // v3
+
+        // Roof Level
+        -4.7, height, 0.25, // v4
+        -6.15, height, 0.75, // v5
+        -6.15, height, -2.5, // v6
+        -4.7, height, -2.15, // v7
+    ]);
+
+    // Connects all of the vertices together
+    const indices = [
+        // floor
+        0, 3, 1,
+        1, 2, 3,
+
+        // south wall
+        4, 7, 3,
+        3, 0, 4,
+
+        // east wall
+        0, 4, 5,
+        1, 0, 5,
+
+        // north wall
+        1, 5, 6,
+        2, 1, 6,
+
+        // west wall
+        6, 2, 3,
+        3, 7, 6,
+
+        // roof
+        4, 7, 5,
+        5, 7, 6,
+    ];
+    
+    WTC7_geo.setIndex( indices );
+    // itemSize = 3 because there are 3 values (components) per vertex
+    WTC7_geo.setAttribute( 'position', new THREE.BufferAttribute( vertices, 3 ) );
+    WTC7_geo.setAttribute( 'normal', new THREE.BufferAttribute( vertices, 3 ) );
+    const WTC7_mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
+    const WTC7 = makeShape(WTC7_geo, WTC7_mat, 0, -6.81, 0);
+
+    WTC_Complex.add(WTC7);
+}
+
+function makeShape(geo, mat, x, y, z){
+        //const mat = new THREE.MeshPhongMaterial({ /*color,*/ map: texture1, normalMap: texture2, side: THREE.DoubleSide });
+        // PROBLEM: Phong Material on Triangular Prism is always black b.c. it isn't reflecting any light
+        // Until the problem is solved, all mats are basic, not phong.
+        const shape = new THREE.Mesh(geo, mat);
+        shape.position.x = x;
+        shape.position.y = y;
+        shape.position.z = z;
+    
+        return shape; // Mesh is only returned, as add() is used to parent objects not only to the scene, but also eachother
+    }
 
 main();
