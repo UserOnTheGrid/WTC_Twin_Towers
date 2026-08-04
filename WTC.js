@@ -210,9 +210,9 @@ function Build_WTC7(){
 }
 
 function Build_WTC4(){
-    var base_height = 0.39;
+    var base_height = 0.26;
     var upper_height = 0.78;
-    var base_difference = 0.2;
+    var diff = 0.2;
 
     const WTC4 = new THREE.Group();
 
@@ -248,32 +248,32 @@ function Build_WTC4(){
 
     const Base_Vertices = new Float32Array([
         // Base Level
-        4.50, 0, -3.55, // v0
-        2.75, 0, -3.55, // v1
-        2.75, 0, -4.75, // v2
-        1.15, 0, -4.75, // v3
-        1.15, 0, -6.15, // v4
-        2.75, 0, -6.15, // v5
-        2.75, 0, -6.90, // v6
-        4.10, 0, -6.90, // v7
-        4.10, 0, -5.40, // v8
-        4.50, 0, -5.40, // v9
+        4.50 - diff, 0, -3.55 - diff, // v0
+        2.75 + diff, 0, -3.55 - diff, // v1
+        2.75 + diff, 0, -4.75 - diff, // v2
+        1.15 + diff, 0, -4.75 - diff, // v3
+        1.15 + diff, 0, -6.15 + diff, // v4
+        2.75 + diff, 0, -6.15 + diff, // v5
+        2.75 + diff, 0, -6.90 + diff, // v6
+        4.10 - diff, 0, -6.90 + diff, // v7
+        4.10 - diff, 0, -5.40 + diff, // v8
+        4.50 - diff, 0, -5.40 + diff, // v9
 
         // Middle Level
-        4.50, base_height, -3.55, // v10
-        2.75, base_height, -3.55, // v11
-        2.75, base_height, -4.75, // v12
-        1.15, base_height, -4.75, // v13
-        1.15, base_height, -6.15, // v14
-        2.75, base_height, -6.15, // v15
-        2.75, base_height, -6.90, // v16
-        4.10, base_height, -6.90, // v17
-        4.10, base_height, -5.40, // v18
-        4.50, base_height, -5.40, // v19
+        4.50 - diff, base_height, -3.55 - diff, // v10
+        2.75 + diff, base_height, -3.55 - diff, // v11
+        2.75 + diff, base_height, -4.75 - diff, // v12
+        1.15 + diff, base_height, -4.75 - diff, // v13
+        1.15 + diff, base_height, -6.15 + diff, // v14
+        2.75 + diff, base_height, -6.15 + diff, // v15
+        2.75 + diff, base_height, -6.90 + diff, // v16
+        4.10 - diff, base_height, -6.90 + diff, // v17
+        4.10 - diff, base_height, -5.40 + diff, // v18
+        4.50 - diff, base_height, -5.40 + diff, // v19
     ]);
 
     // Connects all of the vertices together
-    const Upper_Indices = [
+    const Indices = [
         // floor
         0, 1, 8,
         1, 2, 8,
@@ -317,14 +317,14 @@ function Build_WTC4(){
         18, 19, 10,
     ];
     
-    WTC4_Upper_Geo.setIndex( Upper_Indices );
+    WTC4_Upper_Geo.setIndex( Indices );
     WTC4_Upper_Geo.setAttribute( 'position', new THREE.BufferAttribute( Upper_Vertices, 3 ) );
     WTC4_Upper_Geo.setAttribute( 'normal', new THREE.BufferAttribute( Upper_Vertices, 3 ) );
     const WTC4_Upper_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
     const WTC4_Upper_Mesh = makeShape(WTC4_Upper_Geo, WTC4_Upper_Mat, 0, -6.81, 0);
     WTC4.add(WTC4_Upper_Mesh);
 
-    WTC4_Base_Geo.setIndex( Upper_Indices );
+    WTC4_Base_Geo.setIndex( Indices );
     WTC4_Base_Geo.setAttribute( 'position', new THREE.BufferAttribute( Base_Vertices, 3 ) );
     WTC4_Base_Geo.setAttribute( 'normal', new THREE.BufferAttribute( Base_Vertices, 3 ) );
     const WTC4_Base_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
