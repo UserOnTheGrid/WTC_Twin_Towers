@@ -35,6 +35,7 @@ function main(){
     Build_Towers();
     Build_Marriott();
     Build_WTC7();
+    Build_WTC4();
 
     scene.add(WTC_Complex);
 
@@ -206,6 +207,131 @@ function Build_WTC7(){
     const WTC7 = makeShape(WTC7_geo, WTC7_mat, 0, -6.81, 0);
 
     WTC_Complex.add(WTC7);
+}
+
+function Build_WTC4(){
+    var base_height = 0.39;
+    var upper_height = 0.78;
+    var base_difference = 0.2;
+
+    const WTC4 = new THREE.Group();
+
+    const WTC4_Base_Geo = new THREE.BufferGeometry();
+    const WTC4_Upper_Geo = new THREE.BufferGeometry();
+
+    // width = x, height = y, length = z
+    const Upper_Vertices = new Float32Array([
+        // Middle Level
+        4.50, base_height, -3.55, // v0
+        2.75, base_height, -3.55, // v1
+        2.75, base_height, -4.75, // v2
+        1.15, base_height, -4.75, // v3
+        1.15, base_height, -6.15, // v4
+        2.75, base_height, -6.15, // v5
+        2.75, base_height, -6.90, // v6
+        4.10, base_height, -6.90, // v7
+        4.10, base_height, -5.40, // v8
+        4.50, base_height, -5.40, // v9
+
+        // Roof Level
+        4.50, upper_height, -3.55, // v10
+        2.75, upper_height, -3.55, // v11
+        2.75, upper_height, -4.75, // v12
+        1.15, upper_height, -4.75, // v13
+        1.15, upper_height, -6.15, // v14
+        2.75, upper_height, -6.15, // v15
+        2.75, upper_height, -6.90, // v16
+        4.10, upper_height, -6.90, // v17
+        4.10, upper_height, -5.40, // v18
+        4.50, upper_height, -5.40, // v19
+    ]);
+
+    const Base_Vertices = new Float32Array([
+        // Base Level
+        4.50, 0, -3.55, // v0
+        2.75, 0, -3.55, // v1
+        2.75, 0, -4.75, // v2
+        1.15, 0, -4.75, // v3
+        1.15, 0, -6.15, // v4
+        2.75, 0, -6.15, // v5
+        2.75, 0, -6.90, // v6
+        4.10, 0, -6.90, // v7
+        4.10, 0, -5.40, // v8
+        4.50, 0, -5.40, // v9
+
+        // Middle Level
+        4.50, base_height, -3.55, // v10
+        2.75, base_height, -3.55, // v11
+        2.75, base_height, -4.75, // v12
+        1.15, base_height, -4.75, // v13
+        1.15, base_height, -6.15, // v14
+        2.75, base_height, -6.15, // v15
+        2.75, base_height, -6.90, // v16
+        4.10, base_height, -6.90, // v17
+        4.10, base_height, -5.40, // v18
+        4.50, base_height, -5.40, // v19
+    ]);
+
+    // Connects all of the vertices together
+    const Upper_Indices = [
+        // floor
+        0, 1, 8,
+        1, 2, 8,
+        2, 3, 5,
+        3, 4, 5,
+        5, 6, 7,
+        7, 8, 5,
+        2, 5, 8,
+        8, 9, 0,
+
+        // walls
+        0, 1, 10,
+        1, 11, 10,
+        1, 2, 11,
+        2, 12, 11,
+        2, 13, 12,
+        3, 13, 2,
+        3, 4, 13,
+        14, 13, 4,
+        4, 14, 15,
+        15, 5, 4,
+        5, 15, 16,
+        16, 6, 5,
+        6, 16, 17,
+        17, 7, 6,
+        7, 17, 18,
+        18, 8, 7,
+        8, 18, 19,
+        19, 9, 8,
+        9, 19, 10,
+        10, 0, 9,
+
+        // roof
+        10, 11, 18,
+        11, 12, 18,
+        12, 13, 15,
+        13, 14, 15,
+        15, 16, 17,
+        17, 18, 15,
+        12, 15, 18,
+        18, 19, 10,
+    ];
+    
+    WTC4_Upper_Geo.setIndex( Upper_Indices );
+    WTC4_Upper_Geo.setAttribute( 'position', new THREE.BufferAttribute( Upper_Vertices, 3 ) );
+    WTC4_Upper_Geo.setAttribute( 'normal', new THREE.BufferAttribute( Upper_Vertices, 3 ) );
+    const WTC4_Upper_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
+    const WTC4_Upper_Mesh = makeShape(WTC4_Upper_Geo, WTC4_Upper_Mat, 0, -6.81, 0);
+    WTC4.add(WTC4_Upper_Mesh);
+
+    WTC4_Base_Geo.setIndex( Upper_Indices );
+    WTC4_Base_Geo.setAttribute( 'position', new THREE.BufferAttribute( Base_Vertices, 3 ) );
+    WTC4_Base_Geo.setAttribute( 'normal', new THREE.BufferAttribute( Base_Vertices, 3 ) );
+    const WTC4_Base_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
+    const WTC4_Base_Mesh = makeShape(WTC4_Base_Geo, WTC4_Base_Mat, 0, -6.81, 0);
+    WTC4.add(WTC4_Base_Mesh);
+
+    WTC_Complex.add(WTC4);
 }
 
 function makeShape(geo, mat, x, y, z){
