@@ -22,6 +22,11 @@ function main(){
     const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
     const controls = new OrbitControls(camera, renderer.domElement);
 
+    // camera.position.set(0, 10, -2);
+    // camera.rotation.set(-1.5, 0, 0);
+
+    //camera.position.set(-1.5, -6, 2);
+
     camera.position.set(0, 0, 10);
 
     // Apply lighting
@@ -36,8 +41,11 @@ function main(){
     Build_Marriott();
     Build_WTC7();
     Build_WTC4();
+    Build_WTC5();
 
     scene.add(WTC_Complex);
+
+    renderer.render(scene, camera);
 
     function render(time){
         time *= 0.001; // Time is in SECONDS
@@ -45,7 +53,7 @@ function main(){
             const rot = time * speed;
             //WTC_Complex.rotation.y = rot;
             //console.log("Camera X: " + camera.position.x + "\nCamera Y: " + camera.position.y + "\nCamera Z: " + camera.position.z);
-            //console.log("Camera Rotation X: " + camera.rotation.x + "\nCamera Rotation Y: " + camera.rotation.y + "\nCamera Rotation Z: " + camera.rotation.z);
+            console.log("Camera Rotation X: " + camera.rotation.x + "\nCamera Rotation Y: " + camera.rotation.y + "\nCamera Rotation Z: " + camera.rotation.z);
 
         renderer.render(scene, camera);
 
@@ -332,6 +340,148 @@ function Build_WTC4(){
     WTC4.add(WTC4_Base_Mesh);
 
     WTC_Complex.add(WTC4);
+}
+
+function Build_WTC5(){
+    var base_height = 0.26;
+    var upper_height = 0.78;
+    var diff = 0.2;
+
+    const WTC5 = new THREE.Group();
+
+    const WTC5_Base_Geo = new THREE.BufferGeometry();
+    const WTC5_Upper_Geo = new THREE.BufferGeometry();
+
+    // width = x, height = y, length = z
+    const Upper_Vertices = new Float32Array([
+        // Middle Level
+        -1.40, base_height, -2.25, // v0
+        -3.40, base_height, -2.25, // v1
+        -3.40, base_height, -4.40, // v2
+        -3.10, base_height, -4.40, // v3
+        -3.10, base_height, -6.50, // v4
+        -1.65, base_height, -6.50, // v5
+        -1.65, base_height, -6.25, // v6
+        -0.15, base_height, -6.25, // v7
+        -0.15, base_height, -4.75, // v8
+        -1.65, base_height, -4.75, // v9
+        -1.65, base_height, -4.10, // v10
+        -1.40, base_height, -4.10, // v11
+
+        // Roof
+        -1.40, upper_height, -2.25, // v12
+        -3.40, upper_height, -2.25, // v13
+        -3.40, upper_height, -4.40, // v14
+        -3.10, upper_height, -4.40, // v15
+        -3.10, upper_height, -6.50, // v16
+        -1.65, upper_height, -6.50, // v17
+        -1.65, upper_height, -6.25, // v18
+        -0.15, upper_height, -6.25, // v19
+        -0.15, upper_height, -4.75, // v20
+        -1.65, upper_height, -4.75, // v21
+        -1.65, upper_height, -4.10, // v22
+        -1.40, upper_height, -4.10, // v23
+    ]);
+
+    
+    const Base_Vertices = new Float32Array([
+        // Base Level
+        -1.40 - diff, 0, -2.25 - diff, // v0
+        -3.40 + diff, 0, -2.25 - diff, // v1
+        -3.40 + diff, 0, -4.40 + diff, // v2
+        -3.10 + diff, 0, -4.40 + diff, // v3
+        -3.10 + diff, 0, -6.50 + diff, // v4
+        -1.65 - diff, 0, -6.50 + diff, // v5
+        -1.65 - diff, 0, -6.25 + diff, // v6
+        -0.15 - diff, 0, -6.25 + diff, // v7
+        -0.15 - diff, 0, -4.75 - diff, // v8
+        -1.65 - diff, 0, -4.75 - diff, // v9
+        -1.65 - diff, 0, -4.10 + diff, // v10
+        -1.40 - diff, 0, -4.10 + diff, // v11
+
+        // Roof
+        -1.40 - diff, base_height, -2.25 - diff, // v0
+        -3.40 + diff, base_height, -2.25 - diff, // v1
+        -3.40 + diff, base_height, -4.40 + diff, // v2
+        -3.10 + diff, base_height, -4.40 + diff, // v3
+        -3.10 + diff, base_height, -6.50 + diff, // v4
+        -1.65 - diff, base_height, -6.50 + diff, // v5
+        -1.65 - diff, base_height, -6.25 + diff, // v6
+        -0.15 - diff, base_height, -6.25 + diff, // v7
+        -0.15 - diff, base_height, -4.75 - diff, // v8
+        -1.65 - diff, base_height, -4.75 - diff, // v9
+        -1.65 - diff, base_height, -4.10 + diff, // v10
+        -1.40 - diff, base_height, -4.10 + diff, // v11
+    ]);
+
+    // Connects all of the vertices together
+    const Indices = [
+        // floor
+        0, 1, 10,
+        1, 2, 3,
+        1, 3, 10,
+        3, 4, 6,
+        4, 5, 6,
+        6, 9, 3,
+        6, 7, 8,
+        8, 9, 6,
+        9, 10, 3,
+        10, 11, 0,
+
+        // walls
+        0, 1, 12,
+        1, 13, 12,
+        1, 2, 13,
+        2, 14, 13,
+        15, 3, 2,
+        14, 15, 2,
+        3, 4, 16,
+        16, 15, 3,
+        17, 5, 4,
+        4, 16, 17,
+        5, 17, 18,
+        18, 6, 5,
+        6, 18, 19,
+        19, 7, 6,
+        7, 19, 20,
+        20, 8, 7,
+        8, 9, 21,
+        21, 20, 8,
+        22, 10, 9,
+        9, 21, 22,
+        10, 22, 23,
+        23, 11, 10,
+        23, 12, 11,
+        0, 11, 12,
+
+        // roof
+        12, 13, 22,
+        13, 14, 15,
+        15, 22, 13,
+        15, 16, 18,
+        16, 17, 18,
+        18, 21, 15,
+        18, 19, 20,
+        20, 21, 18,
+        21, 22, 15,
+        22, 23, 12,
+    ];
+    
+    WTC5_Upper_Geo.setIndex( Indices );
+    WTC5_Upper_Geo.setAttribute( 'position', new THREE.BufferAttribute( Upper_Vertices, 3 ) );
+    WTC5_Upper_Geo.setAttribute( 'normal', new THREE.BufferAttribute( Upper_Vertices, 3 ) );
+    const WTC5_Upper_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
+    const WTC5_Upper_Mesh = makeShape(WTC5_Upper_Geo, WTC5_Upper_Mat, 0, -6.81, 0);
+    WTC5.add(WTC5_Upper_Mesh);
+
+    WTC5_Base_Geo.setIndex( Indices );
+    WTC5_Base_Geo.setAttribute( 'position', new THREE.BufferAttribute( Base_Vertices, 3 ) );
+    WTC5_Base_Geo.setAttribute( 'normal', new THREE.BufferAttribute( Base_Vertices, 3 ) );
+    const WTC5_Base_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
+    const WTC5_Base_Mesh = makeShape(WTC5_Base_Geo, WTC5_Base_Mat, 0, -6.81, 0);
+    WTC5.add(WTC5_Base_Mesh);
+
+    WTC_Complex.add(WTC5);
 }
 
 function makeShape(geo, mat, x, y, z){
