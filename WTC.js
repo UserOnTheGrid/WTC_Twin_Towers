@@ -71,7 +71,8 @@ function Build_Towers(){
 
     // WTC1/2 Body
     const tower_geo = new THREE.BoxGeometry(tower_width, tower_height, tower_depth); // Geometry
-    const tower_mat = new THREE.MeshPhongMaterial({color: 0x00ffff}); // Material
+    // const tower_mat = new THREE.MeshPhongMaterial({color: 0x00ffff}); // Material
+    const tower_mat = makeMaterial("Materials/default_texture.png", "Materials/default_texture.png", "Materials/default_texture.png", 1, 5);
     const tower1_mesh = makeShape(tower_geo, tower_mat, 0, 0, 0); // Make a cube mesh
     const tower2_mesh = makeShape(tower_geo, tower_mat, 3.25, 0, -2.25); // Make a cube mesh
 
@@ -79,7 +80,8 @@ function Build_Towers(){
     const antenna_height = 3.60;
     const antenna_radius = 0.1;
     const antenna_geo = new THREE.CylinderGeometry(antenna_radius, antenna_radius, antenna_height, 32);
-    const antenna_mat = new THREE.MeshPhongMaterial({color: 0xffffff});
+    //const antenna_mat = new THREE.MeshPhongMaterial({color: 0xffffff});
+    const antenna_mat = makeMaterial("Materials/default_texture.png", "Materials/default_texture.png", "Materials/default_texture.png", 1, 1);
     const antenna_mesh = makeShape(antenna_geo, antenna_mat, 0, (tower_height / 2) + (antenna_height / 2), 0);
 
     WTC1.add(tower1_mesh);
@@ -155,7 +157,8 @@ function Build_Marriott(){
     // itemSize = 3 because there are 3 values (components) per vertex
     hotel_geo.setAttribute( 'position', new THREE.BufferAttribute( vertices, 3 ) );
     hotel_geo.setAttribute( 'normal', new THREE.BufferAttribute( vertices, 3 ) );
-    const hotel_mat = new THREE.MeshPhongMaterial({color: 0xffffff, side: THREE.DoubleSide});
+    // const hotel_mat = new THREE.MeshPhongMaterial({color: 0xffffff, side: THREE.DoubleSide});
+    const hotel_mat = makeMaterial("Materials/default_texture.png", "Materials/default_texture.png", "Materials/default_texture.png", 1, 1);
     const WTC3 = makeShape(hotel_geo, hotel_mat, 0, -6.81, 0);
 
     WTC_Complex.add(WTC3);
@@ -211,7 +214,8 @@ function Build_WTC7(){
     // itemSize = 3 because there are 3 values (components) per vertex
     WTC7_geo.setAttribute( 'position', new THREE.BufferAttribute( vertices, 3 ) );
     WTC7_geo.setAttribute( 'normal', new THREE.BufferAttribute( vertices, 3 ) );
-    const WTC7_mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
+    //const WTC7_mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
+    const WTC7_mat = makeMaterial("Materials/default_texture.png", "Materials/default_texture.png", "Materials/default_texture.png", 1, 1);
     const WTC7 = makeShape(WTC7_geo, WTC7_mat, 0, -6.81, 0);
 
     WTC_Complex.add(WTC7);
@@ -328,14 +332,16 @@ function Build_WTC4(){
     WTC4_Upper_Geo.setIndex( Indices );
     WTC4_Upper_Geo.setAttribute( 'position', new THREE.BufferAttribute( Upper_Vertices, 3 ) );
     WTC4_Upper_Geo.setAttribute( 'normal', new THREE.BufferAttribute( Upper_Vertices, 3 ) );
-    const WTC4_Upper_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
+    // const WTC4_Upper_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
+    const WTC4_Upper_Mat = makeMaterial("Materials/default_texture.png", "Materials/default_texture.png", "Materials/default_texture.png", 1, 1);
     const WTC4_Upper_Mesh = makeShape(WTC4_Upper_Geo, WTC4_Upper_Mat, 0, -6.81, 0);
     WTC4.add(WTC4_Upper_Mesh);
 
     WTC4_Base_Geo.setIndex( Indices );
     WTC4_Base_Geo.setAttribute( 'position', new THREE.BufferAttribute( Base_Vertices, 3 ) );
     WTC4_Base_Geo.setAttribute( 'normal', new THREE.BufferAttribute( Base_Vertices, 3 ) );
-    const WTC4_Base_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
+    //const WTC4_Base_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
+    const WTC4_Base_Mat = makeMaterial("Materials/default_texture.png", "Materials/default_texture.png", "Materials/default_texture.png", 1, 1);
     const WTC4_Base_Mesh = makeShape(WTC4_Base_Geo, WTC4_Base_Mat, 0, -6.81, 0);
     WTC4.add(WTC4_Base_Mesh);
 
@@ -470,30 +476,54 @@ function Build_WTC5(){
     WTC5_Upper_Geo.setIndex( Indices );
     WTC5_Upper_Geo.setAttribute( 'position', new THREE.BufferAttribute( Upper_Vertices, 3 ) );
     WTC5_Upper_Geo.setAttribute( 'normal', new THREE.BufferAttribute( Upper_Vertices, 3 ) );
-    const WTC5_Upper_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
+    //const WTC5_Upper_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
+    const WTC5_Upper_Mat = makeMaterial("Materials/default_texture.png", "Materials/default_texture.png", "Materials/default_texture.png", 1, 1);
     const WTC5_Upper_Mesh = makeShape(WTC5_Upper_Geo, WTC5_Upper_Mat, 0, -6.81, 0);
     WTC5.add(WTC5_Upper_Mesh);
 
     WTC5_Base_Geo.setIndex( Indices );
     WTC5_Base_Geo.setAttribute( 'position', new THREE.BufferAttribute( Base_Vertices, 3 ) );
     WTC5_Base_Geo.setAttribute( 'normal', new THREE.BufferAttribute( Base_Vertices, 3 ) );
-    const WTC5_Base_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
+    //const WTC5_Base_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
+    const WTC5_Base_Mat = makeMaterial("Materials/default_texture.png", "Materials/default_texture.png", "Materials/default_texture.png", 1, 1);
     const WTC5_Base_Mesh = makeShape(WTC5_Base_Geo, WTC5_Base_Mat, 0, -6.81, 0);
     WTC5.add(WTC5_Base_Mesh);
 
     WTC_Complex.add(WTC5);
 }
 
+// -- HELPER FUNCTIONS --
+
 function makeShape(geo, mat, x, y, z){
-        //const mat = new THREE.MeshPhongMaterial({ /*color,*/ map: texture1, normalMap: texture2, side: THREE.DoubleSide });
-        // PROBLEM: Phong Material on Triangular Prism is always black b.c. it isn't reflecting any light
-        // Until the problem is solved, all mats are basic, not phong.
-        const shape = new THREE.Mesh(geo, mat);
-        shape.position.x = x;
-        shape.position.y = y;
-        shape.position.z = z;
-    
-        return shape; // Mesh is only returned, as add() is used to parent objects not only to the scene, but also eachother
-    }
+    //const mat = new THREE.MeshPhongMaterial({ /*color,*/ map: texture1, normalMap: texture2, side: THREE.DoubleSide });
+    // PROBLEM: Phong Material on Triangular Prism is always black b.c. it isn't reflecting any light
+    // Until the problem is solved, all mats are basic, not phong.
+    const shape = new THREE.Mesh(geo, mat);
+    shape.position.x = x;
+    shape.position.y = y;
+    shape.position.z = z;
+
+    return shape; // Mesh is only returned, as add() is used to parent objects not only to the scene, but also eachother
+}
+
+function makeMaterial(albedoSource, normalSource, aoSource, tileX, tileY){
+    const albedoTex = makeTexture(albedoSource, tileX, tileY);
+    const normalTex = makeTexture(normalSource, tileX, tileY);
+    const aoTex = makeTexture(aoSource, tileX, tileY);
+    //const specularTex = makeTexture(specularSource, tileX, tileY);
+
+    var mat = new THREE.MeshPhongMaterial({map: albedoTex, normalMap: normalTex, aoMap: aoTex, side: THREE.DoubleSide});
+
+    return mat;
+}
+
+function makeTexture(source, tileX, tileY){
+    const texture = new THREE.TextureLoader().load(source);
+    texture.wrapS = THREE.RepeatWrapping;
+    texture.wrapT = THREE.RepeatWrapping;
+    texture.repeat.set(tileX, tileY);
+
+    return texture;
+}
 
 main();
