@@ -53,7 +53,7 @@ function main(){
             const rot = time * speed;
             //WTC_Complex.rotation.y = rot;
             //console.log("Camera X: " + camera.position.x + "\nCamera Y: " + camera.position.y + "\nCamera Z: " + camera.position.z);
-            console.log("Camera Rotation X: " + camera.rotation.x + "\nCamera Rotation Y: " + camera.rotation.y + "\nCamera Rotation Z: " + camera.rotation.z);
+            //console.log("Camera Rotation X: " + camera.rotation.x + "\nCamera Rotation Y: " + camera.rotation.y + "\nCamera Rotation Z: " + camera.rotation.z);
 
         renderer.render(scene, camera);
 
@@ -72,7 +72,23 @@ function Build_Towers(){
     // WTC1/2 Body
     const tower_geo = new THREE.BoxGeometry(tower_width, tower_height, tower_depth); // Geometry
     // const tower_mat = new THREE.MeshPhongMaterial({color: 0x00ffff}); // Material
-    const tower_mat = makeMaterial("Materials/default_texture.png", "Materials/default_texture.png", "Materials/default_texture.png", 1, 5);
+    const loader = new THREE.TextureLoader();
+    const tower_mat = [
+        new THREE.MeshStandardMaterial({map: loadColorTexture("Materials/default_texture.png"), side: THREE.DoubleSide}),
+        new THREE.MeshStandardMaterial({map: loadColorTexture("Reference_Image.JPG"), side: THREE.DoubleSide}),
+        new THREE.MeshStandardMaterial({map: loadColorTexture("Materials/default_texture.png"), side: THREE.DoubleSide}),
+        new THREE.MeshStandardMaterial({map: loadColorTexture("Reference_Image.JPG"), side: THREE.DoubleSide}),
+        new THREE.MeshStandardMaterial({map: loadColorTexture("Materials/default_texture.png"), side: THREE.DoubleSide}),
+        new THREE.MeshStandardMaterial({map: loadColorTexture("Reference_Image.JPG"), side: THREE.DoubleSide}),
+    ];
+
+    function loadColorTexture( path ) {
+        const texture = loader.load( path );
+        texture.colorSpace = THREE.SRGBColorSpace;
+        return texture;
+    }
+
+
     const tower1_mesh = makeShape(tower_geo, tower_mat, 0, 0, 0); // Make a cube mesh
     const tower2_mesh = makeShape(tower_geo, tower_mat, 3.25, 0, -2.25); // Make a cube mesh
 
@@ -118,6 +134,13 @@ function Build_Marriott(){
         1.25, height, 0.55, // v11
     ]);
 
+    const uvs = new Float32Array([
+        0.0, 0.0,
+        1.0, 0.0,
+        1.0, 1.0,
+        0.0, 1.0,
+    ]);
+
     // Connects all of the vertices together
     const indices = [
         // floor
@@ -156,9 +179,26 @@ function Build_Marriott(){
     hotel_geo.setIndex( indices );
     // itemSize = 3 because there are 3 values (components) per vertex
     hotel_geo.setAttribute( 'position', new THREE.BufferAttribute( vertices, 3 ) );
+    hotel_geo.setAttribute( 'uv', new THREE.BufferAttribute( uvs, 3 ) );
     hotel_geo.setAttribute( 'normal', new THREE.BufferAttribute( vertices, 3 ) );
-    // const hotel_mat = new THREE.MeshPhongMaterial({color: 0xffffff, side: THREE.DoubleSide});
     const hotel_mat = makeMaterial("Materials/default_texture.png", "Materials/default_texture.png", "Materials/default_texture.png", 1, 1);
+
+    // const loader = new THREE.TextureLoader();
+    // const hotel_mat = [
+    //     new THREE.MeshStandardMaterial({map: loadColorTexture("Materials/default_texture.png"), side: THREE.DoubleSide}),
+    //     new THREE.MeshStandardMaterial({map: loadColorTexture("Reference_Image.JPG"), side: THREE.DoubleSide}),
+    //     new THREE.MeshStandardMaterial({map: loadColorTexture("Materials/default_texture.png"), side: THREE.DoubleSide}),
+    //     new THREE.MeshStandardMaterial({map: loadColorTexture("Reference_Image.JPG"), side: THREE.DoubleSide}),
+    //     new THREE.MeshStandardMaterial({map: loadColorTexture("Materials/default_texture.png"), side: THREE.DoubleSide}),
+    //     new THREE.MeshStandardMaterial({map: loadColorTexture("Reference_Image.JPG"), side: THREE.DoubleSide}),
+    // ];
+
+    // function loadColorTexture( path ) {
+    //     const texture = loader.load( path );
+    //     texture.colorSpace = THREE.SRGBColorSpace;
+    //     return texture;
+    // }
+
     const WTC3 = makeShape(hotel_geo, hotel_mat, 0, -6.81, 0);
 
     WTC_Complex.add(WTC3);
@@ -176,46 +216,135 @@ function Build_WTC7(){
         -6.15, 0, -2.5, // v2
         -4.7, 0, -2.15, // v3
 
+        // South Wall
+        -4.7, 0, 0.25, // v4
+        -4.7, height, 0.25, // v5
+        -4.7, height, -2.15, // v6
+        -4.7, 0, -2.15, // v7
+
+        // East Wall
+        -4.7, 0, 0.25, // v8
+        -4.7, height, 0.25, // v9
+        -6.15, height, 0.75, // v10
+        -6.15, 0, 0.75, // v11
+
+        // North Wall
+        -6.15, 0, 0.75, // v12
+        -6.15, height, 0.75, // v13
+        -6.15, height, -2.5, // v14
+        -6.15, 0, -2.5, // v15
+
+        // West Wall
+        -6.15, 0, -2.5, // v16
+        -6.15, height, -2.5, // v17
+        -4.7, height, -2.15, // v18
+        -4.7, 0, -2.15, // v19
+
         // Roof Level
-        -4.7, height, 0.25, // v4
-        -6.15, height, 0.75, // v5
-        -6.15, height, -2.5, // v6
-        -4.7, height, -2.15, // v7
+        -4.7, height, 0.25, // v20
+        -6.15, height, 0.75, // v21
+        -6.15, height, -2.5, // v22
+        -4.7, height, -2.15, // v23
+    ]);
+
+    const normals = new Float32Array([
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1,
+
+        0, 0, -1,
+        0, 0, -1,
+        0, 0, -1,
+        0, 0, -1,
+    
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+
+        -1, 0, 0,
+        -1, 0, 0,
+        -1, 0, 0,
+        -1, 0, 0,
+    ]);
+
+    const uvs = new Float32Array([
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
     ]);
 
     // Connects all of the vertices together
     const indices = [
         // floor
-        0, 3, 1,
-        1, 2, 3,
+        0, 1, 2,
+        0, 2, 3,
 
         // south wall
-        4, 7, 3,
-        3, 0, 4,
+        4, 5, 6,
+        4, 6, 7,
 
         // east wall
-        0, 4, 5,
-        1, 0, 5,
+        8, 9, 10,
+        8, 10, 11,
 
         // north wall
-        1, 5, 6,
-        2, 1, 6,
+        12, 13, 14,
+        12, 14, 15,
 
         // west wall
-        6, 2, 3,
-        3, 7, 6,
+        16, 17, 18,
+        16, 18, 19,
 
         // roof
-        4, 7, 5,
-        5, 7, 6,
+        20, 21, 22,
+        20, 22, 23
     ];
     
     WTC7_geo.setIndex( indices );
     // itemSize = 3 because there are 3 values (components) per vertex
     WTC7_geo.setAttribute( 'position', new THREE.BufferAttribute( vertices, 3 ) );
-    WTC7_geo.setAttribute( 'normal', new THREE.BufferAttribute( vertices, 3 ) );
+    WTC7_geo.setAttribute( 'uv', new THREE.BufferAttribute( uvs, 2 ) );
+    WTC7_geo.setAttribute( 'normal', new THREE.BufferAttribute( normals, 3 ) );
     //const WTC7_mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
-    const WTC7_mat = makeMaterial("Materials/default_texture.png", "Materials/default_texture.png", "Materials/default_texture.png", 1, 1);
+    const WTC7_mat = makeMaterial("Materials/default_uv.png", "Materials/default_uv.png", "Materials/default_uv.png", 1, 1);
     const WTC7 = makeShape(WTC7_geo, WTC7_mat, 0, -6.81, 0);
 
     WTC_Complex.add(WTC7);
@@ -512,15 +641,14 @@ function makeMaterial(albedoSource, normalSource, aoSource, tileX, tileY){
     const aoTex = makeTexture(aoSource, tileX, tileY);
     //const specularTex = makeTexture(specularSource, tileX, tileY);
 
-    var mat = new THREE.MeshPhongMaterial({map: albedoTex, normalMap: normalTex, aoMap: aoTex, side: THREE.DoubleSide});
+    var mat = new THREE.MeshStandardMaterial({map: albedoTex, side: THREE.DoubleSide});
 
     return mat;
 }
 
 function makeTexture(source, tileX, tileY){
     const texture = new THREE.TextureLoader().load(source);
-    texture.wrapS = THREE.RepeatWrapping;
-    texture.wrapT = THREE.RepeatWrapping;
+    texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
     texture.repeat.set(tileX, tileY);
 
     return texture;
