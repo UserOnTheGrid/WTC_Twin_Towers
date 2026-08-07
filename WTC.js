@@ -120,68 +120,189 @@ function Build_Marriott(){
         // Floor Level
         1.25, 0, 0, // v0
         2.5, 0, 0, // v1
-        4.6, 0, -0.75, // v2
-        4.6, 0, -0.15, // v3
-        2.5, 0, 0.55, // v4
-        1.25, 0, 0.55, // v5
+        2.5, 0, 0.55, // v2
+        1.25, 0, 0.55, // v3
+        4.6, 0, -0.75, // v4
+        4.6, 0, -0.15, // v5
+
+        // East Face A
+        1.25, 0, 0, // v6
+        1.25, height, 0, // v7
+        2.5, height, 0, // v8
+        2.5, 0, 0, // v9
+
+        // East Face B
+        2.5, 0, 0, // v10
+        2.5, height, 0, // v11
+        4.6, height, -0.75, // v12
+        4.6, 0, -0.75, // v13
+
+        // South Face
+        4.6, 0, -0.75, // v14
+        4.6, height, -0.75, // v15
+        4.6, height, -0.15, // v16
+        4.6, 0, -0.15, // v17
+
+        // West Face A
+        4.6, 0, -0.15, // v18
+        4.6, height, -0.15, // v19
+        2.5, height, 0.55, // v20
+        2.5, 0, 0.55, // v21
+
+        // West Face B
+        2.5, 0, 0.55, // v22
+        2.5, height, 0.55, // v23
+        1.25, height, 0.55, // v24
+        1.25, 0, 0.55, // v25
+
+        // North Face
+        1.25, 0, 0.55, // v26
+        1.25, height, 0.55, // v27
+        1.25, height, 0, // v28
+        1.25, 0, 0, // v29
 
         // Roof Level
-        1.25, height, 0, // v6
-        2.5, height, 0, // v7
-        4.6, height, -0.75, // v8
-        4.6, height, -0.15, // v9
-        2.5, height, 0.55, // v10
-        1.25, height, 0.55, // v11
+        1.25, height, 0, // v30
+        2.5, height, 0, // v31
+        2.5, height, 0.55, // v32
+        1.25, height, 0.55, // v33
+        4.6, height, -0.75, // v34
+        4.6, height, -0.15, // v35
+    ]);
+
+    const normals = new Float32Array([
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1,
+
+        0, 0, -1,
+        0, 0, -1,
+        0, 0, -1,
+        0, 0, -1,
+        
+        0, 0, -1,
+        0, 0, -1,
+        0, 0, -1,
+        0, 0, -1,
+    
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+
+        -1, 0, 0,
+        -1, 0, 0,
+        -1, 0, 0,
+        -1, 0, 0,
+        -1, 0, 0,
+        -1, 0, 0,
     ]);
 
     const uvs = new Float32Array([
-        0.0, 0.0,
-        1.0, 0.0,
-        1.0, 1.0,
-        0.0, 1.0,
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+        0, 0,
+        1, 0,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+        0, 0,
+        1, 0,
     ]);
 
     // Connects all of the vertices together
     const indices = [
         // floor
-        0, 1, 4,
-        4, 1, 2,
-        2, 3, 4,
-        4, 5, 0,
-
-        // north wall
-        0, 5, 6,
-        5, 11, 6,
+        0, 1, 2,
+        0, 2, 3,
+        1, 4, 2,
+        2, 4, 5,
 
         // west wall
-        0, 6, 1,
-        1, 6, 7,
-        1, 7, 2,
-        2, 7, 8,
+        6, 7, 8,
+        6, 8, 9,
+        10, 11, 12,
+        10, 12, 13,
 
         // south wall
-        2, 8, 3,
-        8, 9, 3,
+        14, 15, 16,
+        14, 16, 17,
 
         // east wall
-        3, 9, 4,
-        9, 10, 4,
-        11, 5, 4,
-        4, 10, 11,
+        18, 19, 20,
+        18, 20, 21,
+        22, 23, 24,
+        22, 24, 25,
+
+        // north wall
+        26, 27, 28,
+        26, 28, 29,
 
         // roof
-        6, 7, 10,
-        10, 7, 8,
-        8, 9, 10,
-        10, 11, 6
+        30, 31, 32,
+        30, 32, 33,
+        31, 34, 32,
+        32, 34, 35,
     ];
     
     hotel_geo.setIndex( indices );
     // itemSize = 3 because there are 3 values (components) per vertex
     hotel_geo.setAttribute( 'position', new THREE.BufferAttribute( vertices, 3 ) );
-    hotel_geo.setAttribute( 'uv', new THREE.BufferAttribute( uvs, 3 ) );
-    hotel_geo.setAttribute( 'normal', new THREE.BufferAttribute( vertices, 3 ) );
-    const hotel_mat = makeMaterial("Materials/default_texture.png", "Materials/default_texture.png", "Materials/default_texture.png", 1, 1);
+    hotel_geo.setAttribute( 'uv', new THREE.BufferAttribute( uvs, 2 ) );
+    hotel_geo.setAttribute( 'normal', new THREE.BufferAttribute( normals, 3 ) );
+    const hotel_mat = makeMaterial("Materials/default_uv.png", "Materials/default_uv.png", "Materials/default_uv.png", 1, 1);
 
     // const loader = new THREE.TextureLoader();
     // const hotel_mat = [
