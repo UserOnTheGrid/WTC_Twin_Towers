@@ -170,6 +170,8 @@ function Build_Marriott(){
         4.6, height, -0.15, // v35
     ]);
 
+    // TODO: Fix Normals
+
     const normals = new Float32Array([
         0, 0, 1,
         0, 0, 1,
