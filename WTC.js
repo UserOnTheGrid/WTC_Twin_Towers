@@ -484,28 +484,114 @@ function Build_WTC4(){
     // width = x, height = y, length = z
     const Upper_Vertices = new Float32Array([
         // Middle Level
-        4.50, base_height, -3.55, // v0
-        2.75, base_height, -3.55, // v1
-        2.75, base_height, -4.75, // v2
-        1.15, base_height, -4.75, // v3
-        1.15, base_height, -6.15, // v4
-        2.75, base_height, -6.15, // v5
-        2.75, base_height, -6.90, // v6
-        4.10, base_height, -6.90, // v7
-        4.10, base_height, -5.40, // v8
-        4.50, base_height, -5.40, // v9
+        2.75, base_height, -6.25, // v0
+        2.75, base_height, -6.90, // v1
+        4.10, base_height, -6.90, // v2
+        4.10, base_height, -6.25, // v3
+        2.75, base_height, -5.40, // v4
+        4.10, base_height, -5.40, // v5
+        4.50, base_height, -5.40, // v6
+        4.50, base_height, -4.70, // v7
+        4.10, base_height, -4.70, // v8
+        4.50, base_height, -3.55, // v9
+        4.10, base_height, -3.55, // v10
+        2.75, base_height, -3.55, // v11
+        2.75, base_height, -4.75, // v12
+        1.25, base_height, -4.75, // v13
+        1.25, base_height, -5.35, // v14
+        1.25, base_height, -6.25, // v15
+
+
+        // Walls
+        2.75, base_height, -6.25, // v16
+        2.75, upper_height, -6.25, // v17
+        2.75, upper_height, -6.90, // v18
+        2.75, base_height, -6.90, // v19
+
+        2.75, base_height, -6.90, // v20
+        2.75, upper_height, -6.90, // v21
+        4.10, upper_height, -6.90, // v22
+        4.10, base_height, -6.90, // v23
+
+        4.10, base_height, -6.90, // v24
+        4.10, upper_height, -6.90, // v25
+        4.10, upper_height, -6.25, // v26
+        4.10, base_height, -6.25, // v27
+
+        4.10, base_height, -6.25, // v28
+        4.10, upper_height, -6.25, // v29
+        4.10, upper_height, -5.40, // v30
+        4.10, base_height, -5.40, // v31
+
+        4.10, base_height, -5.40, // v32
+        4.10, upper_height, -5.40, // v33
+        4.50, upper_height, -5.40, // v34
+        4.50, base_height, -5.40, // v35
+
+        4.50, base_height, -5.40, // v36
+        4.50, upper_height, -5.40, // v37
+        4.50, upper_height, -4.70, // v38
+        4.50, base_height, -4.70, // v39
+
+        4.50, base_height, -4.70, // v40
+        4.50, upper_height, -4.70, // v41
+        4.50, upper_height, -3.55, // v42
+        4.50, base_height, -3.55, // v43
+
+        4.50, base_height, -3.55, // v44
+        4.50, upper_height, -3.55, // v45
+        4.10, upper_height, -3.55, // v46
+        4.10, base_height, -3.55, // v47
+
+        4.10, base_height, -3.55, // v48
+        4.10, upper_height, -3.55, // v49
+        2.75, upper_height, -3.55, // v50
+        2.75, base_height, -3.55, // v51
+
+        2.75, base_height, -3.55, // v52
+        2.75, upper_height, -3.55, // v53
+        2.75, upper_height, -4.75, // v54
+        2.75, base_height, -4.75, // v55
+
+        2.75, base_height, -4.75, // v56
+        2.75, upper_height, -4.75, // v57
+        1.25, upper_height, -4.75, // v58
+        1.25, base_height, -4.75, // v59
+
+        1.25, base_height, -4.75, // v60
+        1.25, upper_height, -4.75, // v61
+        1.25, upper_height, -5.35, // v62
+        1.25, base_height, -5.35, // v63
+
+        1.25, base_height, -5.35, // v64
+        1.25, upper_height, -5.35, // v65
+        1.25, upper_height, -6.25, // v66
+        1.25, base_height, -6.25, // v67
+
+        1.25, base_height, -6.25, // v68
+        1.25, upper_height, -6.25, // v69
+        2.75, upper_height, -6.25, // v70
+        2.75, base_height, -6.25, // v71
+        
+
 
         // Roof Level
-        4.50, upper_height, -3.55, // v10
-        2.75, upper_height, -3.55, // v11
-        2.75, upper_height, -4.75, // v12
-        1.15, upper_height, -4.75, // v13
-        1.15, upper_height, -6.15, // v14
-        2.75, upper_height, -6.15, // v15
-        2.75, upper_height, -6.90, // v16
-        4.10, upper_height, -6.90, // v17
-        4.10, upper_height, -5.40, // v18
-        4.50, upper_height, -5.40, // v19
+        2.75, upper_height, -6.15, // v72
+        2.75, upper_height, -6.90, // v73
+        4.10, upper_height, -6.90, // v74
+        4.10, upper_height, -6.25, // v75
+        4.10, upper_height, -5.40, // v76
+        4.50, upper_height, -5.40, // v77
+        4.50, upper_height, -4.70, // v78
+        4.10, upper_height, -4.70, // v79
+        4.50, upper_height, -3.55, // v80
+        4.10, upper_height, -3.55, // v81
+        2.75, upper_height, -3.55, // v82
+        2.75, upper_height, -4.75, // v83
+        1.15, upper_height, -4.75, // v84
+        1.15, upper_height, -5.35, // v85
+        2.75, upper_height, -5.35, // v86
+        1.15, upper_height, -6.15, // v87
     ]);
 
     const Base_Vertices = new Float32Array([
@@ -534,56 +620,90 @@ function Build_WTC4(){
         4.50 - diff, base_height, -5.40 + diff, // v19
     ]);
 
+    const uvs = new Float32Array([
+       
+    ]);
+
+    const normals = new Float32Array([
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+    ]);
+
     // Connects all of the vertices together
     const Indices = [
         // floor
-        0, 1, 8,
-        1, 2, 8,
-        2, 3, 5,
-        3, 4, 5,
+        0, 1, 2,
+        0, 2, 3,
+        0, 3, 5,
+        0, 5, 4,
         5, 6, 7,
-        7, 8, 5,
-        2, 5, 8,
-        8, 9, 0,
+        5, 7, 8,
+        7, 9, 10,
+        7, 10, 8,
+        10, 11, 8,
+        11, 12, 8,
+        12, 4, 6,
+        12, 6, 8,
+        12, 13, 4,
+        13, 14, 4,
+        14, 0, 4,
+        14, 15, 0,
 
         // walls
-        0, 1, 10,
-        1, 11, 10,
-        1, 2, 11,
-        2, 12, 11,
-        2, 13, 12,
-        3, 13, 2,
-        3, 4, 13,
-        14, 13, 4,
-        4, 14, 15,
-        15, 5, 4,
-        5, 15, 16,
-        16, 6, 5,
-        6, 16, 17,
-        17, 7, 6,
-        7, 17, 18,
-        18, 8, 7,
-        8, 18, 19,
-        19, 9, 8,
-        9, 19, 10,
-        10, 0, 9,
-
-        // roof
-        10, 11, 18,
-        11, 12, 18,
-        12, 13, 15,
-        13, 14, 15,
-        15, 16, 17,
-        17, 18, 15,
-        12, 15, 18,
-        18, 19, 10,
+        16, 17, 18,
+        16, 18, 19,
+        20, 21, 22,
+        20, 22, 23,
+        24, 25, 26,
+        24, 26, 27,
+        28, 29, 30,
+        28, 30, 31,
+        32, 33, 34,
+        32, 34, 35,
+        36, 37, 38,
+        36, 38, 39,
+        40, 41, 42,
+        40, 42, 43,
+        44, 45, 46,
+        44, 46, 47,
+        48, 49, 50,
+        48, 50, 51,
+        52, 53, 54,
+        52, 54, 55,
+        56, 57, 58,
+        56, 58, 59,
+        60, 61, 62,
+        60, 62, 63,
+        64, 65, 66,
+        64, 66, 67,
+        68, 69, 70,
+        68, 70, 71,
     ];
     
     WTC4_Upper_Geo.setIndex( Indices );
     WTC4_Upper_Geo.setAttribute( 'position', new THREE.BufferAttribute( Upper_Vertices, 3 ) );
-    WTC4_Upper_Geo.setAttribute( 'normal', new THREE.BufferAttribute( Upper_Vertices, 3 ) );
+    WTC4_Upper_Geo.setAttribute( 'normal', new THREE.BufferAttribute( normals, 3 ) );
+    //WTC4_Upper_Geo.setAttribute( 'uv', new THREE.BufferAttribute( uvs, 2 ) );
     // const WTC4_Upper_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
-    const WTC4_Upper_Mat = makeMaterial("Materials/default_texture.png", "Materials/default_texture.png", "Materials/default_texture.png", 1, 1);
+    const WTC4_Upper_Mat = makeMaterial("Materials/default_uv.png", "Materials/default_uv.png", "Materials/default_uv.png", 1, 1);
     const WTC4_Upper_Mesh = makeShape(WTC4_Upper_Geo, WTC4_Upper_Mat, 0, -6.81, 0);
     WTC4.add(WTC4_Upper_Mesh);
 
@@ -593,7 +713,7 @@ function Build_WTC4(){
     //const WTC4_Base_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
     const WTC4_Base_Mat = makeMaterial("Materials/default_texture.png", "Materials/default_texture.png", "Materials/default_texture.png", 1, 1);
     const WTC4_Base_Mesh = makeShape(WTC4_Base_Geo, WTC4_Base_Mat, 0, -6.81, 0);
-    WTC4.add(WTC4_Base_Mesh);
+    //WTC4.add(WTC4_Base_Mesh);
 
     WTC_Complex.add(WTC4);
 }
