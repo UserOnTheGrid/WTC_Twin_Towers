@@ -1155,6 +1155,269 @@ function Build_WTC5(){
         -3.10, upper_height, -4.75, // v109
     ]);
 
+    const normals = new Float32Array([
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+
+        -1, 0, 0,
+        -1, 0, 0,
+        -1, 0, 0,
+        -1, 0, 0,
+
+        0, 0, 0,
+        0, 0, 0,
+        0, 0, 0,
+        0, 0, 0,
+
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+
+        0, 0, 0,
+        0, 0, 0,
+        0, 0, 0,
+        0, 0, 0,
+
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1,
+
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+
+        0, 0, 0,
+        0, 0, 0,
+        0, 0, 0,
+        0, 0, 0,
+
+        -1, 0, 0,
+        -1, 0, 0,
+        -1, 0, 0,
+        -1, 0, 0,
+
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1,
+
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1,
+
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1,
+
+        -1, 0, 0,
+        -1, 0, 0,
+        -1, 0, 0,
+        -1, 0, 0,
+
+        -1, 0, 0,
+        -1, 0, 0,
+        -1, 0, 0,
+        -1, 0, 0,
+
+        0, 0, 0,
+        0, 0, 0,
+        0, 0, 0,
+        0, 0, 0,
+
+        -1, 0, 0,
+        -1, 0, 0,
+        -1, 0, 0,
+        -1, 0, 0,
+
+        -1, 0, 0,
+        -1, 0, 0,
+        -1, 0, 0,
+        -1, 0, 0,
+
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+    ]);
+
+    const uvs = new Float32Array([
+        0.05, 0.95,
+        0.05, 1,
+        0.33, 1,
+        0.33, 0.95,
+        0.76, 0.95,
+        0.76, 0.6,
+        0.33, 0.6,
+        0.33, 0.52,
+        0.33, 0.48,
+        0.47, 0.48,
+        0.47, 0,
+        0.44, 0,
+        0.05, 0,
+        0.05, 0.48,
+        0, 0,
+        0, 0.48,
+        0, 0.52,
+        0.05, 0.52,
+        0.05, 0.6,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0.05, 0.95,
+        0.05, 1,
+        0.33, 1,
+        0.33, 0.95,
+        0.76, 0.95,
+        0.76, 0.6,
+        0.33, 0.6,
+        0.33, 0.52,
+        0.33, 0.48,
+        0.47, 0.48,
+        0.47, 0,
+        0.44, 0,
+        0.05, 0,
+        0.05, 0.48,
+        0, 0,
+        0, 0.48,
+        0, 0.52,
+        0.05, 0.52,
+        0.05, 0.6,
+    ]);
     
     const Base_Vertices = new Float32Array([
         // Middle Level
@@ -1271,25 +1534,25 @@ function Build_WTC5(){
 
 
         // Roof
-        -3.10 + diff, base_height, -6.25 + diff, // v0
-        -3.10 + diff, base_height, -6.50 + diff, // v1
-        -1.65 - diff, base_height, -6.50 + diff, // v2
-        -1.65 - diff, base_height, -6.25 + diff, // v3
-        -0.15 - diff, base_height, -6.25 + diff, // v4
-        -0.15 - diff, base_height, -4.75 - diff, // v5
-        -1.65 - diff, base_height, -4.75 - diff, // v6
-        -1.65 - diff, base_height, -4.40 + diff, // v7
-        -1.65 - diff, base_height, -4.10 + diff, // v8
-        -1.40 - diff, base_height, -4.10 + diff, // v9
-        -1.40 - diff, base_height, -2.25 - diff, // v10
-        -1.65 - diff, base_height, -2.25 - diff, // v11
-        -3.10 + diff, base_height, -2.25 - diff, // v12
-        -3.10 + diff, base_height, -4.10 + diff, // v13
-        -3.40 + diff, base_height, -2.25 - diff, // v14
-        -3.40 + diff, base_height, -4.10 + diff, // v15
-        -3.40 + diff, base_height, -4.40 + diff, // v16
-        -3.10 + diff, base_height, -4.40 + diff, // v17
-        -3.10 + diff, base_height, -4.75 - diff, // v18
+        -3.10 + diff, base_height, -6.25 + diff, // v91
+        -3.10 + diff, base_height, -6.50 + diff, // v92
+        -1.65 - diff, base_height, -6.50 + diff, // v93
+        -1.65 - diff, base_height, -6.25 + diff, // v94
+        -0.15 - diff, base_height, -6.25 + diff, // v95
+        -0.15 - diff, base_height, -4.75 - diff, // v96
+        -1.65 - diff, base_height, -4.75 - diff, // v97
+        -1.65 - diff, base_height, -4.40 + diff, // v98
+        -1.65 - diff, base_height, -4.10 + diff, // v99
+        -1.40 - diff, base_height, -4.10 + diff, // v100
+        -1.40 - diff, base_height, -2.25 - diff, // v101
+        -1.65 - diff, base_height, -2.25 - diff, // v102
+        -3.10 + diff, base_height, -2.25 - diff, // v103
+        -3.10 + diff, base_height, -4.10 + diff, // v104
+        -3.40 + diff, base_height, -2.25 - diff, // v105
+        -3.40 + diff, base_height, -4.10 + diff, // v106
+        -3.40 + diff, base_height, -4.40 + diff, // v107
+        -3.10 + diff, base_height, -4.40 + diff, // v108
+        -3.10 + diff, base_height, -4.75 - diff, // v109
     ]);
 
     // Connects all of the vertices together
@@ -1362,7 +1625,7 @@ function Build_WTC5(){
         103, 104, 99,
         103, 99, 102,
         105, 106, 104,
-        105, 104, 102,
+        105, 104, 103,
         106, 107, 108,
         106, 108, 104,
         104, 108, 98,
@@ -1375,17 +1638,19 @@ function Build_WTC5(){
     
     WTC5_Upper_Geo.setIndex( Indices );
     WTC5_Upper_Geo.setAttribute( 'position', new THREE.BufferAttribute( Upper_Vertices, 3 ) );
-    WTC5_Upper_Geo.setAttribute( 'normal', new THREE.BufferAttribute( Upper_Vertices, 3 ) );
+    WTC5_Upper_Geo.setAttribute( 'normal', new THREE.BufferAttribute( normals, 3 ) );
+    WTC5_Upper_Geo.setAttribute( 'uv', new THREE.BufferAttribute( uvs, 2 ) );
     //const WTC5_Upper_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
-    const WTC5_Upper_Mat = makeMaterial("Materials/default_texture.png", "Materials/default_texture.png", "Materials/default_texture.png", 1, 1);
+    const WTC5_Upper_Mat = makeMaterial("Materials/default_uv.png", "Materials/default_uv.png", "Materials/default_uv.png", 1, 1);
     const WTC5_Upper_Mesh = makeShape(WTC5_Upper_Geo, WTC5_Upper_Mat, 0, -6.81, 0);
-    //WTC5.add(WTC5_Upper_Mesh);
+    WTC5.add(WTC5_Upper_Mesh);
 
     WTC5_Base_Geo.setIndex( Indices );
     WTC5_Base_Geo.setAttribute( 'position', new THREE.BufferAttribute( Base_Vertices, 3 ) );
-    WTC5_Base_Geo.setAttribute( 'normal', new THREE.BufferAttribute( Base_Vertices, 3 ) );
-    const WTC5_Base_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide , wireframe: false});
-    //const WTC5_Base_Mat = makeMaterial("Materials/default_texture.png", "Materials/default_texture.png", "Materials/default_texture.png", 1, 1);
+    WTC5_Base_Geo.setAttribute( 'normal', new THREE.BufferAttribute( normals, 3 ) );
+    WTC5_Base_Geo.setAttribute( 'uv', new THREE.BufferAttribute( uvs, 2 ) );
+    //const WTC5_Base_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide , wireframe: false});
+    const WTC5_Base_Mat = makeMaterial("Materials/default_uv.png", "Materials/default_uv.png", "Materials/default_uv.png", 1, 1);
     const WTC5_Base_Mesh = makeShape(WTC5_Base_Geo, WTC5_Base_Mat, 0, -6.81, 0);
     WTC5.add(WTC5_Base_Mesh);
 
