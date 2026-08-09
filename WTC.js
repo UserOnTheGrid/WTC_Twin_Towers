@@ -1021,116 +1021,356 @@ function Build_WTC5(){
     // width = x, height = y, length = z
     const Upper_Vertices = new Float32Array([
         // Middle Level
-        -1.40, base_height, -2.25, // v0
-        -3.40, base_height, -2.25, // v1
-        -3.40, base_height, -4.40, // v2
-        -3.10, base_height, -4.40, // v3
-        -3.10, base_height, -6.50, // v4
-        -1.65, base_height, -6.50, // v5
-        -1.65, base_height, -6.25, // v6
-        -0.15, base_height, -6.25, // v7
-        -0.15, base_height, -4.75, // v8
-        -1.65, base_height, -4.75, // v9
-        -1.65, base_height, -4.10, // v10
-        -1.40, base_height, -4.10, // v11
+        -3.10, base_height, -6.25, // v0
+        -3.10, base_height, -6.50, // v1
+        -1.65, base_height, -6.50, // v2
+        -1.65, base_height, -6.25, // v3
+        -0.15, base_height, -6.25, // v4
+        -0.15, base_height, -4.75, // v5
+        -1.65, base_height, -4.75, // v6
+        -1.65, base_height, -4.40, // v7
+        -1.65, base_height, -4.10, // v8
+        -1.40, base_height, -4.10, // v9
+        -1.40, base_height, -2.25, // v10
+        -1.65, base_height, -2.25, // v11
+        -3.10, base_height, -2.25, // v12
+        -3.10, base_height, -4.10, // v13
+        -3.40, base_height, -2.25, // v14
+        -3.40, base_height, -4.10, // v15
+        -3.40, base_height, -4.40, // v16
+        -3.10, base_height, -4.40, // v17
+        -3.10, base_height, -4.75, // v18
+
+        // Walls
+        -3.10, base_height, -6.25,  // v19
+        -3.10, upper_height, -6.25, // v20
+        -3.10, upper_height, -6.50, // v21
+        -3.10, base_height, -6.50,  // v22
+
+        -3.10, base_height, -6.50,  // v23
+        -3.10, upper_height, -6.50,  // v24
+        -1.65, upper_height, -6.50,  // v25
+        -1.65, base_height, -6.50,  // v26
+
+        -1.65, base_height, -6.50,  // v27
+        -1.65, upper_height, -6.50, // v28
+        -1.65, upper_height, -6.25, // v29
+        -1.65, base_height, -6.25,  // v30
+
+        -1.65, base_height, -6.25,  // v31
+        -1.65, upper_height, -6.25,  // v32
+        -0.15, upper_height, -6.25,  // v33
+        -0.15, base_height, -6.25,  // v34
+
+        -0.15, base_height, -6.25,  // v35
+        -0.15, upper_height, -6.25, // v36
+        -0.15, upper_height, -4.75, // v37
+        -0.15, base_height, -4.75,  // v38
+
+        -0.15, base_height, -4.75,  // v39
+        -0.15, upper_height, -4.75,  // v40
+        -1.65, upper_height, -4.75,  // v41
+        -1.65, base_height, -4.75,  // v42
+
+        -1.65, base_height, -4.75,  // v43
+        -1.65, upper_height, -4.75, // v44
+        -1.65, upper_height, -4.40, // v45
+        -1.65, base_height, -4.40,  // v46
+
+        -1.65, base_height, -4.40,  // v47
+        -1.65, upper_height, -4.40,  // v48
+        -1.65, upper_height, -4.10,  // v49
+        -1.65, base_height, -4.10,  // v50
+
+        -1.65, base_height, -4.10,  // v51
+        -1.65, upper_height, -4.10, // v52
+        -1.40, upper_height, -4.10, // v53
+        -1.40, base_height, -4.10,  // v54
+
+        -1.40, base_height, -4.10,  // v55
+        -1.40, upper_height, -4.10,  // v56
+        -1.40, upper_height, -2.25,  // v57
+        -1.40, base_height, -2.25,  // v58
+
+        -1.40, base_height, -2.25,  // v59
+        -1.40, upper_height, -2.25, // v60
+        -1.65, upper_height, -2.25, // v61
+        -1.65, base_height, -2.25,  // v62
+
+        -1.65, base_height, -2.25,  // v63
+        -1.65, upper_height, -2.25,  // v64
+        -3.10, upper_height, -2.25,  // v65
+        -3.10, base_height, -2.25,  // v66
+
+        -3.10, base_height, -2.25,  // v67
+        -3.10, upper_height, -2.25, // v68
+        -3.40, upper_height, -2.25, // v69
+        -3.40, base_height, -2.25,  // v70
+
+        -3.40, base_height, -2.25,  // v71
+        -3.40, upper_height, -2.25,  // v72
+        -3.40, upper_height, -4.10,  // v73
+        -3.40, base_height, -4.10,  // v74
+
+        -3.40, base_height, -4.10,  // v75
+        -3.40, upper_height, -4.10, // v76
+        -3.40, upper_height, -4.40, // v77
+        -3.40, base_height, -4.40,  // v78
+
+        -3.40, base_height, -4.40,  // v79
+        -3.40, upper_height, -4.40,  // v80
+        -3.10, upper_height, -4.40,  // v81
+        -3.10, base_height, -4.40,  // v82
+
+        -3.10, base_height, -4.40,  // v83
+        -3.10, upper_height, -4.40, // v84
+        -3.10, upper_height, -4.75, // v85
+        -3.10, base_height, -4.75,  // v86
+
+        -3.10, base_height, -4.75,  // v87
+        -3.10, upper_height, -4.75,  // v88
+        -3.10, upper_height, -6.25,  // v89
+        -3.10, base_height, -6.25,  // v90
+
 
         // Roof
-        -1.40, upper_height, -2.25, // v12
-        -3.40, upper_height, -2.25, // v13
-        -3.40, upper_height, -4.40, // v14
-        -3.10, upper_height, -4.40, // v15
-        -3.10, upper_height, -6.50, // v16
-        -1.65, upper_height, -6.50, // v17
-        -1.65, upper_height, -6.25, // v18
-        -0.15, upper_height, -6.25, // v19
-        -0.15, upper_height, -4.75, // v20
-        -1.65, upper_height, -4.75, // v21
-        -1.65, upper_height, -4.10, // v22
-        -1.40, upper_height, -4.10, // v23
+        -3.10, upper_height, -6.25, // v91
+        -3.10, upper_height, -6.50, // v92
+        -1.65, upper_height, -6.50, // v93
+        -1.65, upper_height, -6.25, // v94
+        -0.15, upper_height, -6.25, // v95
+        -0.15, upper_height, -4.75, // v96
+        -1.65, upper_height, -4.75, // v97
+        -1.65, upper_height, -4.40, // v98
+        -1.65, upper_height, -4.10, // v99
+        -1.40, upper_height, -4.10, // v100
+        -1.40, upper_height, -2.25, // v101
+        -1.65, upper_height, -2.25, // v102
+        -3.10, upper_height, -2.25, // v103
+        -3.10, upper_height, -4.10, // v104
+        -3.40, upper_height, -2.25, // v105
+        -3.40, upper_height, -4.10, // v106
+        -3.40, upper_height, -4.40, // v107
+        -3.10, upper_height, -4.40, // v108
+        -3.10, upper_height, -4.75, // v109
     ]);
 
     
     const Base_Vertices = new Float32Array([
-        // Base Level
-        -1.40 - diff, 0, -2.25 - diff, // v0
-        -3.40 + diff, 0, -2.25 - diff, // v1
-        -3.40 + diff, 0, -4.40 + diff, // v2
-        -3.10 + diff, 0, -4.40 + diff, // v3
-        -3.10 + diff, 0, -6.50 + diff, // v4
-        -1.65 - diff, 0, -6.50 + diff, // v5
-        -1.65 - diff, 0, -6.25 + diff, // v6
-        -0.15 - diff, 0, -6.25 + diff, // v7
-        -0.15 - diff, 0, -4.75 - diff, // v8
-        -1.65 - diff, 0, -4.75 - diff, // v9
-        -1.65 - diff, 0, -4.10 + diff, // v10
-        -1.40 - diff, 0, -4.10 + diff, // v11
+        // Middle Level
+        -3.10 + diff, 0, -6.25 + diff, // v0
+        -3.10 + diff, 0, -6.50 + diff, // v1
+        -1.65 - diff, 0, -6.50 + diff, // v2
+        -1.65 - diff, 0, -6.25 + diff, // v3
+        -0.15 - diff, 0, -6.25 + diff, // v4
+        -0.15 - diff, 0, -4.75 - diff, // v5
+        -1.65 - diff, 0, -4.75 - diff, // v6
+        -1.65 - diff, 0, -4.40 + diff, // v7
+        -1.65 - diff, 0, -4.10 + diff, // v8
+        -1.40 - diff, 0, -4.10 + diff, // v9
+        -1.40 - diff, 0, -2.25 - diff, // v10
+        -1.65 - diff, 0, -2.25 - diff, // v11
+        -3.10 + diff, 0, -2.25 - diff, // v12
+        -3.10 + diff, 0, -4.10 + diff, // v13
+        -3.40 + diff, 0, -2.25 - diff, // v14
+        -3.40 + diff, 0, -4.10 + diff, // v15
+        -3.40 + diff, 0, -4.40 + diff, // v16
+        -3.10 + diff, 0, -4.40 + diff, // v17
+        -3.10 + diff, 0, -4.75 - diff, // v18
+
+        // Walls
+        -3.10 + diff, 0, -6.25 + diff,  // v19
+        -3.10 + diff, base_height, -6.25 + diff, // v20
+        -3.10 + diff, base_height, -6.50 + diff, // v21
+        -3.10 + diff, 0, -6.50 + diff,  // v22
+
+        -3.10 + diff, 0, -6.50 + diff,  // v23
+        -3.10 + diff, base_height, -6.50 + diff,  // v24
+        -1.65 - diff, base_height, -6.50 + diff,  // v25
+        -1.65 - diff, 0, -6.50 + diff,  // v26
+
+        -1.65 - diff, 0, -6.50 + diff,  // v27
+        -1.65 - diff, base_height, -6.50 + diff, // v28
+        -1.65 - diff, base_height, -6.25 + diff, // v29
+        -1.65 - diff, 0, -6.25 + diff,  // v30
+
+        -1.65 - diff, 0, -6.25 + diff,  // v31
+        -1.65 - diff, base_height, -6.25 + diff,  // v32
+        -0.15 - diff, base_height, -6.25 + diff,  // v33
+        -0.15 - diff, 0, -6.25 + diff,  // v34
+
+        -0.15 - diff, 0, -6.25 + diff,  // v35
+        -0.15 - diff, base_height, -6.25 + diff, // v36
+        -0.15 - diff, base_height, -4.75 - diff, // v37
+        -0.15 - diff, 0, -4.75 - diff,  // v38
+
+        -0.15 - diff, 0, -4.75 - diff,  // v39
+        -0.15 - diff, base_height, -4.75 - diff,  // v40
+        -1.65 - diff, base_height, -4.75 - diff,  // v41
+        -1.65 - diff, 0, -4.75 - diff,  // v42
+
+        -1.65 - diff, 0, -4.75 - diff,  // v43
+        -1.65 - diff, base_height, -4.75 - diff, // v44
+        -1.65 - diff, base_height, -4.40 + diff, // v45
+        -1.65 - diff, 0, -4.40 + diff,  // v46
+
+        -1.65 - diff, 0, -4.40 + diff,  // v47
+        -1.65 - diff, base_height, -4.40 + diff,  // v48
+        -1.65 - diff, base_height, -4.10 + diff,  // v49
+        -1.65 - diff, 0, -4.10 + diff,  // v50
+
+        -1.65 - diff, 0, -4.10 + diff,  // v51
+        -1.65 - diff, base_height, -4.10 + diff, // v52
+        -1.40 - diff, base_height, -4.10 + diff, // v53
+        -1.40 - diff, 0, -4.10 + diff,  // v54
+
+        -1.40 - diff, 0, -4.10 + diff,  // v55
+        -1.40 - diff, base_height, -4.10 + diff,  // v56
+        -1.40 - diff, base_height, -2.25 - diff,  // v57
+        -1.40 - diff, 0, -2.25 - diff,  // v58
+
+        -1.40 - diff, 0, -2.25 - diff,  // v59
+        -1.40 - diff, base_height, -2.25 - diff, // v60
+        -1.65 - diff, base_height, -2.25 - diff, // v61
+        -1.65 - diff, 0, -2.25 - diff,  // v62
+
+        -1.65 - diff, 0, -2.25 - diff,  // v63
+        -1.65 - diff, base_height, -2.25 - diff,  // v64
+        -3.10 + diff, base_height, -2.25 - diff,  // v65
+        -3.10 + diff, 0, -2.25 - diff,  // v66
+
+        -3.10 + diff, 0, -2.25 - diff,  // v67
+        -3.10 + diff, base_height, -2.25 - diff, // v68
+        -3.40 + diff, base_height, -2.25 - diff, // v69
+        -3.40 + diff, 0, -2.25 - diff,  // v70
+
+        -3.40 + diff, 0, -2.25 - diff,  // v71
+        -3.40 + diff, base_height, -2.25 - diff,  // v72
+        -3.40 + diff, base_height, -4.10 + diff,  // v73
+        -3.40 + diff, 0, -4.10 + diff,  // v74
+
+        -3.40 + diff, 0, -4.10 + diff,  // v75
+        -3.40 + diff, base_height, -4.10 + diff, // v76
+        -3.40 + diff, base_height, -4.40 + diff, // v77
+        -3.40 + diff, 0, -4.40 + diff,  // v78
+
+        -3.40 + diff, 0, -4.40 + diff,  // v79
+        -3.40 + diff, base_height, -4.40 + diff,  // v80
+        -3.10 + diff, base_height, -4.40 + diff,  // v81
+        -3.10 + diff, 0, -4.40 + diff,  // v82
+
+        -3.10 + diff, 0, -4.40 + diff,  // v83
+        -3.10 + diff, base_height, -4.40 + diff, // v84
+        -3.10 + diff, base_height, -4.75 - diff, // v85
+        -3.10 + diff, 0, -4.75 - diff,  // v86
+
+        -3.10 + diff, 0, -4.75 - diff,  // v87
+        -3.10 + diff, base_height, -4.75 - diff,  // v88
+        -3.10 + diff, base_height, -6.25 + diff,  // v89
+        -3.10 + diff, 0, -6.25 + diff,  // v90
+
 
         // Roof
-        -1.40 - diff, base_height, -2.25 - diff, // v0
-        -3.40 + diff, base_height, -2.25 - diff, // v1
-        -3.40 + diff, base_height, -4.40 + diff, // v2
-        -3.10 + diff, base_height, -4.40 + diff, // v3
-        -3.10 + diff, base_height, -6.50 + diff, // v4
-        -1.65 - diff, base_height, -6.50 + diff, // v5
-        -1.65 - diff, base_height, -6.25 + diff, // v6
-        -0.15 - diff, base_height, -6.25 + diff, // v7
-        -0.15 - diff, base_height, -4.75 - diff, // v8
-        -1.65 - diff, base_height, -4.75 - diff, // v9
-        -1.65 - diff, base_height, -4.10 + diff, // v10
-        -1.40 - diff, base_height, -4.10 + diff, // v11
+        -3.10 + diff, base_height, -6.25 + diff, // v0
+        -3.10 + diff, base_height, -6.50 + diff, // v1
+        -1.65 - diff, base_height, -6.50 + diff, // v2
+        -1.65 - diff, base_height, -6.25 + diff, // v3
+        -0.15 - diff, base_height, -6.25 + diff, // v4
+        -0.15 - diff, base_height, -4.75 - diff, // v5
+        -1.65 - diff, base_height, -4.75 - diff, // v6
+        -1.65 - diff, base_height, -4.40 + diff, // v7
+        -1.65 - diff, base_height, -4.10 + diff, // v8
+        -1.40 - diff, base_height, -4.10 + diff, // v9
+        -1.40 - diff, base_height, -2.25 - diff, // v10
+        -1.65 - diff, base_height, -2.25 - diff, // v11
+        -3.10 + diff, base_height, -2.25 - diff, // v12
+        -3.10 + diff, base_height, -4.10 + diff, // v13
+        -3.40 + diff, base_height, -2.25 - diff, // v14
+        -3.40 + diff, base_height, -4.10 + diff, // v15
+        -3.40 + diff, base_height, -4.40 + diff, // v16
+        -3.10 + diff, base_height, -4.40 + diff, // v17
+        -3.10 + diff, base_height, -4.75 - diff, // v18
     ]);
 
     // Connects all of the vertices together
     const Indices = [
         // floor
-        0, 1, 10,
-        1, 2, 3,
-        1, 3, 10,
-        3, 4, 6,
-        4, 5, 6,
-        6, 9, 3,
-        6, 7, 8,
-        8, 9, 6,
-        9, 10, 3,
-        10, 11, 0,
+        0, 1, 2,
+        0, 2, 3,
+        3, 4, 5,
+        3, 5, 6,
+        8, 9, 10,
+        8, 10, 11,
+        12, 13, 8,
+        12, 8, 11,
+        14, 15, 13,
+        14, 13, 12,
+        15, 16, 17,
+        15, 17, 13,
+        13, 17, 7,
+        13, 7, 8,
+        17, 18, 6,
+        17, 6, 7,
+        18, 0, 3,
+        18, 3, 6,
 
         // walls
-        0, 1, 12,
-        1, 13, 12,
-        1, 2, 13,
-        2, 14, 13,
-        15, 3, 2,
-        14, 15, 2,
-        3, 4, 16,
-        16, 15, 3,
-        17, 5, 4,
-        4, 16, 17,
-        5, 17, 18,
-        18, 6, 5,
-        6, 18, 19,
-        19, 7, 6,
-        7, 19, 20,
-        20, 8, 7,
-        8, 9, 21,
-        21, 20, 8,
-        22, 10, 9,
-        9, 21, 22,
-        10, 22, 23,
-        23, 11, 10,
-        23, 12, 11,
-        0, 11, 12,
+        19, 20, 21,
+        19, 21, 22,
+        23, 24, 25,
+        23, 25, 26,
+        27, 28, 29,
+        27, 29, 30,
+        31, 32, 33,
+        31, 33, 34,
+        35, 36, 37,
+        35, 37, 38,
+        39, 40, 41,
+        39, 41, 42,
+        43, 44, 45,
+        43, 45, 46,
+        47, 48, 49,
+        47, 49, 50,
+        51, 52, 53,
+        51, 53, 54,
+        55, 56, 57,
+        55, 57, 58,
+        59, 60, 61,
+        59, 61, 62,
+        63, 64, 65,
+        63, 65, 66,
+        67, 68, 69,
+        67, 69, 70,
+        71, 72, 73,
+        71, 73, 74,
+        75, 76, 77,
+        75, 77, 78,
+        79, 80, 81,
+        79, 81, 82,
+        83, 84, 85,
+        83, 85, 86,
+        87, 88, 89,
+        87, 89, 90,
 
         // roof
-        12, 13, 22,
-        13, 14, 15,
-        15, 22, 13,
-        15, 16, 18,
-        16, 17, 18,
-        18, 21, 15,
-        18, 19, 20,
-        20, 21, 18,
-        21, 22, 15,
-        22, 23, 12,
+        91, 92, 93,
+        91, 93, 94,
+        94, 95, 96,
+        94, 96, 97,
+        99, 100, 101,
+        99, 101, 102,
+        103, 104, 99,
+        103, 99, 102,
+        105, 106, 104,
+        105, 104, 102,
+        106, 107, 108,
+        106, 108, 104,
+        104, 108, 98,
+        104, 98, 99,
+        108, 109, 97,
+        108, 97, 98,
+        109, 91, 94,
+        109, 94, 97,
     ];
     
     WTC5_Upper_Geo.setIndex( Indices );
@@ -1139,13 +1379,13 @@ function Build_WTC5(){
     //const WTC5_Upper_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
     const WTC5_Upper_Mat = makeMaterial("Materials/default_texture.png", "Materials/default_texture.png", "Materials/default_texture.png", 1, 1);
     const WTC5_Upper_Mesh = makeShape(WTC5_Upper_Geo, WTC5_Upper_Mat, 0, -6.81, 0);
-    WTC5.add(WTC5_Upper_Mesh);
+    //WTC5.add(WTC5_Upper_Mesh);
 
     WTC5_Base_Geo.setIndex( Indices );
     WTC5_Base_Geo.setAttribute( 'position', new THREE.BufferAttribute( Base_Vertices, 3 ) );
     WTC5_Base_Geo.setAttribute( 'normal', new THREE.BufferAttribute( Base_Vertices, 3 ) );
-    //const WTC5_Base_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
-    const WTC5_Base_Mat = makeMaterial("Materials/default_texture.png", "Materials/default_texture.png", "Materials/default_texture.png", 1, 1);
+    const WTC5_Base_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide , wireframe: false});
+    //const WTC5_Base_Mat = makeMaterial("Materials/default_texture.png", "Materials/default_texture.png", "Materials/default_texture.png", 1, 1);
     const WTC5_Base_Mesh = makeShape(WTC5_Base_Geo, WTC5_Base_Mat, 0, -6.81, 0);
     WTC5.add(WTC5_Base_Mesh);
 
