@@ -42,6 +42,7 @@ function main(){
     Build_WTC7();
     Build_WTC4();
     Build_WTC5();
+    Build_WTC6();
 
     scene.add(WTC_Complex);
 
@@ -473,7 +474,7 @@ function Build_WTC7(){
 
 function Build_WTC4(){
     var base_height = 0.26;
-    var upper_height = 0.78;
+    var upper_height = 0.91;
     var diff = 0.2;
 
     const WTC4 = new THREE.Group();
@@ -1010,7 +1011,7 @@ function Build_WTC4(){
 
 function Build_WTC5(){
     var base_height = 0.26;
-    var upper_height = 0.78;
+    var upper_height = 0.91;
     var diff = 0.2;
 
     const WTC5 = new THREE.Group();
@@ -1655,6 +1656,446 @@ function Build_WTC5(){
     WTC5.add(WTC5_Base_Mesh);
 
     WTC_Complex.add(WTC5);
+}
+
+function Build_WTC6(){
+    var base_height = 0.26;
+    var upper_height = 0.65;
+    var diff = 0.2;
+
+    const WTC6 = new THREE.Group();
+
+    const WTC6_Base_Geo = new THREE.BufferGeometry();
+    const WTC6_Upper_Geo = new THREE.BufferGeometry();
+
+    // width = x, height = y, length = z
+    const Upper_Vertices = new Float32Array([
+        // Walls
+        -3.25, base_height, -1.6,   // v0
+        -3.25, upper_height, -1.6,  // v1
+        -1.75, upper_height, -1.6,  // v2
+        -1.75, base_height, -1.6,   // v3
+
+        -1.75, base_height, -1.6,   // v4
+        -1.75, upper_height, -1.6,  // v5
+        -1.75, upper_height, -0.15, // v6
+        -1.75, base_height, -0.15,  // v7
+
+        -1.75, base_height, -0.15,  // v8
+        -1.75, upper_height, -0.15, // v9
+        -1.25, upper_height, -0.15, // v10
+        -1.25, base_height, -0.15,  // v11
+
+        -1.25, base_height, -0.15,  // v12
+        -1.25, upper_height, -0.15, // v13
+        -1.25, upper_height, 1.55, // v14
+        -1.25, base_height, 1.55,  // v15
+
+        -1.25, base_height, 1.55,  // v16
+        -1.25, upper_height, 1.55, // v17
+        -2, upper_height, 1.55,    // v18
+        -2, base_height, 1.55,     // v19
+
+        -2, base_height, 1.55,     // v20
+        -2, upper_height, 1.55,    // v21
+        -2, upper_height, 2.5,     // v22
+        -2, base_height, 2.5,      // v23
+
+        -2, base_height, 2.5,      // v24
+        -2, upper_height, 2.5,     // v25
+        -3.6, upper_height, 2.5,   // v26
+        -3.6, base_height, 2.5,    // v27
+
+        -3.6, base_height, 2.5,    // v28
+        -3.6, upper_height, 2.5,   // v29
+        -3.6, upper_height, 0.15,   // v30
+        -3.6, base_height, 0.15,   // v31
+
+        -3.6, base_height, 0.15,    // v32
+        -3.6, upper_height, 0.15,   // v33
+        -3.25, upper_height, 0.15,  // v34
+        -3.25, base_height, 0.15,   // v35
+
+        -3.25, base_height, 0.15,   // v36
+        -3.25, upper_height, 0.15,  // v37
+        -3.25, upper_height, -1.6,  // v38
+        -3.25, base_height, -1.6,   // v39
+
+        // Middle
+        -3.25, base_height, -1.6,   // v40
+        -2, base_height, -1.6,      // v41
+        -1.75, base_height, -1.6,   // v42
+        -3.25, base_height, -0.15,  // v43
+        -2, base_height, -0.15,     // v44
+        -1.75, base_height, -0.15,  // v45
+        -1.25, base_height, -0.15,  // v46
+        -3.6, base_height, 0.15,    // v47
+        -3.25, base_height, 0.15,   // v48
+        -2, base_height, 0.15,      // v49
+        -1.75, base_height, 0.15,   // v50
+        -1.25, base_height, 0.15,   // v51
+        -3.6, base_height, 1.55,   // v52
+        -3.25, base_height, 1.55,  // v53
+        -2, base_height, 1.55,     // v54
+        -1.75, base_height, 1.55,  // v55
+        -1.25, base_height, 1.55,  // v56
+        -3.6, base_height, 2.5,    // v57
+        -3.25, base_height, 2.5,   // v58
+        -2, base_height, 2.5,      // v59
+
+        // Roof
+        -3.25, upper_height, -1.6,  // v60
+        -2, upper_height, -1.6,     // v61
+        -1.75, upper_height, -1.6,  // v62
+        -3.25, upper_height, -0.15, // v63
+        -2, upper_height, -0.15,    // v64
+        -1.75, upper_height, -0.15, // v65
+        -1.25, upper_height, -0.15, // v66
+        -3.6, upper_height, 0.15,   // v67
+        -3.25, upper_height, 0.15,  // v68
+        -2, upper_height, 0.15,     // v69
+        -1.75, upper_height, 0.15,  // v70
+        -1.25, upper_height, 0.15,  // v71
+        -3.6, upper_height, 1.55,  // v72
+        -3.25, upper_height, 1.55, // v73
+        -2, upper_height, 1.55,    // v74
+        -1.75, upper_height, 1.55, // v75
+        -1.25, upper_height, 1.55, // v76
+        -3.6, upper_height, 2.5,   // v77
+        -3.25, upper_height, 2.5,  // v78
+        -2, upper_height, 2.5,     // v79
+    ]);
+
+
+    const normals = new Float32Array([
+        0, 0, 0,
+        0, 0, 0,
+        0, 0, 0,
+        0, 0, 0,
+
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+
+        0, 0, 0,
+        0, 0, 0,
+        0, 0, 0,
+        0, 0, 0,
+
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1,
+
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1,
+
+        -1, 0, 0,
+        -1, 0, 0,
+        -1, 0, 0,
+        -1, 0, 0,
+
+        0, 0, 0,
+        0, 0, 0,
+        0, 0, 0,
+        0, 0, 0,
+
+        -1, 0, 0,
+        -1, 0, 0,
+        -1, 0, 0,
+        -1, 0, 0,
+
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+    ]);
+
+    const uvs = new Float32Array([
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0.10, 1,
+        0.37, 1,
+        0.43, 1,
+        0.10, 0.625,
+        0.37, 0.625,
+        0.43, 0.625,
+        0.55, 0.625,
+        0, 0.56,
+        0.10, 0.56,
+        0.37, 0.56,
+        0.43, 0.56,
+        0.55, 0.56,
+        0, 0.24,
+        0.10, 0.24,
+        0.37, 0.24,
+        0.43, 0.24,
+        0.55, 0.24,
+        0, 0,
+        0.10, 0,
+        0.37, 0,
+
+        0.10, 1,
+        0.37, 1,
+        0.43, 1,
+        0.10, 0.625,
+        0.37, 0.625,
+        0.43, 0.625,
+        0.55, 0.625,
+        0, 0.56,
+        0.10, 0.56,
+        0.37, 0.56,
+        0.43, 0.56,
+        0.55, 0.56,
+        0, 0.24,
+        0.10, 0.24,
+        0.37, 0.24,
+        0.43, 0.24,
+        0.55, 0.24,
+        0, 0,
+        0.10, 0,
+        0.37, 0,
+    ]);
+    
+    const Base_Vertices = new Float32Array([
+        -3.25 + diff, 0, -1.6 + diff,
+        -3.25 + diff, base_height, -1.6 + diff,
+        -1.75 - diff, base_height, -1.6 + diff,
+        -1.75 - diff, 0, -1.6 + diff,
+
+        -1.75 - diff, 0, -1.6 + diff,
+        -1.75 - diff, base_height, -1.6 + diff,
+        -1.75 - diff, base_height, -0.15 + diff,
+        -1.75 - diff, 0, -0.15 + diff,
+
+        -1.75 - diff, 0, -0.15 + diff,
+        -1.75 - diff, base_height, -0.15 + diff,
+        -1.25 - diff, base_height, -0.15 + diff,
+        -1.25 - diff, 0, -0.15 + diff,
+
+        -1.25 - diff, 0, -0.15 + diff,
+        -1.25 - diff, base_height, -0.15 + diff,
+        -1.25 - diff, base_height, 1.55 - diff,
+        -1.25 - diff, 0, 1.55 - diff,
+
+        -1.25 - diff, 0, 1.55 - diff,
+        -1.25 - diff, base_height, 1.55 - diff,
+        -2 - diff, base_height, 1.55 - diff,
+        -2 - diff, 0, 1.55 - diff,
+
+        -2 - diff, 0, 1.55 - diff,
+        -2 - diff, base_height, 1.55 - diff,
+        -2 - diff, base_height, 2.5 - diff,
+        -2 - diff, 0, 2.5 - diff,
+
+        -2 - diff, 0, 2.5 - diff,
+        -2 - diff, base_height, 2.5 - diff,
+        -3.6 + diff, base_height, 2.5 - diff,
+        -3.6 + diff, 0, 2.5 - diff,
+
+        -3.6 + diff, 0, 2.5 - diff,
+        -3.6 + diff, base_height, 2.5 - diff,
+        -3.6 + diff, base_height, 0.15 + diff,
+        -3.6 + diff, 0, 0.15 + diff,
+
+        -3.6 + diff, 0, 0.15 + diff,
+        -3.6 + diff, base_height, 0.15 + diff,
+        -3.25 + diff, base_height, 0.15 + diff,
+        -3.25 + diff, 0, 0.15 + diff,
+
+        -3.25 + diff, 0, 0.15 + diff,
+        -3.25 + diff, base_height, 0.15 + diff,
+        -3.25 + diff, base_height, -1.6 + diff,
+        -3.25 + diff, 0, -1.6 + diff,
+    ]);
+
+    // Connects all of the vertices together
+    const Indices = [
+        0, 1, 2,
+        0, 2, 3,
+        4, 5, 6,
+        4, 6, 7,
+        8, 9, 10,
+        8, 10, 11,
+        12, 13, 14,
+        12, 14, 15,
+        16, 17, 18,
+        16, 18, 19,
+        20, 21, 22,
+        20, 22, 23,
+        24, 25, 26,
+        24, 26, 27,
+        28, 29, 30,
+        28, 30, 31,
+        32, 33, 34,
+        32, 34, 35,
+        36, 37, 38,
+        36, 38, 39,
+
+        43, 41, 40,
+        43, 44, 41,
+        44, 42, 41,
+        44, 45, 42,
+        48, 44, 43,
+        44, 48, 49,
+        49, 45, 44,
+        49, 50, 45,
+        50, 46, 45,
+        50, 51, 46,
+        52, 48, 47,
+        52, 53, 48,
+        53, 49, 48,
+        53, 54, 49,
+        54, 50, 49,
+        54, 55, 50,
+        55, 51, 50,
+        55, 56, 51,
+        57, 53, 52,
+        57, 58, 53,
+        58, 54, 53,
+        58, 59, 54,
+
+        63, 61, 60,
+        63, 64, 61,
+        64, 62, 61,
+        64, 65, 62,
+        68, 64, 63,
+        64, 68, 69,
+        69, 65, 64,
+        69, 70, 65,
+        70, 66, 65,
+        70, 71, 66,
+        72, 68, 67,
+        72, 73, 68,
+        73, 69, 68,
+        73, 74, 69,
+        74, 70, 69,
+        74, 75, 70,
+        75, 71, 70,
+        75, 76, 71,
+        77, 73, 72,
+        77, 78, 73,
+        78, 74, 73,
+        78, 79, 74,
+    ];
+    
+    WTC6_Upper_Geo.setIndex( Indices );
+    WTC6_Upper_Geo.setAttribute( 'position', new THREE.BufferAttribute( Upper_Vertices, 3 ) );
+    WTC6_Upper_Geo.setAttribute( 'normal', new THREE.BufferAttribute( normals, 3 ) );
+    WTC6_Upper_Geo.setAttribute( 'uv', new THREE.BufferAttribute( uvs, 2 ) );
+    //const WTC6_Upper_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
+    const WTC6_Upper_Mat = makeMaterial("Materials/default_uv.png", "Materials/default_uv.png", "Materials/default_uv.png", 1, 1);
+    const WTC6_Upper_Mesh = makeShape(WTC6_Upper_Geo, WTC6_Upper_Mat, 0, -6.81, 0);
+    WTC6.add(WTC6_Upper_Mesh);
+
+    WTC6_Base_Geo.setIndex( Indices );
+    WTC6_Base_Geo.setAttribute( 'position', new THREE.BufferAttribute( Base_Vertices, 3 ) );
+    WTC6_Base_Geo.setAttribute( 'normal', new THREE.BufferAttribute( normals, 3 ) );
+    WTC6_Base_Geo.setAttribute( 'uv', new THREE.BufferAttribute( uvs, 2 ) );
+    //const WTC6_Base_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide , wireframe: false});
+    const WTC6_Base_Mat = makeMaterial("Materials/default_uv.png", "Materials/default_uv.png", "Materials/default_uv.png", 1, 1);
+    const WTC6_Base_Mesh = makeShape(WTC6_Base_Geo, WTC6_Base_Mat, 0, -6.81, 0);
+    WTC6.add(WTC6_Base_Mesh);
+
+    WTC_Complex.add(WTC6);
 }
 
 // -- HELPER FUNCTIONS --
