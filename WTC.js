@@ -43,8 +43,9 @@ function main(){
     Build_WTC4();
     Build_WTC5();
     Build_WTC6();
-
     scene.add(WTC_Complex);
+
+    Build_Millennium_NYC();
 
     renderer.render(scene, camera);
 
@@ -2096,6 +2097,19 @@ function Build_WTC6(){
     WTC6.add(WTC6_Base_Mesh);
 
     WTC_Complex.add(WTC6);
+}
+
+function Build_Millennium_NYC(){
+    const tower_height = 5.88;
+    const tower_width = 0.5;
+    const tower_length = 1.25;
+
+    const tower_geo = new THREE.BoxGeometry(tower_length, tower_height, tower_width); // Geometry
+    const tower_mat = new THREE.MeshPhongMaterial({color: 0xffffff});
+    const tower_mesh = makeShape(tower_geo, tower_mat, -0.8, -3.80, -8.65); // Make a mesh
+
+    scene.add(tower_mesh);
+
 }
 
 // -- HELPER FUNCTIONS --
