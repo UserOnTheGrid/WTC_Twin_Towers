@@ -46,6 +46,7 @@ function main(){
     scene.add(WTC_Complex);
 
     Build_Millennium_NYC();
+    Build_One_Liberty_Plaza();
 
     renderer.render(scene, camera);
 
@@ -2110,6 +2111,18 @@ function Build_Millennium_NYC(){
 
     scene.add(tower_mesh);
 
+}
+
+function Build_One_Liberty_Plaza(){
+    const tower_height = 7.43;
+    const tower_width = 2.38;
+    const tower_length = 1.63;
+
+    const tower_geo = new THREE.BoxGeometry(tower_length, tower_height, tower_width); // Geometry
+    const tower_mat = new THREE.MeshPhongMaterial({color: 0xffffff});
+    const tower_mesh = makeShape(tower_geo, tower_mat, 4.1, -3, -10); // Make a mesh
+
+    scene.add(tower_mesh);
 }
 
 // -- HELPER FUNCTIONS --
