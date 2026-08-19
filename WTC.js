@@ -2144,6 +2144,19 @@ function Build_Winter_Garden(){
     const atrium_geo = new THREE.BufferGeometry();
 
     const vertices = new Float32Array([
+        -6.60, 0, -3.50,
+        -5.20, 0, -1.90,
+        -5.50, 0, -1.55,
+        -4.90, 0,  1.05,
+        -4.47, 0,  1.05,
+         3.25, 0,  4.25,
+        -4.95, 0,  3.95,
+        -5.15, 0,  3.05,
+        -7.00, 0,  3.52,
+        -7.30, 0,  2.50,
+        -7.95, 0,  2.52,
+        -7.95, 0, -1.52,
+        -7.95, 0, -3.50,
     ]);
 
     const normals = new Float32Array([
@@ -2155,7 +2168,15 @@ function Build_Winter_Garden(){
     ]);
 
     const indices = [
-
+        0, 1, 2,
+        2, 3, 9,
+        2, 12, 11,
+        2, 11, 9,
+        3, 4, 7,
+        4, 5, 7,
+        5, 6, 7,
+        7, 8, 9,
+        9, 10, 11,
     ];
 
     atrium_geo.setIndex(indices);
