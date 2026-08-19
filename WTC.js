@@ -4,6 +4,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 const scene = new THREE.Scene(); // Scene
 const WTC_Complex = new THREE.Group();
+const Brookfield_Place = new THREE.Group();
 const TwinTowers = new THREE.Group();
 
 function main(){
@@ -43,8 +44,21 @@ function main(){
     Build_WTC4();
     Build_WTC5();
     Build_WTC6();
+
+    const sphere_rad = 0.17 / 2;
+    const sphere_geo = new THREE.SphereGeometry(sphere_rad, 16, 12)
+    const sphere_mat = new THREE.MeshPhongMaterial({color: 0x696611}, {emissive: 0x8a6500}, {specular: 0xcbd265}, {shininess: 13.3});
+
+    const WTC_Sphere_Mesh = makeShape(sphere_geo, sphere_mat, 0.5, -6.81 + sphere_rad, -2.9);
+    scene.add(WTC_Sphere_Mesh);
+
     scene.add(WTC_Complex);
 
+    // Build Brookfield Place (World Financial Center)
+    Build_Winter_Garden();
+    scene.add(Brookfield_Place);
+
+    // Build Adjacent Towers around WTC
     Build_Millennium_NYC();
     Build_One_Liberty_Plaza();
 
@@ -2124,6 +2138,36 @@ function Build_One_Liberty_Plaza(){
 
     scene.add(tower_mesh);
 }
+
+function Build_Winter_Garden(){
+    const atrium_height = 1.20;
+    const atrium_geo = new THREE.BufferGeometry();
+
+    const vertices = new Float32Array([
+    ]);
+
+    const normals = new Float32Array([
+
+    ]);
+
+    const uvs = new Float32Array([
+
+    ]);
+
+    const indices = [
+
+    ];
+
+    atrium_geo.setIndex(indices);
+    atrium_geo.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
+    atrium_geo.setAttribute('normal', new THREE.BufferAttribute(normals, 3));
+    atrium_geo.setAttribute('uv', new THREE.BufferAttribute(uvs, 3));
+
+    const atrium_mat = makeMaterial("Materials/default_uv.png", "Materials/default_uv.png", "Materials/default_uv.png", 1, 1);
+    const atrium_mesh = makeShape(atrium_geo, atrium_mat, 0, 0, 0);
+    Brookfield_Place.add(atrium_mesh);
+}
+
 
 // -- HELPER FUNCTIONS --
 
