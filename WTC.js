@@ -16,7 +16,7 @@ function main(){
 
     // Set up Camera
     // Frustrum settings
-    const fov = 100; // Field of View
+    const fov = 60; // Field of View
     const aspect = window.innerWidth / window.innerHeight; // Ratio of view's height and width
     const near = 0.1; // Minimum fov value closest to the camera
     const far = 50; // Maximum fov value farthest from the camera
@@ -2144,23 +2144,190 @@ function Build_Winter_Garden(){
     const atrium_geo = new THREE.BufferGeometry();
 
     const vertices = new Float32Array([
-        -6.60, 0, -3.50,
-        -5.20, 0, -1.90,
-        -5.50, 0, -1.55,
-        -4.90, 0,  1.05,
-        -4.47, 0,  1.05,
-         3.25, 0,  4.25,
-        -4.95, 0,  3.95,
-        -5.15, 0,  3.05,
-        -7.00, 0,  3.52,
-        -7.30, 0,  2.50,
-        -7.95, 0,  2.52,
-        -7.95, 0, -1.52,
-        -7.95, 0, -3.50,
+        // Floor
+        -3.50, 0, 5.60,                 // v0
+        -1.90, 0, 5.20,                 // v1
+        -1.55, 0, 5.60,                 // v2
+         1.05, 0, 4.90,                 // v3
+         1.05, 0, 4.47,                 // v4
+         4.25, 0, 3.25,                 // v5
+         3.95, 0, 4.95,                 // v6
+         3.05, 0, 5.15,                 // v7
+         3.52, 0, 7.00,                 // v8
+         2.50, 0, 7.30,                 // v9
+         2.52, 0, 7.95,                 // v10
+        -1.52, 0, 7.95,                 // v11
+        -3.50, 0, 7.95,                 // v12
+
+        // Wall
+        -3.50, 0, 5.60,                 // v13
+        -3.50, atrium_height, 5.60,     // v14
+        -1.90, atrium_height, 5.20,     // v15
+        -1.90, 0, 5.20,                 // v16
+
+        -1.90, 0, 5.20,                 // v17
+        -1.90, atrium_height, 5.20,     // v18
+        -1.55, atrium_height, 5.60,     // v19
+        -1.55, 0, 5.60,                 // v20
+
+        -1.55, 0, 5.60,                 // v21
+        -1.55, atrium_height, 5.60,     // v22
+         1.05, atrium_height, 4.90,     // v23
+         1.05, 0, 4.90,                 // v24
+
+        1.05, 0, 4.90,                  // v25
+        1.05, atrium_height, 4.90,      // v26
+        1.05, atrium_height, 4.47,      // v27
+        1.05, 0, 4.47,                  // v28
+
+        1.05, 0, 4.47,                  // v29
+        1.05, atrium_height, 4.47,      // v30
+        4.25, atrium_height, 3.25,      // v31
+        4.25, 0, 3.25,                  // v32
+
+        4.25, 0, 3.25,                  // v33
+        4.25, atrium_height, 3.25,      // v34
+        3.95, atrium_height, 4.95,      // v35
+        3.95, 0, 4.95,                  // v36
+
+        3.95, 0, 4.95,                  // v37
+        3.95, atrium_height, 4.95,      // v38
+        3.05, atrium_height, 5.15,      // v39
+        3.05, 0, 5.15,                  // v40
+
+        3.05, 0, 5.15,                  // v41
+        3.05, atrium_height, 5.15,      // v42
+        3.52, atrium_height, 7.00,      // v43
+        3.52, 0, 7.00,                  // v44
+
+        3.52, 0, 7.00,                  // v45
+        3.52, atrium_height, 7.00,      // v46
+        2.50, atrium_height, 7.30,      // v47
+        2.50, 0, 7.30,                  // v48
+
+        2.50, 0, 7.30,                  // v49
+        2.50, atrium_height, 7.30,      // v50
+        2.52, atrium_height, 7.95,      // v51
+        2.52, 0, 7.95,                  // v52
+
+         2.52, 0, 7.95,                 // v53
+         2.52, atrium_height, 7.95,     // v54
+        -3.50, atrium_height, 7.95,     // v55
+        -3.50, 0, 7.95,                 // v56
+
+        -3.50, 0, 7.95,                 // v57
+        -3.50, atrium_height, 7.95,     // v58
+        -3.50, atrium_height, 5.60,     // v59
+        -3.50, 0, 5.60,                 // v60
+
+        // Roof
+        -3.50, atrium_height, 5.60,     // v61
+        -1.90, atrium_height, 5.20,     // v62
+        -1.55, atrium_height, 5.60,     // v63
+         1.05, atrium_height, 4.90,     // v64
+         1.05, atrium_height, 4.47,     // v65
+         4.25, atrium_height, 3.25,     // v66
+         3.95, atrium_height, 4.95,     // v67
+         3.05, atrium_height, 5.15,     // v68
+         3.52, atrium_height, 7.00,     // v69
+         2.50, atrium_height, 7.30,     // v70
+         2.52, atrium_height, 7.95,     // v71
+        -1.52, atrium_height, 7.95,     // v72
+        -3.50, atrium_height, 7.95,     // v73
     ]);
 
-    const normals = new Float32Array([
 
+    const normals = new Float32Array([
+        // Floor
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+
+        // Walls
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+
+        -1, 0, 0,
+        -1, 0, 0,
+        -1, 0, 0,
+        -1, 0, 0,
+
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+        0, 1, 0,
+
+        -1, 0, 0,
+        -1, 0, 0,
+        -1, 0, 0,
+        -1, 0, 0,
+
+        // Roof
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
     ]);
 
     const uvs = new Float32Array([
@@ -2168,24 +2335,66 @@ function Build_Winter_Garden(){
     ]);
 
     const indices = [
+        // Floor
         0, 1, 2,
+        0, 2, 12,
         2, 3, 9,
-        2, 12, 11,
-        2, 11, 9,
         3, 4, 7,
+        3, 7, 9,
         4, 5, 7,
         5, 6, 7,
         7, 8, 9,
         9, 10, 11,
+        2, 11, 12,
+        2, 9, 11,
+
+        // Walls
+        13, 14, 15,
+        13, 15, 16,
+        17, 18, 19,
+        17, 19, 20,
+        21, 22, 23,
+        21, 23, 24,
+        25, 26, 27,
+        25, 27, 28,
+        29, 30, 31,
+        29, 31, 32,
+        33, 34, 35,
+        33, 35, 36,
+        37, 38, 39,
+        37, 39, 40,
+        41, 42, 43,
+        41, 43, 44,
+        45, 46, 47,
+        45, 47, 48,
+        49, 50, 51,
+        49, 51, 52,
+        53, 54, 55,
+        53, 55, 56,
+        57, 58, 59,
+        57, 59, 60,
+
+        // Roof
+        61, 62, 63,
+        61, 63, 73,
+        63, 64, 70,
+        64, 65, 68,
+        64, 68, 70,
+        65, 66, 68,
+        66, 67, 68,
+        68, 69, 70,
+        70, 71, 72,
+        63, 72, 73,
+        63, 70, 72,
     ];
 
     atrium_geo.setIndex(indices);
     atrium_geo.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
     atrium_geo.setAttribute('normal', new THREE.BufferAttribute(normals, 3));
-    atrium_geo.setAttribute('uv', new THREE.BufferAttribute(uvs, 3));
+    atrium_geo.setAttribute('uv', new THREE.BufferAttribute(uvs, 2));
 
     const atrium_mat = makeMaterial("Materials/default_uv.png", "Materials/default_uv.png", "Materials/default_uv.png", 1, 1);
-    const atrium_mesh = makeShape(atrium_geo, atrium_mat, 0, 0, 0);
+    const atrium_mesh = makeShape(atrium_geo, atrium_mat, 0, -6.81, 0);
     Brookfield_Place.add(atrium_mesh);
 }
 
