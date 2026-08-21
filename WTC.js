@@ -56,6 +56,7 @@ function main(){
 
     // Build Brookfield Place (World Financial Center)
     Build_Winter_Garden();
+    Build_BP2();
     scene.add(Brookfield_Place);
 
     // Build Adjacent Towers around WTC
@@ -2494,13 +2495,35 @@ function Build_Winter_Garden(){
     Brookfield_Place.add(glass_roof_mesh);
 }
 
+function Build_BP2(){
+    const BP2 = new THREE.Group();
+    const tower_height = 6.45;
+    const inner_core_length = 1.5;
+    const outer_core_height = 5.86;
+    const sleeve_height = 3.66;
+
+    const inner_core_geo = new THREE.BoxGeometry(inner_core_length, tower_height, inner_core_length);
+    const inner_core_mat = new THREE.MeshPhongMaterial({color: 0x00ffff});
+    const inner_core_mesh = makeShape(inner_core_geo, inner_core_mat, 0, 0, 0);
+    BP2.add(inner_core_mesh);
+
+    BP2.rotation.y = 0.3;
+
+    BP2.position.x = 2;
+    BP2.position.y = (-tower_height / 2) - 0.32;
+    BP2.position.z = 5.8;
+
+    Brookfield_Place.add(BP2);
+}
+
+// TODO:
+// Make Outer Core
+// Make Sleeve (Reused for BP3 and BP4)
+
 
 // -- HELPER FUNCTIONS --
 
 function makeShape(geo, mat, x, y, z){
-    //const mat = new THREE.MeshPhongMaterial({ /*color,*/ map: texture1, normalMap: texture2, side: THREE.DoubleSide });
-    // PROBLEM: Phong Material on Triangular Prism is always black b.c. it isn't reflecting any light
-    // Until the problem is solved, all mats are basic, not phong.
     const shape = new THREE.Mesh(geo, mat);
     shape.position.x = x;
     shape.position.y = y;
