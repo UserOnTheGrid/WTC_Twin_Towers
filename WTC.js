@@ -2331,7 +2331,93 @@ function Build_Winter_Garden(){
     ]);
 
     const uvs = new Float32Array([
+        0,      0.27,
+        0.24,   0.29,
+        0.25,   0.27,
+        0.58,   0.34,
+        0.58,   0.45,
+        1,      0.6,
+        0.9,    0.33,
+        0.8,    0.27,
+        0.84,   0.12,
+        0.76,   0.1,
+        0.765,  0,
+        0.25,   0,
+        0,      0,
 
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+        
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+        
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+        
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+        
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+        
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+        
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+        
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+        
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+        
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+        
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+        
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+        
+        0,      0.27,
+        0.24,   0.29,
+        0.25,   0.27,
+        0.58,   0.34,
+        0.58,   0.45,
+        1,      0.6,
+        0.9,    0.33,
+        0.8,    0.27,
+        0.84,   0.12,
+        0.76,   0.1,
+        0.765,  0,
+        0.25,   0,
+        0,      0,
     ]);
 
     const indices = [
@@ -2396,6 +2482,16 @@ function Build_Winter_Garden(){
     const atrium_mat = makeMaterial("Materials/default_uv.png", "Materials/default_uv.png", "Materials/default_uv.png", 1, 1);
     const atrium_mesh = makeShape(atrium_geo, atrium_mat, 0, -6.81, 0);
     Brookfield_Place.add(atrium_mesh);
+
+
+    const glass_roof_radius = 0.25;
+    const glass_roof_length = 1.5;
+
+    const glass_roof_geo = new THREE.CapsuleGeometry(glass_roof_radius, glass_roof_length, 10, 20, 1);
+    const glass_roof_mat = new THREE.MeshPhongMaterial({color: 0x00ffff}); // Material
+    const glass_roof_mesh = makeShape(glass_roof_geo, glass_roof_mat, 0, -6.81 + atrium_height, 6.95);
+    glass_roof_mesh.rotation.x = 1.57;
+    Brookfield_Place.add(glass_roof_mesh);
 }
 
 
