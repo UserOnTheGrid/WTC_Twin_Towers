@@ -2499,13 +2499,29 @@ function Build_BP2(){
     const BP2 = new THREE.Group();
     const tower_height = 6.45;
     const inner_core_length = 1.5;
-    const outer_core_height = 5.86;
+    const outer_core_height = tower_height - (0.14 * 4);
     const sleeve_height = 3.66;
+    const window_length = 0.1;
 
+    // Inner Core
     const inner_core_geo = new THREE.BoxGeometry(inner_core_length, tower_height, inner_core_length);
     const inner_core_mat = new THREE.MeshPhongMaterial({color: 0x00ffff});
     const inner_core_mesh = makeShape(inner_core_geo, inner_core_mat, 0, 0, 0);
     BP2.add(inner_core_mesh);
+
+    // Outer Core
+    const outer_core_length = inner_core_length + (window_length * 3);
+    const outer_core_geo = new THREE.BoxGeometry(outer_core_length, outer_core_height, outer_core_length);
+    const outer_core_mat = new THREE.MeshPhongMaterial({color: 0xff0000});
+    const outer_core_mesh = makeShape(outer_core_geo, outer_core_mat, 0, -0.32, 0);
+    BP2.add(outer_core_mesh);
+
+    // Sleeve (Base of BP2) (Simplified for now)
+    const sleeve_length = outer_core_length + (window_length * 2);
+    const sleeve_geo = new THREE.BoxGeometry(sleeve_length, sleeve_height, sleeve_length);
+    const sleeve_mat = new THREE.MeshPhongMaterial({color:0x000fff});
+    const sleeve_mesh = makeShape(sleeve_geo, sleeve_mat, 0, -1.433, 0);
+    BP2.add(sleeve_mesh);
 
     BP2.rotation.y = 0.3;
 
