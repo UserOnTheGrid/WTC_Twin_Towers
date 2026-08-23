@@ -56,6 +56,7 @@ function main(){
 
     // Build Brookfield Place (World Financial Center)
     Build_Winter_Garden();
+    Build_BP1();
     Build_BP2();
     scene.add(Brookfield_Place);
 
@@ -2141,6 +2142,7 @@ function Build_One_Liberty_Plaza(){
 }
 
 function Build_Winter_Garden(){
+
     const atrium_height = 1.20;
     const atrium_geo = new THREE.BufferGeometry();
 
@@ -2493,6 +2495,25 @@ function Build_Winter_Garden(){
     const glass_roof_mesh = makeShape(glass_roof_geo, glass_roof_mat, 0, -6.81 + atrium_height, 6.95);
     glass_roof_mesh.rotation.x = 1.57;
     Brookfield_Place.add(glass_roof_mesh);
+
+    // Add First Tower
+    const tower1 = new THREE.Group();
+
+    const tower1_geo = new THREE.CylinderGeometry(0.7, 0.7, atrium_height + 0.01, 8);
+    const tower1_mat = new THREE.MeshPhongMaterial({color:0x0037ff});
+    const tower1_mesh = makeShape(tower1_geo, tower1_mat, 0, 0, 0);
+    tower1_mesh.rotation.y = 0.3926991;
+    tower1.add(tower1_mesh);
+    
+    const tower1_dome_geo = new THREE.CylinderGeometry(0.3, 0.6, 0.3, 20);
+    const tower1_dome_mat = new THREE.MeshPhongMaterial({color:0x31e896});
+    const tower1_dome_mesh = makeShape(tower1_dome_geo, tower1_dome_mat, 0, (atrium_height / 2) + 0.1, 0);
+    tower1.add(tower1_dome_mesh);
+    tower1.position.x = 4.15;
+    tower1.position.y = -6.81 + atrium_height - (atrium_height / 2);
+    tower1.position.z = 3.85;
+
+    Brookfield_Place.add(tower1);
 }
 
 function Build_BP2(){
@@ -2523,6 +2544,13 @@ function Build_BP2(){
     const sleeve_mesh = makeShape(sleeve_geo, sleeve_mat, 0, -1.433, 0);
     BP2.add(sleeve_mesh);
 
+    // Dome
+    const dome_radius = inner_core_length / 2;
+    const dome_geo = new THREE.SphereGeometry(dome_radius, 16, 24);
+    const dome_mat = new THREE.MeshPhongMaterial({color:0x31e896});
+    const dome_mesh = makeShape(dome_geo, dome_mat, 0, (tower_height / 2) - 0.25, 0);
+    BP2.add(dome_mesh);
+
     BP2.rotation.y = 0.3;
 
     BP2.position.x = 2;
@@ -2530,6 +2558,59 @@ function Build_BP2(){
     BP2.position.z = 5.8;
 
     Brookfield_Place.add(BP2);
+}
+
+function Build_BP1(){
+    const BP1 = new THREE.Group();
+    const tower_height = 5.77;
+    const inner_core_length = 1.2;
+    const outer_core_height = tower_height - (0.14 * 4);
+    const sleeve_height = 3.66;
+    const base_height = 1.2;
+    const window_length = 0.1;
+    
+    // Base
+    const base_length = inner_core_length + (window_length * 6);
+    const base_geo = new THREE.BoxGeometry(base_length, base_height, base_length);
+    const base_mat = new THREE.MeshPhongMaterial({color: 0x00ffff});
+    const base_mesh = makeShape(base_geo, base_mat, 0, (-tower_height / 2) + 0.5, 0);
+    BP1.add(base_mesh);
+
+    // Inner Core
+    const inner_core_geo = new THREE.BoxGeometry(inner_core_length, tower_height, inner_core_length);
+    const inner_core_mat = new THREE.MeshPhongMaterial({color: 0x00ffff});
+    const inner_core_mesh = makeShape(inner_core_geo, inner_core_mat, 0, 0, 0);
+    BP1.add(inner_core_mesh);
+
+    // Outer Core
+    const outer_core_length = inner_core_length + (window_length * 3);
+    const outer_core_geo = new THREE.BoxGeometry(outer_core_length, outer_core_height, outer_core_length);
+    const outer_core_mat = new THREE.MeshPhongMaterial({color: 0xff0000});
+    const outer_core_mesh = makeShape(outer_core_geo, outer_core_mat, 0, -0.32, 0);
+    BP1.add(outer_core_mesh);
+
+    // Sleeve (Base of BP1) (Simplified for now)
+    const sleeve_length = outer_core_length + (window_length * 2);
+    const sleeve_geo = new THREE.BoxGeometry(sleeve_length, sleeve_height, sleeve_length);
+    const sleeve_mat = new THREE.MeshPhongMaterial({color:0x000fff});
+    const sleeve_mesh = makeShape(sleeve_geo, sleeve_mat, 0, -1.15, 0);
+    BP1.add(sleeve_mesh);
+
+    // Pyramid
+    const pyramid_radius = inner_core_length / 2;
+    const pyramid_geo = new THREE.CylinderGeometry(0.5, inner_core_length - (window_length * 4), 0.4, 4);
+    const pyramid_mat = new THREE.MeshPhongMaterial({color:0x31e896});
+    const pyramid_mesh = makeShape(pyramid_geo, pyramid_mat, 0, (tower_height / 2) + 0.2, 0);
+    pyramid_mesh.rotation.y = 0.785398;
+    BP1.add(pyramid_mesh);
+
+    BP1.rotation.y = 0.3;
+
+    BP1.position.x = 8.25;
+    BP1.position.y = (-tower_height / 2) - 0.85;
+    BP1.position.z = 2.8;
+
+    Brookfield_Place.add(BP1);
 }
 
 // TODO:
