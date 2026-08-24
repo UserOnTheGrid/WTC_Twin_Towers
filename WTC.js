@@ -2573,7 +2573,7 @@ function Build_BP1(){
     const base_length = inner_core_length + (window_length * 6);
     const base_geo = new THREE.BoxGeometry(base_length, base_height, base_length);
     const base_mat = new THREE.MeshPhongMaterial({color: 0x00ffff});
-    const base_mesh = makeShape(base_geo, base_mat, 0, (-tower_height / 2) + 0.5, 0);
+    const base_mesh = makeShape(base_geo, base_mat, 0, (-tower_height / 2) + 0.4, 0);
     BP1.add(base_mesh);
 
     // Inner Core
@@ -2604,11 +2604,41 @@ function Build_BP1(){
     pyramid_mesh.rotation.y = 0.785398;
     BP1.add(pyramid_mesh);
 
+    // Add More Base parts
+    const left_base_geo = new THREE.BoxGeometry(0.8, base_height, 1.25);
+    const left_base_mat = new THREE.MeshPhongMaterial({color:0x0037ff});
+    const left_base_mesh = makeShape(left_base_geo, left_base_mat, -1.23, (-tower_height / 2) + 0.4, 0);
+    BP1.add(left_base_mesh);
+
+    const parking_lot_geo = new THREE.BoxGeometry(0.8, 0.14, 1.5);
+    const parking_lot_mat = new THREE.MeshPhongMaterial({color:0x0037ff});
+    const parking_lot_mesh = makeShape(parking_lot_geo, parking_lot_mat, 1.23, (-tower_height / 2) - 0.15, 0);
+    BP1.add(parking_lot_mesh);
+
     BP1.rotation.y = 0.3;
 
     BP1.position.x = 8.25;
     BP1.position.y = (-tower_height / 2) - 0.85;
     BP1.position.z = 2.8;
+
+    // Add Second Tower
+    const tower2 = new THREE.Group();
+
+    const tower2_geo = new THREE.CylinderGeometry(0.7, 0.7, base_height + 0.01, 8);
+    const tower2_mat = new THREE.MeshPhongMaterial({color:0x0037ff});
+    const tower2_mesh = makeShape(tower2_geo, tower2_mat, 0, 0, 0);
+    tower2_mesh.rotation.y = 0.3926991;
+    tower2.add(tower2_mesh);
+    
+    const tower2_dome_geo = new THREE.CylinderGeometry(0.3, 0.6, 0.3, 20);
+    const tower2_dome_mat = new THREE.MeshPhongMaterial({color:0x31e896});
+    const tower2_dome_mesh = makeShape(tower2_dome_geo, tower2_dome_mat, 0, (base_height / 2) + 0.1, 0);
+    tower2.add(tower2_dome_mesh);
+    tower2.position.x = 6.47;
+    tower2.position.y = -6.81 + base_height - (base_height / 2);
+    tower2.position.z = 3.65;
+
+    Brookfield_Place.add(tower2);
 
     Brookfield_Place.add(BP1);
 }
