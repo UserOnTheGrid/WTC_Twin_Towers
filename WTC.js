@@ -63,6 +63,7 @@ function main(){
     // Build Adjacent Towers around WTC
     Build_Millennium_NYC();
     Build_One_Liberty_Plaza();
+    Build_Gateway_Tower();
 
     renderer.render(scene, camera);
 
@@ -2643,9 +2644,159 @@ function Build_BP1(){
     Brookfield_Place.add(BP1);
 }
 
-// TODO:
-// Make Outer Core
-// Make Sleeve (Reused for BP3 and BP4)
+function Build_Gateway_Tower(){
+    const gateway_tower = new THREE.Group();
+    const building_height = 2.96;
+    const body_height = building_height - (0.0871 * 4);
+
+    const body_geo = new THREE.BoxGeometry(1.05, body_height, 1.175);
+    const body_mat = new THREE.MeshPhongMaterial({color:0x0037ff});
+    const body_mesh = makeShape(body_geo, body_mat, 0, 0, 0);
+    gateway_tower.add(body_mesh);
+
+    const penthouse_geo = new THREE.BufferGeometry();
+
+    const vertices = new Float32Array([
+        // Wall
+        -0.525, body_height - (body_height / 2), 0.3,               // v0
+        -0.525, building_height - (building_height / 2), 0.3,       // v1
+        -0.525, building_height - (building_height / 2), -0.3,      // v2
+        -0.525, body_height - (body_height / 2), -0.3,              // v3
+
+        -0.525, body_height - (body_height / 2), -0.3,              // v4
+        -0.525, building_height - (building_height / 2), -0.3,      // v5
+        -0.15, building_height - (building_height / 2), -0.3,       // v6
+        -0.15, body_height - (body_height / 2), -0.3,               // v7
+
+        -0.15, body_height - (body_height / 2), -0.3,               // v8
+        -0.15, building_height - (building_height / 2), -0.3,       // v9
+        -0.15, building_height - (building_height / 2), -0.5875,    // v10
+        -0.15, body_height - (body_height / 2), -0.5875,            // v11
+
+        -0.15, body_height - (body_height / 2), -0.5875,            // v12
+        -0.15, building_height - (building_height / 2), -0.5875,    // v13
+        0.15, building_height - (building_height / 2), -0.5875,     // v14
+        0.15, body_height - (body_height / 2), -0.5875,             // v15
+
+        0.15, body_height - (body_height / 2), -0.5875,             // v16
+        0.15, building_height - (building_height / 2), -0.5875,     // v17
+        0.15, building_height - (building_height / 2), -0.3,        // v18
+        0.15, body_height - (body_height / 2), -0.3,                // v19
+
+        0.15, body_height - (body_height / 2), -0.3,                // v20
+        0.15, building_height - (building_height / 2), -0.3,        // v21
+        0.525, building_height - (building_height / 2), -0.3,       // v22
+        0.525, body_height - (body_height / 2), -0.3,               // v23
+
+        0.525, body_height - (body_height / 2), -0.3,               // v24
+        0.525, building_height - (building_height / 2), -0.3,       // v25
+        0.525, building_height - (building_height / 2), 0.3,        // v26
+        0.525, body_height - (body_height / 2), 0.3,                // v27
+
+        0.525, body_height - (body_height / 2), 0.3,                // v28
+        0.525, building_height - (building_height / 2), 0.3,        // v29
+        0.15, building_height - (building_height / 2), 0.3,         // v30
+        0.15, body_height - (body_height / 2), 0.3,                 // v31
+
+        0.15, body_height - (body_height / 2), 0.3,                 // v32
+        0.15, building_height - (building_height / 2), 0.3,         // v33
+        0.15, building_height - (building_height / 2), 0.5875,      // v34
+        0.15, body_height - (body_height / 2), 0.5875,              // v35
+
+        0.15, body_height - (body_height / 2), 0.5875,              // v36
+        0.15, building_height - (building_height / 2), 0.5875,      // v37
+        -0.15, building_height - (building_height / 2), 0.5875,     // v38
+        -0.15, body_height - (body_height / 2), 0.5875,             // v39
+
+        -0.15, body_height - (body_height / 2), 0.5875,             // v40
+        -0.15, building_height - (building_height / 2), 0.5875,     // v41
+        -0.15, building_height - (building_height / 2), 0.3,        // v42
+        -0.15, body_height - (body_height / 2), 0.3,                // v43
+
+        -0.15, body_height - (body_height / 2), 0.3,                // v44
+        -0.15, building_height - (building_height / 2), 0.3,        // v45
+        -0.525, building_height - (building_height / 2), 0.3,       // v46
+        -0.525, body_height - (body_height / 2), 0.3,               // v47
+
+        // Roof
+        -0.525, building_height - (building_height / 2), 0.3,       // v48
+        -0.525, building_height - (building_height / 2), -0.3,      // v49
+        -0.15, building_height - (building_height / 2), -0.3,       // v50
+        -0.15, building_height - (building_height / 2), -0.5875,    // v51
+        0.15, building_height - (building_height / 2), -0.5875,     // v52
+        0.15, building_height - (building_height / 2), -0.3,        // v53
+        0.525, building_height - (building_height / 2), -0.3,       // v54
+        0.525, building_height - (building_height / 2), 0.3,        // v55
+        0.15, building_height - (building_height / 2), 0.3,         // v56
+        0.15, building_height - (building_height / 2), 0.5875,      // v57
+        -0.15, building_height - (building_height / 2), 0.5875,     // v58
+        -0.15, building_height - (building_height / 2), 0.3,        // v59
+    ]);
+
+
+    const normals = new Float32Array([
+
+    ]);
+
+    const uvs = new Float32Array([
+
+    ]);
+
+    const indices = [
+        0, 1, 2,
+        0, 2, 3,
+        4, 5, 6,
+        4, 6, 7,
+        8, 9, 10,
+        8, 10, 11,
+        12, 13, 14,
+        12, 14, 15,
+        16, 17, 18,
+        16, 18, 19,
+        20, 21, 22,
+        20, 22, 23,
+        24, 25, 26,
+        24, 26, 27,
+        28, 29, 30,
+        28, 30, 31,
+        32, 33, 34,
+        32, 34, 35,
+        36, 37, 38,
+        36, 38, 39,
+        40, 41, 42,
+        40, 42, 43,
+        44, 45, 46,
+        44, 46, 47,
+
+        48, 49, 50,
+        50, 59, 48,
+        50, 51, 52,
+        52, 53, 50,
+        53, 54, 55,
+        55, 56, 53,
+        56, 57, 58,
+        58, 59, 56,
+        50, 53, 59,
+        59, 56, 53,
+    ];
+
+    penthouse_geo.setIndex(indices);
+    penthouse_geo.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
+    penthouse_geo.setAttribute('normal', new THREE.BufferAttribute(normals, 3));
+    penthouse_geo.setAttribute('uv', new THREE.BufferAttribute(uvs, 2));
+
+    const penthouse_mat = makeMaterial("Materials/default_uv.png", "Materials/default_uv.png", "Materials/default_uv.png", 1, 1);
+    const penthouse_mesh = makeShape(penthouse_geo, penthouse_mat, 0, 0, 0);
+    gateway_tower.add(penthouse_mesh);
+
+    gateway_tower.position.x = 6.55
+    gateway_tower.position.y = -building_height - (building_height/2) - 1.1;
+    gateway_tower.position.z = 6.05;
+
+    gateway_tower.rotation.y = 0.2618
+
+    scene.add(gateway_tower);
+}
 
 
 // -- HELPER FUNCTIONS --
