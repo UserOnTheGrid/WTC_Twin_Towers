@@ -2733,6 +2733,9 @@ function Build_Gateway_Tower(){
         -0.15, building_height - (building_height / 2), 0.3,        // v59
     ]);
 
+    // TODO:
+    // Normals and UV Mapping for Penthouse
+
 
     const normals = new Float32Array([
 
