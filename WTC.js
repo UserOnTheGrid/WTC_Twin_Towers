@@ -95,14 +95,7 @@ function Build_Towers(){
     const tower_geo = new THREE.BoxGeometry(tower_width, tower_height, tower_depth); // Geometry
     // const tower_mat = new THREE.MeshPhongMaterial({color: 0x00ffff}); // Material
     const loader = new THREE.TextureLoader();
-    const tower_mat = [
-        new THREE.MeshStandardMaterial({map: loadColorTexture("Materials/default_texture.png"), side: THREE.DoubleSide}),
-        new THREE.MeshStandardMaterial({map: loadColorTexture("Reference_Image.JPG"), side: THREE.DoubleSide}),
-        new THREE.MeshStandardMaterial({map: loadColorTexture("Materials/default_texture.png"), side: THREE.DoubleSide}),
-        new THREE.MeshStandardMaterial({map: loadColorTexture("Reference_Image.JPG"), side: THREE.DoubleSide}),
-        new THREE.MeshStandardMaterial({map: loadColorTexture("Materials/default_texture.png"), side: THREE.DoubleSide}),
-        new THREE.MeshStandardMaterial({map: loadColorTexture("Reference_Image.JPG"), side: THREE.DoubleSide}),
-    ];
+    const tower_mat = makeMaterial("Materials/Twin_Towers_Face.png", "Materials/Twin_Towers_Face.png", "Materials/Twin_Towers_Face.png", 1, 1);
 
     function loadColorTexture( path ) {
         const texture = loader.load( path );
