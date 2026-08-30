@@ -19,7 +19,7 @@ function main(){
     const fov = 60; // Field of View
     const aspect = window.innerWidth / window.innerHeight; // Ratio of view's height and width
     const near = 0.1; // Minimum fov value closest to the camera
-    const far = 50; // Maximum fov value farthest from the camera
+    const far = 40; // Maximum fov value farthest from the camera
     const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
     const controls = new OrbitControls(camera, renderer.domElement);
 
@@ -64,6 +64,8 @@ function main(){
     Build_Millennium_NYC();
     Build_One_Liberty_Plaza();
     Build_Gateway_Tower();
+
+    Build_Manhattan_Island();
 
     renderer.render(scene, camera);
 
@@ -2808,6 +2810,70 @@ function Build_Gateway_Tower(){
     gateway_tower.rotation.y = 0.2618
 
     scene.add(gateway_tower);
+}
+
+function Build_Manhattan_Island(){
+    const Manhattan_Geo = new THREE.BufferGeometry();
+    const height = 1;
+
+    const vertices = new Float32Array([
+        0, 0, 9.25,         // v0
+        1, 0, 12.25,        // v1
+        -15, 0, 18.50,      // v2
+        -18.5, 0, 10,       // v3
+        -18.5, 0, -21,      // v4
+        19, 0, -21,         // v5
+        19, 0, 4.15,        // v6
+        19.25, 0, 6,        // v7
+        5, 0, 10.75,        // v8
+        4, 0, 8,            // v9
+    ]);
+
+    const normals = new Float32Array([
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+        0, -1, 0,
+    ]);
+
+    const uvs = new Float32Array([
+        0.479, 0.249,
+        0.49, 0.15,
+        0.1, 0,
+        0, 2.3,
+        0, 1,
+        0.91, 1,
+        0.91, 0.375,
+        0.93, 0.34,
+        0.6, 0.2,
+        0.57, 0.27,
+    ]);
+
+    const indices = [
+        0, 1, 2,
+        0, 2, 3,
+        0, 3, 4,
+        0, 4, 5,
+        0, 5, 9,
+        5, 6, 9,
+        6, 7, 8,
+        6, 8, 9,
+    ];
+
+    Manhattan_Geo.setIndex(indices);
+    Manhattan_Geo.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
+    Manhattan_Geo.setAttribute('normal', new THREE.BufferAttribute(normals, 3));
+    Manhattan_Geo.setAttribute('uv', new THREE.BufferAttribute(uvs, 2));
+
+    const Manhattan_Mat = makeMaterial("Materials/default_uv.png", "Materials/default_uv.png", "Materials/default_uv.png", 1, 1);
+    const Manhattan_Mesh = makeShape(Manhattan_Geo, Manhattan_Mat, 0, -6.8, 0);
+    scene.add(Manhattan_Mesh);
 }
 
 
