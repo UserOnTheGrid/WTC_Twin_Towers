@@ -32,7 +32,7 @@ function main(){
 
     // Apply lighting
     const color = 0xFFFFFF;
-    const intensity = 3;
+    const intensity = 2;
     const light = new THREE.DirectionalLight(color, intensity);
     light.position.set(-1, 2, 4);
     scene.add(light);
@@ -65,7 +65,7 @@ function main(){
     Build_One_Liberty_Plaza();
     Build_Gateway_Tower();
 
-    Build_Manhattan_Island();
+    //Build_Manhattan_Island();
 
     renderer.render(scene, camera);
 
@@ -92,27 +92,103 @@ function Build_Towers(){
     const tower_depth = 2.09;
 
     // WTC1/2 Body
-    const tower_geo = new THREE.BoxGeometry(tower_width, tower_height, tower_depth); // Geometry
+    const tower1_geo = new THREE.BoxGeometry(tower_width, tower_height, tower_depth); // Geometry
+    const tower2_geo = new THREE.BoxGeometry(tower_width, tower_height, tower_depth);
     // const tower_mat = new THREE.MeshPhongMaterial({color: 0x00ffff}); // Material
-    const loader = new THREE.TextureLoader();
-    const tower_mat = makeMaterial("Materials/Twin_Towers_Face.png", "Materials/Twin_Towers_Face.png", "Materials/Twin_Towers_Face.png", 1, 1);
 
-    function loadColorTexture( path ) {
-        const texture = loader.load( path );
-        texture.colorSpace = THREE.SRGBColorSpace;
-        return texture;
-    }
+    const tower_1_uvs = new Float32Array([
+        // Right
+        0, 1,
+        0.18827, 1,
+        0, 0,
+        0.18827, 0,
+
+        // Left
+        0, 1,
+        0.18827, 1,
+        0, 0,
+        0.18827, 0,
+
+        // Top
+        0.188, 1,
+        0.595, 1,
+        0.188, 0.66667,
+        0.595, 0.66667,
+
+        // Bottom
+        0.188, 1,
+        0.595, 1,
+        0.188, 0.66667,
+        0.595, 0.66667,
+        
+        // Front
+        0, 1,
+        0.18827, 1,
+        0, 0,
+        0.18827, 0,
+
+        // Back
+        0, 1,
+        0.18827, 1,
+        0, 0,
+        0.18827, 0,
+    ]);
+
+    const tower_2_uvs = new Float32Array([
+        // Right
+        0, 1,
+        0.18827, 1,
+        0, 0,
+        0.18827, 0,
+
+        // Left
+        0, 1,
+        0.18827, 1,
+        0, 0,
+        0.18827, 0,
+
+        // Top
+        0.595, 1,
+        1, 1,
+        0.595, 0.66667,
+        1, 0.66667,
+
+        // Bottom
+        0.595, 1,
+        1, 1,
+        0.595, 0.66667,
+        1, 0.66667,
+        
+        // Front
+        0, 1,
+        0.18827, 1,
+        0, 0,
+        0.18827, 0,
+
+        // Back
+        0, 1,
+        0.18827, 1,
+        0, 0,
+        0.18827, 0,
+    ]);
+
+    tower1_geo.setAttribute( 'uv', new THREE.BufferAttribute( tower_1_uvs, 2 ) );
+    tower2_geo.setAttribute( 'uv', new THREE.BufferAttribute( tower_2_uvs, 2 ) );
+
+    //const texture = new THREE.Texture({image: "Materials/Twin_Towers_Face.png", mapping: uvs});
+    //texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+    const tower_mat = makeMaterial("Materials/Twin_Towers_Texture.png", "Materials/Twin_Towers_Texture.png", "Materials/Twin_Towers_Texture.png", 1, 1);
 
 
-    const tower1_mesh = makeShape(tower_geo, tower_mat, 0, 0, 0); // Make a cube mesh
-    const tower2_mesh = makeShape(tower_geo, tower_mat, 3.25, 0, -2.25); // Make a cube mesh
+    const tower1_mesh = makeShape(tower1_geo, tower_mat, 0, 0, 0); // Make a cube mesh
+    const tower2_mesh = makeShape(tower2_geo, tower_mat, 3.25, 0, -2.25); // Make a cube mesh
 
     // WTC1 Antenna
     const antenna_height = 3.60;
     const antenna_radius = 0.1;
     const antenna_geo = new THREE.CylinderGeometry(antenna_radius, antenna_radius, antenna_height, 32);
     //const antenna_mat = new THREE.MeshPhongMaterial({color: 0xffffff});
-    const antenna_mat = makeMaterial("Materials/default_texture.png", "Materials/default_texture.png", "Materials/default_texture.png", 1, 1);
+    const antenna_mat = makeMaterial("Materials/Antenna_Map.png", "Materials/Antenna_Map.png", "Materials/Antenna_Map.png", 1, 1);
     const antenna_mesh = makeShape(antenna_geo, antenna_mat, 0, (tower_height / 2) + (antenna_height / 2), 0);
 
     WTC1.add(tower1_mesh);
@@ -2895,6 +2971,8 @@ function makeMaterial(albedoSource, normalSource, aoSource, tileX, tileY){
 function makeTexture(source, tileX, tileY){
     const texture = new THREE.TextureLoader().load(source);
     texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+    texture.magFilter = THREE.NearestFilter;
+    //texture.minFilter = THREE.NearestFilter;
     texture.repeat.set(tileX, tileY);
 
     return texture;
