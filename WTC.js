@@ -217,39 +217,39 @@ function Build_Marriott(){
         4.6, 0, -0.15, // v5
 
         // East Face A
-        1.25, 0, 0, // v6
         1.25, height, 0, // v7
         2.5, height, 0, // v8
         2.5, 0, 0, // v9
+        1.25, 0, 0, // v6
 
         // East Face B
-        2.5, 0, 0, // v10
         2.5, height, 0, // v11
         4.6, height, -0.75, // v12
         4.6, 0, -0.75, // v13
+        2.5, 0, 0, // v10
 
         // South Face
-        4.6, 0, -0.75, // v14
-        4.6, height, -0.75, // v15
         4.6, height, -0.15, // v16
+        4.6, height, -0.75, // v15
+        4.6, 0, -0.75, // v14
         4.6, 0, -0.15, // v17
 
         // West Face A
-        4.6, 0, -0.15, // v18
-        4.6, height, -0.15, // v19
         2.5, height, 0.55, // v20
+        4.6, height, -0.15, // v19
+        4.6, 0, -0.15, // v18
         2.5, 0, 0.55, // v21
 
         // West Face B
-        2.5, 0, 0.55, // v22
-        2.5, height, 0.55, // v23
         1.25, height, 0.55, // v24
+        2.5, height, 0.55, // v23
+        2.5, 0, 0.55, // v22
         1.25, 0, 0.55, // v25
 
         // North Face
-        1.25, 0, 0.55, // v26
-        1.25, height, 0.55, // v27
         1.25, height, 0, // v28
+        1.25, height, 0.55, // v27
+        1.25, 0, 0.55, // v26
         1.25, 0, 0, // v29
 
         // Roof Level
@@ -279,25 +279,25 @@ function Build_Marriott(){
         0, 0, -1,
         0, 0, -1,
     
-        0, 0, 0,
-        0, 0, 0,
-        0, 0, 0,
-        0, 0, 0,
+        0.1, 0, 0,
+        0.1, 0, 0,
+        0.1, 0, 0,
+        0.1, 0, 0,
 
-        0, 0, 1,
-        0, 0, 1,
-        0, 0, 1,
-        0, 0, 1,
+        0, 0, -1,
+        0, 0, -1,
+        0, 0, -1,
+        0, 0, -1,
 
-        0, 0, 1,
-        0, 0, 1,
-        0, 0, 1,
-        0, 0, 1,
+        0, 0, -1,
+        0, 0, -1,
+        0, 0, -1,
+        0, 0, -1,
 
-        -0.1, 0, 0,
-        -0.1, 0, 0,
-        -0.1, 0, 0,
-        -0.1, 0, 0,
+        0.1, 0, 0,
+        0.1, 0, 0,
+        0.1, 0, 0,
+        0.1, 0, 0,
 
         0, -1, 0,
         0, -1, 0,
@@ -308,49 +308,49 @@ function Build_Marriott(){
     ]);
 
     const uvs = new Float32Array([
-        0, 0,
-        1, 0,
-        1, 1,
         0, 1,
-        0, 0,
-        1, 0,
+        0.316, 1,
+        0.316, 0.868,
+        0, 0.868,
+        0.857, 1,
+        0.857, 0.868,
 
-        0, 0,
-        1, 0,
-        1, 1,
-        0, 1,
+        0, 0.868,
+        0.316, 0.868,
+        0.316, 0.434,
+        0, 0.434,
 
-        0, 0,
-        1, 0,
-        1, 1,
-        0, 1,
+        0.316, 0.868,
+        0.727, 0.868,
+        0.727, 0.434,
+        0.316, 0.434,
 
-        0, 0,
-        1, 0,
-        1, 1,
-        0, 1,
+        0.727, 0.868,
+        0.857, 0.868,
+        0.857, 0.434,
+        0.727, 0.434,
 
-        0, 0,
-        1, 0,
-        1, 1,
-        0, 1,
+        0.316, 0.434,
+        0.727, 0.434,
+        0.727, 0,
+        0.316, 0,
 
+        0, 0.434,
+        0.316, 0.434,
+        0.316, 0,
         0, 0,
-        1, 0,
-        1, 1,
-        0, 1,
 
-        0, 0,
-        1, 0,
-        1, 1,
-        0, 1,
+        0.727, 0.434,
+        0.857, 0.434,
+        0.857, 0,
+        0.727, 0,
 
-        0, 0,
-        1, 0,
-        1, 1,
         0, 1,
-        0, 0,
-        1, 0,
+        0.316, 1,
+        0.316, 0.868,
+        0, 0.868,
+        0.857, 1,
+        0.857, 0.868,
     ]);
 
     // Connects all of the vertices together
@@ -393,7 +393,7 @@ function Build_Marriott(){
     hotel_geo.setAttribute( 'position', new THREE.BufferAttribute( vertices, 3 ) );
     hotel_geo.setAttribute( 'uv', new THREE.BufferAttribute( uvs, 2 ) );
     hotel_geo.setAttribute( 'normal', new THREE.BufferAttribute( normals, 3 ) );
-    const hotel_mat = makeMaterial("Materials/default_uv.png", "Materials/default_uv.png", "Materials/default_uv.png", 1, 1);
+    const hotel_mat = makeMaterial("Materials/Marriott_WTC_Texture.png", "Materials/Marriott_WTC_Texture.png", "Materials/Marriott_WTC_Texture.png", 1, 1);
 
     // const loader = new THREE.TextureLoader();
     // const hotel_mat = [
