@@ -595,74 +595,74 @@ function Build_WTC4(){
 
         // Walls
         2.75, base_height, -6.25, // v16
-        2.75, upper_height, -6.25, // v17
-        2.75, upper_height, -6.90, // v18
         2.75, base_height, -6.90, // v19
+        2.75, upper_height, -6.90, // v18
+        2.75, upper_height, -6.25, // v17
 
         2.75, base_height, -6.90, // v20
-        2.75, upper_height, -6.90, // v21
-        4.10, upper_height, -6.90, // v22
         4.10, base_height, -6.90, // v23
+        4.10, upper_height, -6.90, // v22
+        2.75, upper_height, -6.90, // v21
 
         4.10, base_height, -6.90, // v24
-        4.10, upper_height, -6.90, // v25
-        4.10, upper_height, -6.25, // v26
         4.10, base_height, -6.25, // v27
+        4.10, upper_height, -6.25, // v26
+        4.10, upper_height, -6.90, // v25
 
         4.10, base_height, -6.25, // v28
-        4.10, upper_height, -6.25, // v29
-        4.10, upper_height, -5.40, // v30
         4.10, base_height, -5.40, // v31
+        4.10, upper_height, -5.40, // v30
+        4.10, upper_height, -6.25, // v29
 
         4.10, base_height, -5.40, // v32
-        4.10, upper_height, -5.40, // v33
-        4.50, upper_height, -5.40, // v34
         4.50, base_height, -5.40, // v35
+        4.50, upper_height, -5.40, // v34
+        4.10, upper_height, -5.40, // v33
 
         4.50, base_height, -5.40, // v36
-        4.50, upper_height, -5.40, // v37
-        4.50, upper_height, -4.70, // v38
         4.50, base_height, -4.70, // v39
+        4.50, upper_height, -4.70, // v38
+        4.50, upper_height, -5.40, // v37
 
         4.50, base_height, -4.70, // v40
-        4.50, upper_height, -4.70, // v41
-        4.50, upper_height, -3.55, // v42
         4.50, base_height, -3.55, // v43
+        4.50, upper_height, -3.55, // v42
+        4.50, upper_height, -4.70, // v41
 
         4.50, base_height, -3.55, // v44
-        4.50, upper_height, -3.55, // v45
-        4.10, upper_height, -3.55, // v46
         4.10, base_height, -3.55, // v47
+        4.10, upper_height, -3.55, // v46
+        4.50, upper_height, -3.55, // v45
 
         4.10, base_height, -3.55, // v48
-        4.10, upper_height, -3.55, // v49
-        2.75, upper_height, -3.55, // v50
         2.75, base_height, -3.55, // v51
+        2.75, upper_height, -3.55, // v50
+        4.10, upper_height, -3.55, // v49
 
         2.75, base_height, -3.55, // v52
-        2.75, upper_height, -3.55, // v53
-        2.75, upper_height, -4.75, // v54
         2.75, base_height, -4.75, // v55
+        2.75, upper_height, -4.75, // v54
+        2.75, upper_height, -3.55, // v53
 
+        1.25, base_height, -4.75, // v59
         2.75, base_height, -4.75, // v56
         2.75, upper_height, -4.75, // v57
         1.25, upper_height, -4.75, // v58
-        1.25, base_height, -4.75, // v59
 
         1.25, base_height, -4.75, // v60
-        1.25, upper_height, -4.75, // v61
-        1.25, upper_height, -5.35, // v62
         1.25, base_height, -5.35, // v63
+        1.25, upper_height, -5.35, // v62
+        1.25, upper_height, -4.75, // v61
 
         1.25, base_height, -5.35, // v64
-        1.25, upper_height, -5.35, // v65
-        1.25, upper_height, -6.25, // v66
         1.25, base_height, -6.25, // v67
+        1.25, upper_height, -6.25, // v66
+        1.25, upper_height, -5.35, // v65
 
         1.25, base_height, -6.25, // v68
-        1.25, upper_height, -6.25, // v69
-        2.75, upper_height, -6.25, // v70
         2.75, base_height, -6.25, // v71
+        2.75, upper_height, -6.25, // v70
+        1.25, upper_height, -6.25, // v69
         
 
 
@@ -707,74 +707,74 @@ function Build_WTC4(){
 
         // Walls
         2.75 + diff, 0, -6.25 + diff, // v16
-        2.75 + diff, base_height, -6.25 + diff, // v17
-        2.75 + diff, base_height, -6.90 + diff, // v18
         2.75 + diff, 0, -6.90 + diff, // v19
+        2.75 + diff, base_height, -6.90 + diff, // v18
+        2.75 + diff, base_height, -6.25 + diff, // v17
 
         2.75 + diff, 0, -6.90 + diff, // v20
-        2.75 + diff, base_height, -6.90 + diff, // v21
-        4.10 - diff, base_height, -6.90 + diff, // v22
         4.10 - diff, 0, -6.90 + diff, // v23
+        4.10 - diff, base_height, -6.90 + diff, // v22
+        2.75 + diff, base_height, -6.90 + diff, // v21
 
         4.10 - diff, 0, -6.90 + diff, // v24
-        4.10 - diff, base_height, -6.90 + diff, // v25
-        4.10 - diff, base_height, -6.25 + diff, // v26
         4.10 - diff, 0, -6.25 + diff, // v27
+        4.10 - diff, base_height, -6.25 + diff, // v26
+        4.10 - diff, base_height, -6.90 + diff, // v25
 
         4.10 - diff, 0, -6.25 + diff, // v28
-        4.10 - diff, base_height, -6.25 + diff, // v29
-        4.10 - diff, base_height, -5.40 + diff, // v30
         4.10 - diff, 0, -5.40 + diff, // v31
+        4.10 - diff, base_height, -5.40 + diff, // v30
+        4.10 - diff, base_height, -6.25 + diff, // v29
 
         4.10 - diff, 0, -5.40 + diff, // v32
-        4.10 - diff, base_height, -5.40 + diff, // v33
-        4.50 - diff, base_height, -5.40 + diff, // v34
         4.50 - diff, 0, -5.40 + diff, // v35
+        4.50 - diff, base_height, -5.40 + diff, // v34
+        4.10 - diff, base_height, -5.40 + diff, // v33
 
         4.50 - diff, 0, -5.40 + diff, // v36
-        4.50 - diff, base_height, -5.40 + diff, // v37
-        4.50 - diff, base_height, -4.75 + diff, // v38
         4.50 - diff, 0, -4.75 + diff, // v39
+        4.50 - diff, base_height, -4.75 + diff, // v38
+        4.50 - diff, base_height, -5.40 + diff, // v37
 
         4.50 - diff, 0, -4.75 + diff, // v40
-        4.50 - diff, base_height, -4.75 + diff, // v41
-        4.50 - diff, base_height, -3.55 - diff, // v42
         4.50 - diff, 0, -3.55 - diff, // v43
+        4.50 - diff, base_height, -3.55 - diff, // v42
+        4.50 - diff, base_height, -4.75 + diff, // v41
 
         4.50 - diff, 0, -3.55 - diff, // v44
-        4.50 - diff, base_height, -3.55 - diff, // v45
-        4.10 - diff, base_height, -3.55 - diff, // v46
         4.10 - diff, 0, -3.55 - diff, // v47
+        4.10 - diff, base_height, -3.55 - diff, // v46
+        4.50 - diff, base_height, -3.55 - diff, // v45
 
         4.10 - diff, 0, -3.55 - diff, // v48
-        4.10 - diff, base_height, -3.55 - diff, // v49
-        2.75 + diff, base_height, -3.55 - diff, // v50
         2.75 + diff, 0, -3.55 - diff, // v51
+        2.75 + diff, base_height, -3.55 - diff, // v50
+        4.10 - diff, base_height, -3.55 - diff, // v49
 
         2.75 + diff, 0, -3.55 - diff, // v52
-        2.75 + diff, base_height, -3.55 - diff, // v53
-        2.75 + diff, base_height, -4.75 - diff, // v54
         2.75 + diff, 0, -4.75 - diff, // v55
+        2.75 + diff, base_height, -4.75 - diff, // v54
+        2.75 + diff, base_height, -3.55 - diff, // v53
 
         2.75 + diff, 0, -4.75 - diff, // v56
-        2.75 + diff, base_height, -4.75 - diff, // v57
-        1.25 + diff, base_height, -4.75 - diff, // v58
         1.25 + diff, 0, -4.75 - diff, // v59
+        1.25 + diff, base_height, -4.75 - diff, // v58
+        2.75 + diff, base_height, -4.75 - diff, // v57
 
         1.25 + diff, 0, -4.75 - diff, // v60
-        1.25 + diff, base_height, -4.75 - diff, // v61
-        1.25 + diff, base_height, -5.40 - diff, // v62
         1.25 + diff, 0, -5.40 - diff, // v63
+        1.25 + diff, base_height, -5.40 - diff, // v62
+        1.25 + diff, base_height, -4.75 - diff, // v61
 
         1.25 + diff, 0, -5.40 - diff, // v64
-        1.25 + diff, base_height, -5.40 - diff, // v65
-        1.25 + diff, base_height, -6.25 + diff, // v66
         1.25 + diff, 0, -6.25 + diff, // v67
+        1.25 + diff, base_height, -6.25 + diff, // v66
+        1.25 + diff, base_height, -5.40 - diff, // v65
 
         1.25 + diff, 0, -6.25 + diff, // v68
-        1.25 + diff, base_height, -6.25 + diff, // v69
-        2.75 + diff, base_height, -6.25 + diff, // v70
         2.75 + diff, 0, -6.25 + diff, // v71
+        2.75 + diff, base_height, -6.25 + diff, // v70
+        1.25 + diff, base_height, -6.25 + diff, // v69
         
 
 
@@ -921,50 +921,20 @@ function Build_WTC4(){
         0, 1, 0,
         0, 1, 0,
 
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1,
+
         -1, 0, 0,
         -1, 0, 0,
         -1, 0, 0,
         -1, 0, 0,
-
-        0, 0, 0,
-        0, 0, 0,
-        0, 0, 0,
-        0, 0, 0,
-
-        1, 0, 0,
-        1, 0, 0,
-        1, 0, 0,
-        1, 0, 0,
-
-        1, 0, 0,
-        1, 0, 0,
-        1, 0, 0,
-        1, 0, 0,
-
-        0, 0, 0,
-        0, 0, 0,
-        0, 0, 0,
-        0, 0, 0,
-
-        1, 0, 0,
-        1, 0, 0,
-        1, 0, 0,
-        1, 0, 0,
-
-        1, 0, 0,
-        1, 0, 0,
-        1, 0, 0,
-        1, 0, 0,
-
-        0, 0, 1,
-        0, 0, 1,
-        0, 0, 1,
-        0, 0, 1,
-
-        0, 0, 1,
-        0, 0, 1,
-        0, 0, 1,
-        0, 0, 1,
 
         -1, 0, 0,
         -1, 0, 0,
@@ -986,10 +956,40 @@ function Build_WTC4(){
         -1, 0, 0,
         -1, 0, 0,
 
-        0, 0, 0,
-        0, 0, 0,
-        0, 0, 0,
-        0, 0, 0,
+        0, 0, -0.1,
+        0, 0, -0.1,
+        0, 0, -0.1,
+        0, 0, -0.1,
+
+        0, 0, -0.1,
+        0, 0, -0.1,
+        0, 0, -0.1,
+        0, 0, -0.1,
+
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1,
+
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1,
 
         0, -1, 0,
         0, -1, 0,
@@ -1083,7 +1083,7 @@ function Build_WTC4(){
     WTC4_Upper_Geo.setAttribute( 'normal', new THREE.BufferAttribute( normals, 3 ) );
     WTC4_Upper_Geo.setAttribute( 'uv', new THREE.BufferAttribute( uvs, 2 ) );
     // const WTC4_Upper_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
-    const WTC4_Upper_Mat = makeMaterial("Materials/default_uv.png", "Materials/default_uv.png", "Materials/default_uv.png", 1, 1);
+    const WTC4_Upper_Mat = makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 6, 1);
     const WTC4_Upper_Mesh = makeShape(WTC4_Upper_Geo, WTC4_Upper_Mat, 0, -6.81, 0);
     WTC4.add(WTC4_Upper_Mesh);
 
@@ -1092,7 +1092,7 @@ function Build_WTC4(){
     WTC4_Base_Geo.setAttribute( 'normal', new THREE.BufferAttribute( normals, 3 ) );
     WTC4_Base_Geo.setAttribute( 'uv', new THREE.BufferAttribute( uvs, 2 ) );
     //const WTC4_Base_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
-    const WTC4_Base_Mat = makeMaterial("Materials/default_uv.png", "Materials/default_uv.png", "Materials/default_uv.png", 1, 1);
+    const WTC4_Base_Mat = makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 3, 1);
     const WTC4_Base_Mesh = makeShape(WTC4_Base_Geo, WTC4_Base_Mat, 0, -6.81, 0);
     WTC4.add(WTC4_Base_Mesh);
 
@@ -1134,64 +1134,64 @@ function Build_WTC5(){
 
         // Walls
         -3.10, base_height, -6.50,  // v19
-        -3.10, upper_height, -6.50,  // v20
-        -1.65, upper_height, -6.50,  // v21
         -1.65, base_height, -6.50,  // v22
+        -1.65, upper_height, -6.50,  // v21
+        -3.10, upper_height, -6.50,  // v20
 
         -1.65, base_height, -6.50,  // v23
-        -1.65, upper_height, -6.50, // v24
-        -1.65, upper_height, -6.25, // v25
         -1.65, base_height, -6.25,  // v26
+        -1.65, upper_height, -6.25, // v25
+        -1.65, upper_height, -6.50, // v24
 
         -1.65, base_height, -6.25,  // v27
-        -1.65, upper_height, -6.25,  // v28
-        -0.15, upper_height, -6.25,  // v29
         -0.15, base_height, -6.25,  // v30
+        -0.15, upper_height, -6.25,  // v29
+        -1.65, upper_height, -6.25,  // v28
 
         -0.15, base_height, -6.25,  // v31
-        -0.15, upper_height, -6.25, // v32
-        -0.15, upper_height, -4.75, // v33
         -0.15, base_height, -4.75,  // v34
+        -0.15, upper_height, -4.75, // v33
+        -0.15, upper_height, -6.25, // v32
 
         -0.15, base_height, -4.75,  // v35
-        -0.15, upper_height, -4.75,  // v36
-        -1.65, upper_height, -4.75,  // v37
         -1.65, base_height, -4.75,  // v38
+        -1.65, upper_height, -4.75,  // v37
+        -0.15, upper_height, -4.75,  // v36
 
         -1.65, base_height, -4.75,  // v39
-        -1.65, upper_height, -4.75, // v40
-        -1.65, upper_height, -4.10,  // v41
         -1.65, base_height, -4.10,  // v42
+        -1.65, upper_height, -4.10,  // v41
+        -1.65, upper_height, -4.75, // v40
 
         -1.65, base_height, -4.10,  // v43
-        -1.65, upper_height, -4.10, // v44
-        -1.40, upper_height, -4.10, // v45
         -1.40, base_height, -4.10,  // v46
+        -1.40, upper_height, -4.10, // v45
+        -1.65, upper_height, -4.10, // v44
 
         -1.40, base_height, -4.10,  // v47
-        -1.40, upper_height, -4.10,  // v48
-        -1.40, upper_height, -2.25,  // v49
         -1.40, base_height, -2.25,  // v50
+        -1.40, upper_height, -2.25,  // v49
+        -1.40, upper_height, -4.10,  // v48
 
         -1.40, base_height, -2.25,  // v51
-        -1.40, upper_height, -2.25, // v52
-        -3.40, upper_height, -2.25, // v53
         -3.40, base_height, -2.25,  // v54
+        -3.40, upper_height, -2.25, // v53
+        -1.40, upper_height, -2.25, // v52
 
         -3.40, base_height, -2.25,  // v55
-        -3.40, upper_height, -2.25,  // v56
-        -3.40, upper_height, -4.40, // v57
         -3.40, base_height, -4.40,  // v58
+        -3.40, upper_height, -4.40, // v57
+        -3.40, upper_height, -2.25,  // v56
 
         -3.40, base_height, -4.40,  // v59
-        -3.40, upper_height, -4.40,  // v60
-        -3.10, upper_height, -4.40,  // v61
         -3.10, base_height, -4.40,  // v62
+        -3.10, upper_height, -4.40,  // v61
+        -3.40, upper_height, -4.40,  // v60
 
         -3.10, base_height, -4.40,  // v63
-        -3.10, upper_height, -4.40, // v64
-        -3.10, upper_height, -6.50,  // v65
         -3.10, base_height, -6.50,  // v66
+        -3.10, upper_height, -6.50,  // v65
+        -3.10, upper_height, -4.40, // v64
 
 
         // Roof
@@ -1242,6 +1242,26 @@ function Build_WTC5(){
         0, 0, 0,
         0, 0, 0,
 
+        -1, 0, 0,
+        -1, 0, 0,
+        -1, 0, 0,
+        -1, 0, 0,
+
+        0, 0, 0,
+        0, 0, 0,
+        0, 0, 0,
+        0, 0, 0,
+
+        -1, 0, 0,
+        -1, 0, 0,
+        -1, 0, 0,
+        -1, 0, 0,
+
+        0, 0, -1,
+        0, 0, -1,
+        0, 0, -1,
+        0, 0, -1,
+
         1, 0, 0,
         1, 0, 0,
         1, 0, 0,
@@ -1257,10 +1277,10 @@ function Build_WTC5(){
         1, 0, 0,
         1, 0, 0,
 
-        0, 0, 1,
-        0, 0, 1,
-        0, 0, 1,
-        0, 0, 1,
+        0, 0, -1,
+        0, 0, -1,
+        0, 0, -1,
+        0, 0, -1,
 
         1, 0, 0,
         1, 0, 0,
@@ -1272,30 +1292,10 @@ function Build_WTC5(){
         0, 0, 0,
         0, 0, 0,
 
-        -1, 0, 0,
-        -1, 0, 0,
-        -1, 0, 0,
-        -1, 0, 0,
-
-        0, 0, 1,
-        0, 0, 1,
-        0, 0, 1,
-        0, 0, 1,
-
-        -1, 0, 0,
-        -1, 0, 0,
-        -1, 0, 0,
-        -1, 0, 0,
-
-        0, 0, 0,
-        0, 0, 0,
-        0, 0, 0,
-        0, 0, 0,
-
-        -1, 0, 0,
-        -1, 0, 0,
-        -1, 0, 0,
-        -1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
 
         0, -1, 0,
         0, -1, 0,
@@ -1444,64 +1444,64 @@ function Build_WTC5(){
 
         // Walls
         -3.10 + diff, 0, -6.50 + diff,  // v23
-        -3.10 + diff, base_height, -6.50 + diff,  // v24
-        -1.65 - diff, base_height, -6.50 + diff,  // v25
         -1.65 - diff, 0, -6.50 + diff,  // v26
+        -1.65 - diff, base_height, -6.50 + diff,  // v25
+        -3.10 + diff, base_height, -6.50 + diff,  // v24
 
         -1.65 - diff, 0, -6.50 + diff,  // v27
-        -1.65 - diff, base_height, -6.50 + diff, // v28
-        -1.65 - diff, base_height, -6.25 + diff, // v29
         -1.65 - diff, 0, -6.25 + diff,  // v30
+        -1.65 - diff, base_height, -6.25 + diff, // v29
+        -1.65 - diff, base_height, -6.50 + diff, // v28
 
         -1.65 - diff, 0, -6.25 + diff,  // v31
-        -1.65 - diff, base_height, -6.25 + diff,  // v32
-        -0.15 - diff, base_height, -6.25 + diff,  // v33
         -0.15 - diff, 0, -6.25 + diff,  // v34
+        -0.15 - diff, base_height, -6.25 + diff,  // v33
+        -1.65 - diff, base_height, -6.25 + diff,  // v32
 
         -0.15 - diff, 0, -6.25 + diff,  // v35
-        -0.15 - diff, base_height, -6.25 + diff, // v36
-        -0.15 - diff, base_height, -4.75 - diff, // v37
         -0.15 - diff, 0, -4.75 - diff,  // v38
+        -0.15 - diff, base_height, -4.75 - diff, // v37
+        -0.15 - diff, base_height, -6.25 + diff, // v36
 
         -0.15 - diff, 0, -4.75 - diff,  // v39
-        -0.15 - diff, base_height, -4.75 - diff,  // v40
-        -1.65 - diff, base_height, -4.75 - diff,  // v41
         -1.65 - diff, 0, -4.75 - diff,  // v42
+        -1.65 - diff, base_height, -4.75 - diff,  // v41
+        -0.15 - diff, base_height, -4.75 - diff,  // v40
 
         -1.65 - diff, 0, -4.75 - diff,  // v43
-        -1.65 - diff, base_height, -4.75 - diff, // v44
-        -1.65 - diff, base_height, -4.10 + diff,  // v49
         -1.65 - diff, 0, -4.10 + diff,  // v50
+        -1.65 - diff, base_height, -4.10 + diff,  // v49
+        -1.65 - diff, base_height, -4.75 - diff, // v44
 
         -1.65 - diff, 0, -4.10 + diff,  // v51
-        -1.65 - diff, base_height, -4.10 + diff, // v52
-        -1.40 - diff, base_height, -4.10 + diff, // v53
         -1.40 - diff, 0, -4.10 + diff,  // v54
+        -1.40 - diff, base_height, -4.10 + diff, // v53
+        -1.65 - diff, base_height, -4.10 + diff, // v52
 
         -1.40 - diff, 0, -4.10 + diff,  // v55
-        -1.40 - diff, base_height, -4.10 + diff,  // v56
-        -1.40 - diff, base_height, -2.25 - diff,  // v57
         -1.40 - diff, 0, -2.25 - diff,  // v58
+        -1.40 - diff, base_height, -2.25 - diff,  // v57
+        -1.40 - diff, base_height, -4.10 + diff,  // v56
 
         -1.40 - diff, 0, -2.25 - diff,  // v59
-        -1.40 - diff, base_height, -2.25 - diff, // v60
-        -3.40 + diff, base_height, -2.25 - diff, // v69
         -3.40 + diff, 0, -2.25 - diff,  // v70
+        -3.40 + diff, base_height, -2.25 - diff, // v69
+        -1.40 - diff, base_height, -2.25 - diff, // v60
 
         -3.40 + diff, 0, -2.25 - diff,  // v71
-        -3.40 + diff, base_height, -2.25 - diff,  // v72
-        -3.40 + diff, base_height, -4.40 + diff, // v77
         -3.40 + diff, 0, -4.40 + diff,  // v78
+        -3.40 + diff, base_height, -4.40 + diff, // v77
+        -3.40 + diff, base_height, -2.25 - diff,  // v72
 
         -3.40 + diff, 0, -4.40 + diff,  // v79
-        -3.40 + diff, base_height, -4.40 + diff,  // v80
-        -3.10 + diff, base_height, -4.40 + diff,  // v81
         -3.10 + diff, 0, -4.40 + diff,  // v82
+        -3.10 + diff, base_height, -4.40 + diff,  // v81
+        -3.40 + diff, base_height, -4.40 + diff,  // v80
 
         -3.10 + diff, 0, -4.40 + diff,  // v83
-        -3.10 + diff, base_height, -4.40 + diff, // v84
-        -3.10 + diff, base_height, -6.50 + diff,  // v89
         -3.10 + diff, 0, -6.50 + diff,  // v90
+        -3.10 + diff, base_height, -6.50 + diff,  // v89
+        -3.10 + diff, base_height, -4.40 + diff, // v84
 
         // Roof
         -3.10 + diff, base_height, -6.25 + diff, // v91
@@ -1599,7 +1599,7 @@ function Build_WTC5(){
     WTC5_Upper_Geo.setAttribute( 'normal', new THREE.BufferAttribute( normals, 3 ) );
     WTC5_Upper_Geo.setAttribute( 'uv', new THREE.BufferAttribute( uvs, 2 ) );
     //const WTC5_Upper_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
-    const WTC5_Upper_Mat = makeMaterial("Materials/default_uv.png", "Materials/default_uv.png", "Materials/default_uv.png", 1, 1);
+    const WTC5_Upper_Mat = makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 10, 1);
     const WTC5_Upper_Mesh = makeShape(WTC5_Upper_Geo, WTC5_Upper_Mat, 0, -6.81, 0);
     WTC5.add(WTC5_Upper_Mesh);
 
@@ -1608,7 +1608,7 @@ function Build_WTC5(){
     WTC5_Base_Geo.setAttribute( 'normal', new THREE.BufferAttribute( normals, 3 ) );
     WTC5_Base_Geo.setAttribute( 'uv', new THREE.BufferAttribute( uvs, 2 ) );
     //const WTC5_Base_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide , wireframe: false});
-    const WTC5_Base_Mat = makeMaterial("Materials/default_uv.png", "Materials/default_uv.png", "Materials/default_uv.png", 1, 1);
+    const WTC5_Base_Mat = makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 6, 1);
     const WTC5_Base_Mesh = makeShape(WTC5_Base_Geo, WTC5_Base_Mat, 0, -6.81, 0);
     WTC5.add(WTC5_Base_Mesh);
 
@@ -1629,54 +1629,54 @@ function Build_WTC6(){
     const Upper_Vertices = new Float32Array([
         // Walls
         -3.25, base_height, -1.6,   // v0
-        -3.25, upper_height, -1.6,  // v1
-        -1.75, upper_height, -1.6,  // v2
         -1.75, base_height, -1.6,   // v3
+        -1.75, upper_height, -1.6,  // v2
+        -3.25, upper_height, -1.6,  // v1
 
         -1.75, base_height, -1.6,   // v4
-        -1.75, upper_height, -1.6,  // v5
-        -1.75, upper_height, -0.15, // v6
         -1.75, base_height, -0.15,  // v7
+        -1.75, upper_height, -0.15, // v6
+        -1.75, upper_height, -1.6,  // v5
 
         -1.75, base_height, -0.15,  // v8
-        -1.75, upper_height, -0.15, // v9
-        -1.25, upper_height, -0.15, // v10
         -1.25, base_height, -0.15,  // v11
+        -1.25, upper_height, -0.15, // v10
+        -1.75, upper_height, -0.15, // v9
 
         -1.25, base_height, -0.15,  // v12
-        -1.25, upper_height, -0.15, // v13
-        -1.25, upper_height, 1.55, // v14
         -1.25, base_height, 1.55,  // v15
+        -1.25, upper_height, 1.55, // v14
+        -1.25, upper_height, -0.15, // v13
 
         -1.25, base_height, 1.55,  // v16
-        -1.25, upper_height, 1.55, // v17
-        -2, upper_height, 1.55,    // v18
         -2, base_height, 1.55,     // v19
+        -2, upper_height, 1.55,    // v18
+        -1.25, upper_height, 1.55, // v17
 
         -2, base_height, 1.55,     // v20
-        -2, upper_height, 1.55,    // v21
-        -2, upper_height, 2.5,     // v22
         -2, base_height, 2.5,      // v23
+        -2, upper_height, 2.5,     // v22
+        -2, upper_height, 1.55,    // v21
 
         -2, base_height, 2.5,      // v24
-        -2, upper_height, 2.5,     // v25
-        -3.6, upper_height, 2.5,   // v26
         -3.6, base_height, 2.5,    // v27
+        -3.6, upper_height, 2.5,   // v26
+        -2, upper_height, 2.5,     // v25
 
         -3.6, base_height, 2.5,    // v28
-        -3.6, upper_height, 2.5,   // v29
-        -3.6, upper_height, 0.15,   // v30
         -3.6, base_height, 0.15,   // v31
+        -3.6, upper_height, 0.15,   // v30
+        -3.6, upper_height, 2.5,   // v29
 
         -3.6, base_height, 0.15,    // v32
-        -3.6, upper_height, 0.15,   // v33
-        -3.25, upper_height, 0.15,  // v34
         -3.25, base_height, 0.15,   // v35
+        -3.25, upper_height, 0.15,  // v34
+        -3.6, upper_height, 0.15,   // v33
 
         -3.25, base_height, 0.15,   // v36
-        -3.25, upper_height, 0.15,  // v37
-        -3.25, upper_height, -1.6,  // v38
         -3.25, base_height, -1.6,   // v39
+        -3.25, upper_height, -1.6,  // v38
+        -3.25, upper_height, 0.15,  // v37
 
         // Middle
         -3.25, base_height, -1.6,   // v40
@@ -1725,10 +1725,40 @@ function Build_WTC6(){
 
 
     const normals = new Float32Array([
-        0, 0, 0,
-        0, 0, 0,
-        0, 0, 0,
-        0, 0, 0,
+        0, 0, -1,
+        0, 0, -1,
+        0, 0, -1,
+        0, 0, -1,
+
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+
+        0, 0, -1,
+        0, 0, -1,
+        0, 0, -1,
+        0, 0, -1,
+
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+
+        0, 0, -1,
+        0, 0, -1,
+        0, 0, -1,
+        0, 0, -1,
+
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+        1, 0, 0,
+
+        0, 0, -1,
+        0, 0, -1,
+        0, 0, -1,
+        0, 0, -1,
 
         1, 0, 0,
         1, 0, 0,
@@ -1744,36 +1774,6 @@ function Build_WTC6(){
         1, 0, 0,
         1, 0, 0,
         1, 0, 0,
-
-        0, 0, 1,
-        0, 0, 1,
-        0, 0, 1,
-        0, 0, 1,
-
-        1, 0, 0,
-        1, 0, 0,
-        1, 0, 0,
-        1, 0, 0,
-
-        0, 0, 1,
-        0, 0, 1,
-        0, 0, 1,
-        0, 0, 1,
-
-        -1, 0, 0,
-        -1, 0, 0,
-        -1, 0, 0,
-        -1, 0, 0,
-
-        0, 0, 0,
-        0, 0, 0,
-        0, 0, 0,
-        0, 0, 0,
-
-        -1, 0, 0,
-        -1, 0, 0,
-        -1, 0, 0,
-        -1, 0, 0,
 
         0, -1, 0,
         0, -1, 0,
@@ -1914,54 +1914,54 @@ function Build_WTC6(){
     
     const Base_Vertices = new Float32Array([
         -3.25 + diff, 0, -1.6 + diff,
-        -3.25 + diff, base_height, -1.6 + diff,
-        -1.75 - diff, base_height, -1.6 + diff,
-        -1.75 - diff, 0, -1.6 + diff,
-
         -1.75 - diff, 0, -1.6 + diff,
         -1.75 - diff, base_height, -1.6 + diff,
-        -1.75 - diff, base_height, -0.15 + diff,
-        -1.75 - diff, 0, -0.15 + diff,
-
-        -1.75 - diff, 0, -0.15 + diff,
-        -1.75 - diff, base_height, -0.15 + diff,
-        -1.25 - diff, base_height, -0.15 + diff,
-        -1.25 - diff, 0, -0.15 + diff,
-
-        -1.25 - diff, 0, -0.15 + diff,
-        -1.25 - diff, base_height, -0.15 + diff,
-        -1.25 - diff, base_height, 1.55 - diff,
-        -1.25 - diff, 0, 1.55 - diff,
-
-        -1.25 - diff, 0, 1.55 - diff,
-        -1.25 - diff, base_height, 1.55 - diff,
-        -2 - diff, base_height, 1.55 - diff,
-        -2 - diff, 0, 1.55 - diff,
-
-        -2 - diff, 0, 1.55 - diff,
-        -2 - diff, base_height, 1.55 - diff,
-        -2 - diff, base_height, 2.5 - diff,
-        -2 - diff, 0, 2.5 - diff,
-
-        -2 - diff, 0, 2.5 - diff,
-        -2 - diff, base_height, 2.5 - diff,
-        -3.6 + diff, base_height, 2.5 - diff,
-        -3.6 + diff, 0, 2.5 - diff,
-
-        -3.6 + diff, 0, 2.5 - diff,
-        -3.6 + diff, base_height, 2.5 - diff,
-        -3.6 + diff, base_height, 0.15 + diff,
-        -3.6 + diff, 0, 0.15 + diff,
-
-        -3.6 + diff, 0, 0.15 + diff,
-        -3.6 + diff, base_height, 0.15 + diff,
-        -3.25 + diff, base_height, 0.15 + diff,
-        -3.25 + diff, 0, 0.15 + diff,
-
-        -3.25 + diff, 0, 0.15 + diff,
-        -3.25 + diff, base_height, 0.15 + diff,
         -3.25 + diff, base_height, -1.6 + diff,
+
+        -1.75 - diff, 0, -1.6 + diff,
+        -1.75 - diff, 0, -0.15 + diff,
+        -1.75 - diff, base_height, -0.15 + diff,
+        -1.75 - diff, base_height, -1.6 + diff,
+
+        -1.75 - diff, 0, -0.15 + diff,
+        -1.25 - diff, 0, -0.15 + diff,
+        -1.25 - diff, base_height, -0.15 + diff,
+        -1.75 - diff, base_height, -0.15 + diff,
+
+        -1.25 - diff, 0, -0.15 + diff,
+        -1.25 - diff, 0, 1.55 - diff,
+        -1.25 - diff, base_height, 1.55 - diff,
+        -1.25 - diff, base_height, -0.15 + diff,
+
+        -1.25 - diff, 0, 1.55 - diff,
+        -2 - diff, 0, 1.55 - diff,
+        -2 - diff, base_height, 1.55 - diff,
+        -1.25 - diff, base_height, 1.55 - diff,
+
+        -2 - diff, 0, 1.55 - diff,
+        -2 - diff, 0, 2.5 - diff,
+        -2 - diff, base_height, 2.5 - diff,
+        -2 - diff, base_height, 1.55 - diff,
+
+        -2 - diff, 0, 2.5 - diff,
+        -3.6 + diff, 0, 2.5 - diff,
+        -3.6 + diff, base_height, 2.5 - diff,
+        -2 - diff, base_height, 2.5 - diff,
+
+        -3.6 + diff, 0, 2.5 - diff,
+        -3.6 + diff, 0, 0.15 + diff,
+        -3.6 + diff, base_height, 0.15 + diff,
+        -3.6 + diff, base_height, 2.5 - diff,
+
+        -3.6 + diff, 0, 0.15 + diff,
+        -3.25 + diff, 0, 0.15 + diff,
+        -3.25 + diff, base_height, 0.15 + diff,
+        -3.6 + diff, base_height, 0.15 + diff,
+
+        -3.25 + diff, 0, 0.15 + diff,
         -3.25 + diff, 0, -1.6 + diff,
+        -3.25 + diff, base_height, -1.6 + diff,
+        -3.25 + diff, base_height, 0.15 + diff,
     ]);
 
     // Connects all of the vertices together
@@ -2039,7 +2039,7 @@ function Build_WTC6(){
     WTC6_Upper_Geo.setAttribute( 'normal', new THREE.BufferAttribute( normals, 3 ) );
     WTC6_Upper_Geo.setAttribute( 'uv', new THREE.BufferAttribute( uvs, 2 ) );
     //const WTC6_Upper_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
-    const WTC6_Upper_Mat = makeMaterial("Materials/default_uv.png", "Materials/default_uv.png", "Materials/default_uv.png", 1, 1);
+    const WTC6_Upper_Mat = makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 30, 1);
     const WTC6_Upper_Mesh = makeShape(WTC6_Upper_Geo, WTC6_Upper_Mat, 0, -6.81, 0);
     WTC6.add(WTC6_Upper_Mesh);
 
@@ -2048,7 +2048,7 @@ function Build_WTC6(){
     WTC6_Base_Geo.setAttribute( 'normal', new THREE.BufferAttribute( normals, 3 ) );
     WTC6_Base_Geo.setAttribute( 'uv', new THREE.BufferAttribute( uvs, 2 ) );
     //const WTC6_Base_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide , wireframe: false});
-    const WTC6_Base_Mat = makeMaterial("Materials/default_uv.png", "Materials/default_uv.png", "Materials/default_uv.png", 1, 1);
+    const WTC6_Base_Mat = makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 6, 1);
     const WTC6_Base_Mesh = makeShape(WTC6_Base_Geo, WTC6_Base_Mat, 0, -6.81, 0);
     WTC6.add(WTC6_Base_Mesh);
 
