@@ -429,34 +429,34 @@ function Build_WTC7(){
         -4.7, 0, -2.15, // v3
 
         // South Wall
+        -4.7, 0, -2.15, // v7
         -4.7, 0, 0.25, // v4
         -4.7, height, 0.25, // v5
         -4.7, height, -2.15, // v6
-        -4.7, 0, -2.15, // v7
 
         // West Wall
+        -6.15, 0, 0.75, // v11
         -4.7, 0, 0.25, // v8
         -4.7, height, 0.25, // v9
         -6.15, height, 0.75, // v10
-        -6.15, 0, 0.75, // v11
 
         // North Wall
+        -6.15, 0, -2.5, // v15
         -6.15, 0, 0.75, // v12
         -6.15, height, 0.75, // v13
         -6.15, height, -2.5, // v14
-        -6.15, 0, -2.5, // v15
 
         // East Wall
+        -4.7, 0, -2.15, // v19
         -6.15, 0, -2.5, // v16
         -6.15, height, -2.5, // v17
         -4.7, height, -2.15, // v18
-        -4.7, 0, -2.15, // v19
 
         // Roof Level
+        -4.7, height, -2.15, // v23
         -4.7, height, 0.25, // v20
         -6.15, height, 0.75, // v21
         -6.15, height, -2.5, // v22
-        -4.7, height, -2.15, // v23
     ]);
 
     const normals = new Float32Array([
@@ -480,10 +480,10 @@ function Build_WTC7(){
         -1, 0, 0,
         -1, 0, 0,
 
-        0, 0, 0,
-        0, 0, 0,
-        0, 0, 0,
-        0, 0, 0,
+        0, 0, -1,
+        0, 0, -1,
+        0, 0, -1,
+        0, 0, -1,
 
         0, -1, 0,
         0, -1, 0,
@@ -492,34 +492,34 @@ function Build_WTC7(){
     ]);
 
     const uvs = new Float32Array([
-        0, 0,
-        1, 0,
-        1, 1,
+        0.06, 0.82,
+        0.3955, 0.82,
+        0.455, 1,
         0, 1,
 
         0, 0,
-        1, 0,
-        1, 1,
-        0, 1,
+        0.33, 0,
+        0.33, 0.82,
+        0, 0.82,
 
-        0, 0,
-        1, 0,
-        1, 1,
-        0, 1,
+        0.335, 0,
+        0.545, 0,
+        0.545, 0.82,
+        0.335, 0.82,
 
-        0, 0,
+        0.545, 0,
         1, 0,
-        1, 1,
-        0, 1,
+        1, 0.82,
+        0.545, 0.82,
 
-        0, 0,
-        1, 0,
-        1, 1,
-        0, 1,
+        0.335, 0,
+        0.545, 0,
+        0.545, 0.82,
+        0.335, 0.82,
 
-        0, 0,
-        1, 0,
-        1, 1,
+        0.06, 0.82,
+        0.3955, 0.82,
+        0.455, 1,
         0, 1,
     ]);
 
@@ -556,7 +556,7 @@ function Build_WTC7(){
     WTC7_geo.setAttribute( 'uv', new THREE.BufferAttribute( uvs, 2 ) );
     WTC7_geo.setAttribute( 'normal', new THREE.BufferAttribute( normals, 3 ) );
     //const WTC7_mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
-    const WTC7_mat = makeMaterial("Materials/default_uv.png", "Materials/default_uv.png", "Materials/default_uv.png", 1, 1);
+    const WTC7_mat = makeMaterial("Materials/WTC7_Texture.png", "Materials/WTC7_Texture.png", "Materials/WTC7_Texture.png", 1, 1);
     const WTC7 = makeShape(WTC7_geo, WTC7_mat, 0, -6.81, 0);
 
     WTC_Complex.add(WTC7);
