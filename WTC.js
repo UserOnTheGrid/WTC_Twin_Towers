@@ -2060,8 +2060,10 @@ function Build_Millennium_NYC(){
     const tower_width = 0.5;
     const tower_length = 1.25;
 
+    // 20 on one side, 8 on another
+
     const tower_geo = new THREE.BoxGeometry(tower_length, tower_height, tower_width); // Geometry
-    const tower_mat = new THREE.MeshPhongMaterial({color: 0xffffff});
+    const tower_mat = makeMaterial("Materials/Millennium_Hotel_Window_Texture.png", "Materials/Millennium_Hotel_Window_Texture.png", "Materials/Millennium_Hotel_Window_Texture.png", 20, 28);
     const tower_mesh = makeShape(tower_geo, tower_mat, -0.8, -3.80, -8.65); // Make a mesh
 
     scene.add(tower_mesh);
