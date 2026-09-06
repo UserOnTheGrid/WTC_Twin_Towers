@@ -2124,64 +2124,65 @@ function Build_Winter_Garden(){
 
         // Wall
         -3.50, 0, 5.60,                 // v13
-        -3.50, atrium_height, 5.60,     // v14
-        -1.90, atrium_height, 5.20,     // v15
         -1.90, 0, 5.20,                 // v16
+        -1.90, atrium_height, 5.20,     // v15
+        -3.50, atrium_height, 5.60,     // v14
 
         -1.90, 0, 5.20,                 // v17
-        -1.90, atrium_height, 5.20,     // v18
-        -1.55, atrium_height, 5.60,     // v19
         -1.55, 0, 5.60,                 // v20
+        -1.55, atrium_height, 5.60,     // v19
+        -1.90, atrium_height, 5.20,     // v18
 
         -1.55, 0, 5.60,                 // v21
-        -1.55, atrium_height, 5.60,     // v22
-         1.05, atrium_height, 4.90,     // v23
          1.05, 0, 4.90,                 // v24
+         1.05, atrium_height, 4.90,     // v23
+        -1.55, atrium_height, 5.60,     // v22
 
         1.05, 0, 4.90,                  // v25
-        1.05, atrium_height, 4.90,      // v26
-        1.05, atrium_height, 4.47,      // v27
         1.05, 0, 4.47,                  // v28
+        1.05, atrium_height, 4.47,      // v27
+        1.05, atrium_height, 4.90,      // v26
 
         1.05, 0, 4.47,                  // v29
-        1.05, atrium_height, 4.47,      // v30
-        4.25, atrium_height, 3.25,      // v31
         4.25, 0, 3.25,                  // v32
+        4.25, atrium_height, 3.25,      // v31
+        1.05, atrium_height, 4.47,      // v30
+        
 
         4.25, 0, 3.25,                  // v33
-        4.25, atrium_height, 3.25,      // v34
-        3.95, atrium_height, 4.95,      // v35
         3.95, 0, 4.95,                  // v36
+        3.95, atrium_height, 4.95,      // v34
+        4.25, atrium_height, 3.25,      // v34
 
         3.95, 0, 4.95,                  // v37
-        3.95, atrium_height, 4.95,      // v38
-        3.05, atrium_height, 5.15,      // v39
         3.05, 0, 5.15,                  // v40
+        3.05, atrium_height, 5.15,      // v39
+        3.95, atrium_height, 4.95,      // v38
 
         3.05, 0, 5.15,                  // v41
-        3.05, atrium_height, 5.15,      // v42
-        3.52, atrium_height, 7.00,      // v43
         3.52, 0, 7.00,                  // v44
+        3.52, atrium_height, 7.00,      // v43
+        3.05, atrium_height, 5.15,      // v42
 
         3.52, 0, 7.00,                  // v45
-        3.52, atrium_height, 7.00,      // v46
-        2.50, atrium_height, 7.30,      // v47
         2.50, 0, 7.30,                  // v48
+        2.50, atrium_height, 7.30,      // v47
+        3.52, atrium_height, 7.00,      // v46
 
         2.50, 0, 7.30,                  // v49
-        2.50, atrium_height, 7.30,      // v50
-        2.52, atrium_height, 7.95,      // v51
         2.52, 0, 7.95,                  // v52
+        2.52, atrium_height, 7.95,      // v51
+        2.50, atrium_height, 7.30,      // v50
 
          2.52, 0, 7.95,                 // v53
-         2.52, atrium_height, 7.95,     // v54
-        -3.50, atrium_height, 7.95,     // v55
         -3.50, 0, 7.95,                 // v56
+        -3.50, atrium_height, 7.95,     // v55
+         2.52, atrium_height, 7.95,     // v54
 
         -3.50, 0, 7.95,                 // v57
-        -3.50, atrium_height, 7.95,     // v58
-        -3.50, atrium_height, 5.60,     // v59
         -3.50, 0, 5.60,                 // v60
+        -3.50, atrium_height, 5.60,     // v59
+        -3.50, atrium_height, 7.95,     // v58
 
         // Roof
         -3.50, atrium_height, 5.60,     // v61
