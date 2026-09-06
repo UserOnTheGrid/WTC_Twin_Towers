@@ -2054,8 +2054,22 @@ function Build_Millennium_NYC(){
     // 20 on one side, 8 on another
 
     const tower_geo = new THREE.BoxGeometry(tower_length, tower_height, tower_width); // Geometry
-    const tower_mat = makeMaterial("Materials/Millennium_Hotel_Window_Texture.png", "Materials/Millennium_Hotel_Window_Texture.png", "Materials/Millennium_Hotel_Window_Texture.png", 20, 28);
-    const tower_mesh = makeShape(tower_geo, tower_mat, -0.8, -3.80, -8.65); // Make a mesh
+    tower_geo.addGroup(0, 6, 0);
+    tower_geo.addGroup(6, 12, 0);
+    tower_geo.addGroup(12, 18, 0);
+    tower_geo.addGroup(18, 24, 0);
+    tower_geo.addGroup(24, 30, 0);
+    tower_geo.addGroup(30, 36, 0);
+
+    const tower_mats = [
+        makeMaterial("Materials/Millennium_Hotel_Window_Texture.png", "Materials/Millennium_Hotel_Window_Texture.png", "Materials/Millennium_Hotel_Window_Texture.png", 8, 28),
+        makeMaterial("Materials/Millennium_Hotel_Window_Texture.png", "Materials/Millennium_Hotel_Window_Texture.png", "Materials/Millennium_Hotel_Window_Texture.png", 8, 28),
+        makeMaterial("Materials/Millennium_Hotel_Roof_Texture.png", "Materials/Millennium_Hotel_Roof_Texture.png", "Materials/Millennium_Hotel_Roof_Texture.png", 1, 1),
+        makeMaterial("Materials/Millennium_Hotel_Roof_Texture.png", "Materials/Millennium_Hotel_Roof_Texture.png", "Materials/Millennium_Hotel_Roof_Texture.png", 1, 1),
+        makeMaterial("Materials/Millennium_Hotel_Window_Texture.png", "Materials/Millennium_Hotel_Window_Texture.png", "Materials/Millennium_Hotel_Window_Texture.png", 20, 28),
+        makeMaterial("Materials/Millennium_Hotel_Window_Texture.png", "Materials/Millennium_Hotel_Window_Texture.png", "Materials/Millennium_Hotel_Window_Texture.png", 20, 28),
+    ];
+    const tower_mesh = makeShape(tower_geo, tower_mats, -0.8, -3.80, -8.65); // Make a mesh
 
     scene.add(tower_mesh);
 
@@ -2067,8 +2081,22 @@ function Build_One_Liberty_Plaza(){
     const tower_length = 1.63;
 
     const tower_geo = new THREE.BoxGeometry(tower_length, tower_height, tower_width); // Geometry
-    const tower_mat = new THREE.MeshPhongMaterial({color: 0xffffff});
-    const tower_mesh = makeShape(tower_geo, tower_mat, 4.1, -3, -10); // Make a mesh
+    tower_geo.addGroup(0, 6, 0);
+    tower_geo.addGroup(6, 12, 0);
+    tower_geo.addGroup(12, 18, 0);
+    tower_geo.addGroup(18, 24, 0);
+    tower_geo.addGroup(24, 30, 0);
+    tower_geo.addGroup(30, 36, 0);
+
+    const tower_mats = [
+        makeMaterial("Materials/One_Liberty_Plaza_Window_Texture.png", "Materials/One_Liberty_Plaza_Window_Texture.png", "Materials/One_Liberty_Plaza_Window_Texture.png", 5, 1), // Front
+        makeMaterial("Materials/One_Liberty_Plaza_Window_Texture.png", "Materials/One_Liberty_Plaza_Window_Texture.png", "Materials/One_Liberty_Plaza_Window_Texture.png", 5, 1), // Back
+        makeMaterial("Materials/One_Liberty_Plaza_Roof_Texture.png", "Materials/One_Liberty_Plaza_Roof_Texture.png", "Materials/One_Liberty_Plaza_Roof_Texture.png", 1, 1), // Top
+        makeMaterial("Materials/One_Liberty_Plaza_Roof_Texture.png", "Materials/One_Liberty_Plaza_Roof_Texture.png", "Materials/One_Liberty_Plaza_Roof_Texture.png", 1, 1), // Bottom
+        makeMaterial("Materials/One_Liberty_Plaza_Window_Texture.png", "Materials/One_Liberty_Plaza_Window_Texture.png", "Materials/One_Liberty_Plaza_Window_Texture.png", 3, 1), // Right
+        makeMaterial("Materials/One_Liberty_Plaza_Window_Texture.png", "Materials/One_Liberty_Plaza_Window_Texture.png", "Materials/One_Liberty_Plaza_Window_Texture.png", 3, 1), // Left
+    ];
+    const tower_mesh = makeShape(tower_geo, tower_mats, 4.1, -3, -10); // Make a mesh
 
     scene.add(tower_mesh);
 }
