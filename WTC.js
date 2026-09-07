@@ -2651,64 +2651,66 @@ function Build_Gateway_Tower(){
     const vertices = new Float32Array([
         // Wall
         -0.525, body_height - (body_height / 2), 0.3,               // v0
-        -0.525, building_height - (building_height / 2), 0.3,       // v1
-        -0.525, building_height - (building_height / 2), -0.3,      // v2
         -0.525, body_height - (body_height / 2), -0.3,              // v3
+        -0.525, building_height - (building_height / 2), -0.3,      // v2
+        -0.525, building_height - (building_height / 2), 0.3,       // v1
 
         -0.525, body_height - (body_height / 2), -0.3,              // v4
-        -0.525, building_height - (building_height / 2), -0.3,      // v5
-        -0.15, building_height - (building_height / 2), -0.3,       // v6
         -0.15, body_height - (body_height / 2), -0.3,               // v7
+        -0.15, building_height - (building_height / 2), -0.3,       // v6
+        -0.525, building_height - (building_height / 2), -0.3,      // v5
+        
 
         -0.15, body_height - (body_height / 2), -0.3,               // v8
-        -0.15, building_height - (building_height / 2), -0.3,       // v9
-        -0.15, building_height - (building_height / 2), -0.5875,    // v10
         -0.15, body_height - (body_height / 2), -0.5875,            // v11
+        -0.15, building_height - (building_height / 2), -0.5875,    // v10
+        -0.15, building_height - (building_height / 2), -0.3,       // v9
 
         -0.15, body_height - (body_height / 2), -0.5875,            // v12
-        -0.15, building_height - (building_height / 2), -0.5875,    // v13
-        0.15, building_height - (building_height / 2), -0.5875,     // v14
         0.15, body_height - (body_height / 2), -0.5875,             // v15
+        0.15, building_height - (building_height / 2), -0.5875,     // v14
+        -0.15, building_height - (building_height / 2), -0.5875,    // v13
 
         0.15, body_height - (body_height / 2), -0.5875,             // v16
-        0.15, building_height - (building_height / 2), -0.5875,     // v17
-        0.15, building_height - (building_height / 2), -0.3,        // v18
         0.15, body_height - (body_height / 2), -0.3,                // v19
+        0.15, building_height - (building_height / 2), -0.3,        // v18
+        0.15, building_height - (building_height / 2), -0.5875,     // v17
+        
 
         0.15, body_height - (body_height / 2), -0.3,                // v20
-        0.15, building_height - (building_height / 2), -0.3,        // v21
-        0.525, building_height - (building_height / 2), -0.3,       // v22
         0.525, body_height - (body_height / 2), -0.3,               // v23
+        0.525, building_height - (building_height / 2), -0.3,       // v22
+        0.15, building_height - (building_height / 2), -0.3,        // v21
 
         0.525, body_height - (body_height / 2), -0.3,               // v24
-        0.525, building_height - (building_height / 2), -0.3,       // v25
-        0.525, building_height - (building_height / 2), 0.3,        // v26
         0.525, body_height - (body_height / 2), 0.3,                // v27
+        0.525, building_height - (building_height / 2), 0.3,        // v26
+        0.525, building_height - (building_height / 2), -0.3,       // v25
 
         0.525, body_height - (body_height / 2), 0.3,                // v28
-        0.525, building_height - (building_height / 2), 0.3,        // v29
-        0.15, building_height - (building_height / 2), 0.3,         // v30
         0.15, body_height - (body_height / 2), 0.3,                 // v31
+        0.15, building_height - (building_height / 2), 0.3,         // v30
+        0.525, building_height - (building_height / 2), 0.3,        // v29
 
         0.15, body_height - (body_height / 2), 0.3,                 // v32
-        0.15, building_height - (building_height / 2), 0.3,         // v33
-        0.15, building_height - (building_height / 2), 0.5875,      // v34
         0.15, body_height - (body_height / 2), 0.5875,              // v35
+        0.15, building_height - (building_height / 2), 0.5875,      // v34
+        0.15, building_height - (building_height / 2), 0.3,         // v33
 
         0.15, body_height - (body_height / 2), 0.5875,              // v36
-        0.15, building_height - (building_height / 2), 0.5875,      // v37
-        -0.15, building_height - (building_height / 2), 0.5875,     // v38
         -0.15, body_height - (body_height / 2), 0.5875,             // v39
+        -0.15, building_height - (building_height / 2), 0.5875,     // v38
+        0.15, building_height - (building_height / 2), 0.5875,      // v37
 
         -0.15, body_height - (body_height / 2), 0.5875,             // v40
-        -0.15, building_height - (building_height / 2), 0.5875,     // v41
-        -0.15, building_height - (building_height / 2), 0.3,        // v42
         -0.15, body_height - (body_height / 2), 0.3,                // v43
+        -0.15, building_height - (building_height / 2), 0.3,        // v42
+        -0.15, building_height - (building_height / 2), 0.5875,     // v41
 
         -0.15, body_height - (body_height / 2), 0.3,                // v44
-        -0.15, building_height - (building_height / 2), 0.3,        // v45
-        -0.525, building_height - (building_height / 2), 0.3,       // v46
         -0.525, body_height - (body_height / 2), 0.3,               // v47
+        -0.525, building_height - (building_height / 2), 0.3,       // v46
+        -0.15, building_height - (building_height / 2), 0.3,        // v45
 
         // Roof
         -0.525, building_height - (building_height / 2), 0.3,       // v48
