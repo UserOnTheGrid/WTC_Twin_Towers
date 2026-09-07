@@ -2443,8 +2443,40 @@ function Build_Winter_Garden(){
     atrium_geo.setAttribute('normal', new THREE.BufferAttribute(normals, 3));
     atrium_geo.setAttribute('uv', new THREE.BufferAttribute(uvs, 2));
 
-    const atrium_mat = makeMaterial("Materials/default_uv.png", "Materials/default_uv.png", "Materials/default_uv.png", 1, 1);
-    const atrium_mesh = makeShape(atrium_geo, atrium_mat, 0, -6.81, 0);
+    atrium_geo.addGroup(0, 33, 0);
+    atrium_geo.addGroup(33, 6, 1);
+    atrium_geo.addGroup(39, 6, 2);
+    atrium_geo.addGroup(45, 6, 3);
+    atrium_geo.addGroup(51, 6, 4);
+    atrium_geo.addGroup(57, 6, 5);
+    atrium_geo.addGroup(63, 6, 6);
+    atrium_geo.addGroup(69, 6, 7);
+    atrium_geo.addGroup(75, 6, 8);
+    atrium_geo.addGroup(81, 6, 9);
+    atrium_geo.addGroup(87, 6, 10);
+    atrium_geo.addGroup(93, 6, 11);
+    atrium_geo.addGroup(99, 6, 12);
+    atrium_geo.addGroup(105, 6, 13);
+    atrium_geo.addGroup(105, 33, 14);
+
+    const atrium_mats = [
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 1, 1),
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 3, 1),
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 1, 1),
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 3, 1),
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 1, 1),
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 3, 1),
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 2, 1),
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 3, 1),
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 5, 1),
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 2, 1),
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 2, 1),
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 12, 1),
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 2, 1),
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 1, 1),
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 1, 1),
+    ];
+    const atrium_mesh = makeShape(atrium_geo, atrium_mats, 0, -6.81, 0);
     Brookfield_Place.add(atrium_mesh);
 
 
@@ -2461,7 +2493,7 @@ function Build_Winter_Garden(){
     const tower1 = new THREE.Group();
 
     const tower1_geo = new THREE.CylinderGeometry(0.7, 0.7, atrium_height + 0.01, 8);
-    const tower1_mat = new THREE.MeshPhongMaterial({color:0x0037ff});
+    const tower1_mat = makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 8, 1);
     const tower1_mesh = makeShape(tower1_geo, tower1_mat, 0, 0, 0);
     tower1_mesh.rotation.y = 0.3926991;
     tower1.add(tower1_mesh);
@@ -2487,21 +2519,21 @@ function Build_BP2(){
 
     // Inner Core
     const inner_core_geo = new THREE.BoxGeometry(inner_core_length, tower_height, inner_core_length);
-    const inner_core_mat = new THREE.MeshPhongMaterial({color: 0x00ffff});
+    const inner_core_mat = makeMaterial("Materials/BP_Window_Texture_3.png", "Materials/BP_Window_Texture_3.png", "Materials/BP_Window_Texture_3.png", 32, 55);
     const inner_core_mesh = makeShape(inner_core_geo, inner_core_mat, 0, 0, 0);
     BP2.add(inner_core_mesh);
 
     // Outer Core
     const outer_core_length = inner_core_length + (window_length * 3);
     const outer_core_geo = new THREE.BoxGeometry(outer_core_length, outer_core_height, outer_core_length);
-    const outer_core_mat = new THREE.MeshPhongMaterial({color: 0xff0000});
+    const outer_core_mat = makeMaterial("Materials/BP_Window_Texture_2.png", "Materials/BP_Window_Texture_2.png", "Materials/BP_Window_Texture_2.png", 19, 40);
     const outer_core_mesh = makeShape(outer_core_geo, outer_core_mat, 0, -0.32, 0);
     BP2.add(outer_core_mesh);
 
     // Sleeve (Base of BP2) (Simplified for now)
     const sleeve_length = outer_core_length + (window_length * 2);
     const sleeve_geo = new THREE.BoxGeometry(sleeve_length, sleeve_height, sleeve_length);
-    const sleeve_mat = new THREE.MeshPhongMaterial({color:0x000fff});
+    const sleeve_mat = makeMaterial("Materials/BP_Window_Texture_1.png", "Materials/BP_Window_Texture_1.png", "Materials/BP_Window_Texture_1.png", 21, 22);
     const sleeve_mesh = makeShape(sleeve_geo, sleeve_mat, 0, -1.433, 0);
     BP2.add(sleeve_mesh);
 
@@ -2533,27 +2565,27 @@ function Build_BP1(){
     // Base
     const base_length = inner_core_length + (window_length * 6);
     const base_geo = new THREE.BoxGeometry(base_length, base_height, base_length);
-    const base_mat = new THREE.MeshPhongMaterial({color: 0x00ffff});
+    const base_mat = makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 6, 1);
     const base_mesh = makeShape(base_geo, base_mat, 0, (-tower_height / 2) + 0.4, 0);
     BP1.add(base_mesh);
 
     // Inner Core
     const inner_core_geo = new THREE.BoxGeometry(inner_core_length, tower_height, inner_core_length);
-    const inner_core_mat = new THREE.MeshPhongMaterial({color: 0x00ffff});
+    const inner_core_mat = makeMaterial("Materials/BP_Window_Texture_3.png", "Materials/BP_Window_Texture_3.png", "Materials/BP_Window_Texture_3.png", 27, 20);
     const inner_core_mesh = makeShape(inner_core_geo, inner_core_mat, 0, 0, 0);
     BP1.add(inner_core_mesh);
 
     // Outer Core
     const outer_core_length = inner_core_length + (window_length * 3);
     const outer_core_geo = new THREE.BoxGeometry(outer_core_length, outer_core_height, outer_core_length);
-    const outer_core_mat = new THREE.MeshPhongMaterial({color: 0xff0000});
+    const outer_core_mat = makeMaterial("Materials/BP_Window_Texture_2.png", "Materials/BP_Window_Texture_2.png", "Materials/BP_Window_Texture_2.png", 16, 40);
     const outer_core_mesh = makeShape(outer_core_geo, outer_core_mat, 0, -0.32, 0);
     BP1.add(outer_core_mesh);
 
     // Sleeve (Base of BP1) (Simplified for now)
     const sleeve_length = outer_core_length + (window_length * 2);
     const sleeve_geo = new THREE.BoxGeometry(sleeve_length, sleeve_height, sleeve_length);
-    const sleeve_mat = new THREE.MeshPhongMaterial({color:0x000fff});
+    const sleeve_mat = makeMaterial("Materials/BP_Window_Texture_1.png", "Materials/BP_Window_Texture_1.png", "Materials/BP_Window_Texture_1.png", 18, 22);
     const sleeve_mesh = makeShape(sleeve_geo, sleeve_mat, 0, -1.15, 0);
     BP1.add(sleeve_mesh);
 
@@ -2567,12 +2599,12 @@ function Build_BP1(){
 
     // Add More Base parts
     const left_base_geo = new THREE.BoxGeometry(0.8, base_height, 1.25);
-    const left_base_mat = new THREE.MeshPhongMaterial({color:0x0037ff});
+    const left_base_mat = makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 1, 1);
     const left_base_mesh = makeShape(left_base_geo, left_base_mat, -1.23, (-tower_height / 2) + 0.4, 0);
     BP1.add(left_base_mesh);
 
     const parking_lot_geo = new THREE.BoxGeometry(0.8, 0.14, 1.5);
-    const parking_lot_mat = new THREE.MeshPhongMaterial({color:0x0037ff});
+    const parking_lot_mat = new THREE.MeshPhongMaterial({color:0xebe0c0});
     const parking_lot_mesh = makeShape(parking_lot_geo, parking_lot_mat, 1.23, (-tower_height / 2) - 0.15, 0);
     BP1.add(parking_lot_mesh);
 
@@ -2586,7 +2618,7 @@ function Build_BP1(){
     const tower2 = new THREE.Group();
 
     const tower2_geo = new THREE.CylinderGeometry(0.7, 0.7, base_height + 0.01, 8);
-    const tower2_mat = new THREE.MeshPhongMaterial({color:0x0037ff});
+    const tower2_mat = makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 8, 1);
     const tower2_mesh = makeShape(tower2_geo, tower2_mat, 0, 0, 0);
     tower2_mesh.rotation.y = 0.3926991;
     tower2.add(tower2_mesh);
