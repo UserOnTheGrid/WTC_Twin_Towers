@@ -2642,8 +2642,22 @@ function Build_Gateway_Tower(){
     const body_height = building_height - (0.0871 * 4);
 
     const body_geo = new THREE.BoxGeometry(1.05, body_height, 1.175);
-    const body_mat = new THREE.MeshPhongMaterial({color:0x0037ff});
-    const body_mesh = makeShape(body_geo, body_mat, 0, 0, 0);
+    body_geo.addGroup(0, 6, 0);
+    body_geo.addGroup(6, 12, 0);
+    body_geo.addGroup(12, 18, 0);
+    body_geo.addGroup(18, 24, 0);
+    body_geo.addGroup(24, 30, 0);
+    body_geo.addGroup(30, 36, 0);
+
+    const body_mats = [
+        makeMaterial("Materials/Gateway_Tower_EW_Windows_Texture.png", "Materials/Gateway_Tower_EW_Windows_Texture.png", "Materials/Gateway_Tower_EW_Windows_Texture.png", 5, 1), // Front
+        makeMaterial("Materials/Gateway_Tower_EW_Windows_Texture.png", "Materials/Gateway_Tower_EW_Windows_Texture.png", "Materials/Gateway_Tower_EW_Windows_Texture.png", 5, 1), // Back
+        makeMaterial("Materials/One_Liberty_Plaza_Roof_Texture.png", "Materials/One_Liberty_Plaza_Roof_Texture.png", "Materials/One_Liberty_Plaza_Roof_Texture.png", 1, 1), // Top
+        makeMaterial("Materials/One_Liberty_Plaza_Roof_Texture.png", "Materials/One_Liberty_Plaza_Roof_Texture.png", "Materials/One_Liberty_Plaza_Roof_Texture.png", 1, 1), // Bottom
+        makeMaterial("Materials/Gateway_Tower_EW_Windows_Texture.png", "Materials/Gateway_Tower_EW_Windows_Texture.png", "Materials/Gateway_Tower_EW_Windows_Texture.png", 3, 1), // Right
+        makeMaterial("Materials/Gateway_Tower_EW_Windows_Texture.png", "Materials/Gateway_Tower_EW_Windows_Texture.png", "Materials/Gateway_Tower_EW_Windows_Texture.png", 3, 1), // Left
+    ];
+    const body_mesh = makeShape(body_geo, body_mats, 0, 0, 0);
     gateway_tower.add(body_mesh);
 
     const penthouse_geo = new THREE.BufferGeometry();
