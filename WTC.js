@@ -2643,19 +2643,19 @@ function Build_Gateway_Tower(){
 
     const body_geo = new THREE.BoxGeometry(1.05, body_height, 1.175);
     body_geo.addGroup(0, 6, 0);
-    body_geo.addGroup(6, 12, 0);
-    body_geo.addGroup(12, 18, 0);
-    body_geo.addGroup(18, 24, 0);
-    body_geo.addGroup(24, 30, 0);
-    body_geo.addGroup(30, 36, 0);
+    body_geo.addGroup(6, 12, 1);
+    body_geo.addGroup(12, 18, 2);
+    body_geo.addGroup(18, 24, 3);
+    body_geo.addGroup(24, 30, 4);
+    body_geo.addGroup(30, 36, 5);
 
     const body_mats = [
-        makeMaterial("Materials/Gateway_Tower_EW_Windows_Texture.png", "Materials/Gateway_Tower_EW_Windows_Texture.png", "Materials/Gateway_Tower_EW_Windows_Texture.png", 5, 1), // Front
-        makeMaterial("Materials/Gateway_Tower_EW_Windows_Texture.png", "Materials/Gateway_Tower_EW_Windows_Texture.png", "Materials/Gateway_Tower_EW_Windows_Texture.png", 5, 1), // Back
-        makeMaterial("Materials/One_Liberty_Plaza_Roof_Texture.png", "Materials/One_Liberty_Plaza_Roof_Texture.png", "Materials/One_Liberty_Plaza_Roof_Texture.png", 1, 1), // Top
-        makeMaterial("Materials/One_Liberty_Plaza_Roof_Texture.png", "Materials/One_Liberty_Plaza_Roof_Texture.png", "Materials/One_Liberty_Plaza_Roof_Texture.png", 1, 1), // Bottom
-        makeMaterial("Materials/Gateway_Tower_EW_Windows_Texture.png", "Materials/Gateway_Tower_EW_Windows_Texture.png", "Materials/Gateway_Tower_EW_Windows_Texture.png", 3, 1), // Right
-        makeMaterial("Materials/Gateway_Tower_EW_Windows_Texture.png", "Materials/Gateway_Tower_EW_Windows_Texture.png", "Materials/Gateway_Tower_EW_Windows_Texture.png", 3, 1), // Left
+        makeMaterial("Materials/Gateway_Tower_EW_Windows_Texture.png", "Materials/Gateway_Tower_EW_Windows_Texture.png", "Materials/Gateway_Tower_EW_Windows_Texture.png", 1, 30), // Front
+        makeMaterial("Materials/Gateway_Tower_EW_Windows_Texture.png", "Materials/Gateway_Tower_EW_Windows_Texture.png", "Materials/Gateway_Tower_EW_Windows_Texture.png", 1, 30), // Back
+        new THREE.MeshStandardMaterial({color: 0xffffff, side: THREE.DoubleSide}), // Bottom
+        new THREE.MeshStandardMaterial({color: 0xffffff, side: THREE.DoubleSide}), // Top
+        makeMaterial("Materials/Gateway_Tower_NS_Windows_Texture.png", "Materials/Gateway_Tower_NS_Windows_Texture.png", "Materials/Gateway_Tower_NS_Windows_Texture.png", 1, 30), // Right
+        makeMaterial("Materials/Gateway_Tower_NS_Windows_Texture.png", "Materials/Gateway_Tower_NS_Windows_Texture.png", "Materials/Gateway_Tower_NS_Windows_Texture.png", 1, 30), // Left
     ];
     const body_mesh = makeShape(body_geo, body_mats, 0, 0, 0);
     gateway_tower.add(body_mesh);
@@ -2664,86 +2664,82 @@ function Build_Gateway_Tower(){
 
     const vertices = new Float32Array([
         // Wall
-        -0.525, body_height - (body_height / 2), 0.3,               // v0
-        -0.525, body_height - (body_height / 2), -0.3,              // v3
-        -0.525, building_height - (building_height / 2), -0.3,      // v2
-        -0.525, building_height - (building_height / 2), 0.3,       // v1
+        -0.525, body_height - (body_height / 2), 0.352,               // v0
+        -0.525, body_height - (body_height / 2), -0.352,              // v3
+        -0.525, building_height - (building_height / 2), -0.352,      // v2
+        -0.525, building_height - (building_height / 2), 0.352,       // v1
 
-        -0.525, body_height - (body_height / 2), -0.3,              // v4
-        -0.15, body_height - (body_height / 2), -0.3,               // v7
-        -0.15, building_height - (building_height / 2), -0.3,       // v6
-        -0.525, building_height - (building_height / 2), -0.3,      // v5
+        -0.525, body_height - (body_height / 2), -0.352,              // v4
+        -0.132, body_height - (body_height / 2), -0.352,               // v7
+        -0.132, building_height - (building_height / 2), -0.352,       // v6
+        -0.525, building_height - (building_height / 2), -0.352,      // v5
         
 
-        -0.15, body_height - (body_height / 2), -0.3,               // v8
-        -0.15, body_height - (body_height / 2), -0.5875,            // v11
-        -0.15, building_height - (building_height / 2), -0.5875,    // v10
-        -0.15, building_height - (building_height / 2), -0.3,       // v9
+        -0.132, body_height - (body_height / 2), -0.352,               // v8
+        -0.132, body_height - (body_height / 2), -0.5875,            // v11
+        -0.132, building_height - (building_height / 2), -0.5875,    // v10
+        -0.132, building_height - (building_height / 2), -0.352,       // v9
 
-        -0.15, body_height - (body_height / 2), -0.5875,            // v12
-        0.15, body_height - (body_height / 2), -0.5875,             // v15
-        0.15, building_height - (building_height / 2), -0.5875,     // v14
-        -0.15, building_height - (building_height / 2), -0.5875,    // v13
+        -0.132, body_height - (body_height / 2), -0.5875,            // v12
+        0.132, body_height - (body_height / 2), -0.5875,             // v15
+        0.132, building_height - (building_height / 2), -0.5875,     // v14
+        -0.132, building_height - (building_height / 2), -0.5875,    // v13
 
-        0.15, body_height - (body_height / 2), -0.5875,             // v16
-        0.15, body_height - (body_height / 2), -0.3,                // v19
-        0.15, building_height - (building_height / 2), -0.3,        // v18
-        0.15, building_height - (building_height / 2), -0.5875,     // v17
+        0.132, body_height - (body_height / 2), -0.5875,             // v16
+        0.132, body_height - (body_height / 2), -0.352,                // v19
+        0.132, building_height - (building_height / 2), -0.352,        // v18
+        0.132, building_height - (building_height / 2), -0.5875,     // v17
         
 
-        0.15, body_height - (body_height / 2), -0.3,                // v20
-        0.525, body_height - (body_height / 2), -0.3,               // v23
-        0.525, building_height - (building_height / 2), -0.3,       // v22
-        0.15, building_height - (building_height / 2), -0.3,        // v21
+        0.132, body_height - (body_height / 2), -0.352,                // v20
+        0.525, body_height - (body_height / 2), -0.352,               // v23
+        0.525, building_height - (building_height / 2), -0.352,       // v22
+        0.132, building_height - (building_height / 2), -0.352,        // v21
 
-        0.525, body_height - (body_height / 2), -0.3,               // v24
-        0.525, body_height - (body_height / 2), 0.3,                // v27
-        0.525, building_height - (building_height / 2), 0.3,        // v26
-        0.525, building_height - (building_height / 2), -0.3,       // v25
+        0.525, body_height - (body_height / 2), -0.352,               // v24
+        0.525, body_height - (body_height / 2), 0.352,                // v27
+        0.525, building_height - (building_height / 2), 0.352,        // v26
+        0.525, building_height - (building_height / 2), -0.352,       // v25
 
-        0.525, body_height - (body_height / 2), 0.3,                // v28
-        0.15, body_height - (body_height / 2), 0.3,                 // v31
-        0.15, building_height - (building_height / 2), 0.3,         // v30
-        0.525, building_height - (building_height / 2), 0.3,        // v29
+        0.525, body_height - (body_height / 2), 0.352,                // v28
+        0.132, body_height - (body_height / 2), 0.352,                 // v31
+        0.132, building_height - (building_height / 2), 0.352,         // v30
+        0.525, building_height - (building_height / 2), 0.352,        // v29
 
-        0.15, body_height - (body_height / 2), 0.3,                 // v32
-        0.15, body_height - (body_height / 2), 0.5875,              // v35
-        0.15, building_height - (building_height / 2), 0.5875,      // v34
-        0.15, building_height - (building_height / 2), 0.3,         // v33
+        0.132, body_height - (body_height / 2), 0.352,                 // v32
+        0.132, body_height - (body_height / 2), 0.5875,              // v35
+        0.132, building_height - (building_height / 2), 0.5875,      // v34
+        0.132, building_height - (building_height / 2), 0.352,         // v33
 
-        0.15, body_height - (body_height / 2), 0.5875,              // v36
-        -0.15, body_height - (body_height / 2), 0.5875,             // v39
-        -0.15, building_height - (building_height / 2), 0.5875,     // v38
-        0.15, building_height - (building_height / 2), 0.5875,      // v37
+        0.132, body_height - (body_height / 2), 0.5875,              // v36
+        -0.132, body_height - (body_height / 2), 0.5875,             // v39
+        -0.132, building_height - (building_height / 2), 0.5875,     // v38
+        0.132, building_height - (building_height / 2), 0.5875,      // v37
 
-        -0.15, body_height - (body_height / 2), 0.5875,             // v40
-        -0.15, body_height - (body_height / 2), 0.3,                // v43
-        -0.15, building_height - (building_height / 2), 0.3,        // v42
-        -0.15, building_height - (building_height / 2), 0.5875,     // v41
+        -0.132, body_height - (body_height / 2), 0.5875,             // v40
+        -0.132, body_height - (body_height / 2), 0.352,                // v43
+        -0.132, building_height - (building_height / 2), 0.352,        // v42
+        -0.132, building_height - (building_height / 2), 0.5875,     // v41
 
-        -0.15, body_height - (body_height / 2), 0.3,                // v44
-        -0.525, body_height - (body_height / 2), 0.3,               // v47
-        -0.525, building_height - (building_height / 2), 0.3,       // v46
-        -0.15, building_height - (building_height / 2), 0.3,        // v45
+        -0.132, body_height - (body_height / 2), 0.352,                // v44
+        -0.525, body_height - (body_height / 2), 0.352,               // v47
+        -0.525, building_height - (building_height / 2), 0.352,       // v46
+        -0.132, building_height - (building_height / 2), 0.352,        // v45
 
         // Roof
-        -0.525, building_height - (building_height / 2), 0.3,       // v48
-        -0.525, building_height - (building_height / 2), -0.3,      // v49
-        -0.15, building_height - (building_height / 2), -0.3,       // v50
-        -0.15, building_height - (building_height / 2), -0.5875,    // v51
-        0.15, building_height - (building_height / 2), -0.5875,     // v52
-        0.15, building_height - (building_height / 2), -0.3,        // v53
-        0.525, building_height - (building_height / 2), -0.3,       // v54
-        0.525, building_height - (building_height / 2), 0.3,        // v55
-        0.15, building_height - (building_height / 2), 0.3,         // v56
-        0.15, building_height - (building_height / 2), 0.5875,      // v57
-        -0.15, building_height - (building_height / 2), 0.5875,     // v58
-        -0.15, building_height - (building_height / 2), 0.3,        // v59
+        -0.525, building_height - (building_height / 2), 0.352,       // v48
+        -0.525, building_height - (building_height / 2), -0.352,      // v49
+        -0.132, building_height - (building_height / 2), -0.352,       // v50
+        -0.132, building_height - (building_height / 2), -0.5875,    // v51
+        0.132, building_height - (building_height / 2), -0.5875,     // v52
+        0.132, building_height - (building_height / 2), -0.352,        // v53
+        0.525, building_height - (building_height / 2), -0.352,       // v54
+        0.525, building_height - (building_height / 2), 0.352,        // v55
+        0.132, building_height - (building_height / 2), 0.352,         // v56
+        0.132, building_height - (building_height / 2), 0.5875,      // v57
+        -0.132, building_height - (building_height / 2), 0.5875,     // v58
+        -0.132, building_height - (building_height / 2), 0.352,        // v59
     ]);
-
-    // TODO:
-    // Normals and UV Mapping for Penthouse
-
 
     const normals = new Float32Array([
         0, 0, -1,
@@ -2826,10 +2822,15 @@ function Build_Gateway_Tower(){
         1, 1,
         0, 1,
 
-        0, 0,
         1, 0,
-        1, 1,
+        0, 0,
         0, 1,
+        1, 1,
+
+        1, 0,
+        0, 0,
+        0, 1,
+        1, 1,
 
         0, 0,
         1, 0,
@@ -2851,20 +2852,15 @@ function Build_Gateway_Tower(){
         1, 1,
         0, 1,
 
-        0, 0,
         1, 0,
-        1, 1,
+        0, 0,
         0, 1,
+        1, 1,
 
-        0, 0,
         1, 0,
-        1, 1,
-        0, 1,
-
         0, 0,
-        1, 0,
-        1, 1,
         0, 1,
+        1, 1,
 
         0, 0,
         1, 0,
@@ -2937,9 +2933,37 @@ function Build_Gateway_Tower(){
     penthouse_geo.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
     penthouse_geo.setAttribute('normal', new THREE.BufferAttribute(normals, 3));
     penthouse_geo.setAttribute('uv', new THREE.BufferAttribute(uvs, 2));
+    penthouse_geo.addGroup(0, 6, 0);
+    penthouse_geo.addGroup(6, 6, 1);
+    penthouse_geo.addGroup(12, 6, 2);
+    penthouse_geo.addGroup(18, 6, 3);
+    penthouse_geo.addGroup(24, 6, 4);
+    penthouse_geo.addGroup(30, 6, 5);
+    penthouse_geo.addGroup(36, 6, 6);
+    penthouse_geo.addGroup(42, 6, 7);
+    penthouse_geo.addGroup(48, 6, 8);
+    penthouse_geo.addGroup(54, 6, 9);
+    penthouse_geo.addGroup(60, 6, 10);
+    penthouse_geo.addGroup(66, 6, 11);
+    penthouse_geo.addGroup(72, 30, 12);
 
-    const penthouse_mat = makeMaterial("Materials/default_uv.png", "Materials/default_uv.png", "Materials/default_uv.png", 1, 1);
-    const penthouse_mesh = makeShape(penthouse_geo, penthouse_mat, 0, 0, 0);
+    const penthouse_mats = [
+        makeMaterial("Materials/Gateway_Penthouse_EW_Windows_Texture.png", "Materials/Gateway_Penthouse_EW_Windows_Texture.png", "Materials/Gateway_Penthouse_EW_Windows_Texture.png", 1, 2),
+        makeMaterial("Materials/Gateway_Penthouse_EW_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_EW_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_EW_Inner_Windows_Texture.png", 1, 2),
+        makeMaterial("Materials/Gateway_Penthouse_NS_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_NS_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_NS_Inner_Windows_Texture.png", 1, 2),
+        makeMaterial("Materials/Gateway_Penthouse_NS_Windows_Texture.png", "Materials/Gateway_Penthouse_NS_Windows_Texture.png", "Materials/Gateway_Penthouse_NS_Windows_Texture.png", 1, 2),
+        makeMaterial("Materials/Gateway_Penthouse_NS_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_NS_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_NS_Inner_Windows_Texture.png", 1, 2),
+        makeMaterial("Materials/Gateway_Penthouse_EW_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_EW_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_EW_Inner_Windows_Texture.png", 1, 2),
+        makeMaterial("Materials/Gateway_Penthouse_EW_Windows_Texture.png", "Materials/Gateway_Penthouse_EW_Windows_Texture.png", "Materials/Gateway_Penthouse_EW_Windows_Texture.png", 1, 2),
+        makeMaterial("Materials/Gateway_Penthouse_EW_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_EW_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_EW_Inner_Windows_Texture.png", 1, 2),
+        makeMaterial("Materials/Gateway_Penthouse_NS_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_NS_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_NS_Inner_Windows_Texture.png", 1, 2),
+        makeMaterial("Materials/Gateway_Penthouse_NS_Windows_Texture.png", "Materials/Gateway_Penthouse_NS_Windows_Texture.png", "Materials/Gateway_Penthouse_NS_Windows_Texture.png", 1, 2),
+        makeMaterial("Materials/Gateway_Penthouse_NS_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_NS_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_NS_Inner_Windows_Texture.png", 1, 2),
+        makeMaterial("Materials/Gateway_Penthouse_EW_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_EW_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_EW_Inner_Windows_Texture.png", 1, 2),
+        new THREE.MeshStandardMaterial({color: 0xffffff, side: THREE.DoubleSide}),
+
+    ];
+    const penthouse_mesh = makeShape(penthouse_geo, penthouse_mats, 0, 0, 0);
     gateway_tower.add(penthouse_mesh);
 
     gateway_tower.position.x = 6.55
