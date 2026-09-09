@@ -49,7 +49,7 @@ function main(){
     const sphere_geo = new THREE.SphereGeometry(sphere_rad, 16, 12)
     const sphere_mat = new THREE.MeshPhongMaterial({color: 0x696611}, {emissive: 0x8a6500}, {specular: 0xcbd265}, {shininess: 13.3});
 
-    const WTC_Sphere_Mesh = makeShape(sphere_geo, sphere_mat, 0.5, -6.81 + sphere_rad, -2.9);
+    const WTC_Sphere_Mesh = makeShape(sphere_geo, sphere_mat, -0.25, -6.81 + sphere_rad, -3.4);
     scene.add(WTC_Sphere_Mesh);
 
     scene.add(WTC_Complex);
@@ -65,7 +65,7 @@ function main(){
     Build_One_Liberty_Plaza();
     Build_Gateway_Tower();
 
-    //Build_Manhattan_Island();
+    Build_Manhattan_Island();
 
     renderer.render(scene, camera);
 
@@ -3192,16 +3192,27 @@ function Build_Manhattan_Island(){
     ]);
 
     const uvs = new Float32Array([
-        0.479, 0.24,
-        0.504, 0.165,
-        0.1, 0,
-        0, 0.23,
-        0, 1,
-        0.91, 1,
-        0.91, 0.375,
-        0.915, 0.34,
-        0.59, 0.2,
-        0.57, 0.27,
+        0.2405, 0.67,
+        0.197, 0.68,
+        0.2215, 0.894, // Top
+        0.342, 0.875,
+        0.7, 0.686,
+        0.485, 0.275,
+        0.182, 0.427,
+        0.16, 0.432,
+        0.193, 0.623,
+        0.232, 0.618,
+
+        // 0.2405, 0.67,
+        // 0.197, 0.68,
+        // 0.2315, 0.904, // Top
+        // 0.362, 0.885,
+        // 0.70, 0.681,
+        // 0.45, 0.270,
+        // 0.182, 0.427,
+        // 0.16, 0.432,
+        // 0.193, 0.623,
+        // 0.232, 0.618,
     ]);
 
     const indices = [
@@ -3220,8 +3231,10 @@ function Build_Manhattan_Island(){
     Manhattan_Geo.setAttribute('normal', new THREE.BufferAttribute(normals, 3));
     Manhattan_Geo.setAttribute('uv', new THREE.BufferAttribute(uvs, 2));
 
-    const Manhattan_Mat = makeMaterial("Materials/default_uv.png", "Materials/default_uv.png", "Materials/default_uv.png", 1, 1);
-    const Manhattan_Mesh = makeShape(Manhattan_Geo, Manhattan_Mat, 0, -6.8, 0);
+    const Manhattan_Mat = makeMaterial("Materials/Lower_Manhattan.png", "Materials/Lower_Manhattan.png", "Materials/Lower_Manhattan.png", 1, 1);
+    const Manhattan_Mesh = makeShape(Manhattan_Geo, Manhattan_Mat, -0.1, -6.8, -0.35);
+    Manhattan_Mesh.scale.z = 1.05
+    Manhattan_Mesh.position.x += 0.05
     scene.add(Manhattan_Mesh);
 }
 
