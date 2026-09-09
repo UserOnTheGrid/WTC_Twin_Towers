@@ -798,22 +798,22 @@ function Build_WTC4(){
     ]);
 
     const uvs = new Float32Array([
-        0.4, 0.8,
-        0.4, 1,
-        0.87, 1,
-        0.87, 0.8,
-        0.48, 0.51,
-        0.87, 0.51,
-        1, 0.51,
-        1, 0.32,
-        0.87, 0.32,
-        1, 0,
-        0.87, 0,
-        0.4, 0,
-        0.4, 0.3,
-        0, 0.3,
-        0, 0.51,
-        0, 0.8,
+        0.5, 0.269,
+        0.5, 0.338,
+        0.67, 0.338,
+        0.67, 0.269,
+        0.5, 0.18,
+        0.67, 0.18,
+        0.719, 0.18,
+        0.719, 0.116,
+        0.67, 0.116,
+        0.719, 0,
+        0.67, 0,
+        0.5, 0,
+        0.5, 0.116,
+        0.319, 0.116,
+        0.319, 0.18,
+        0.319, 0.269,
 
         0, 0,
         1, 0,
@@ -885,22 +885,22 @@ function Build_WTC4(){
         1, 1,
         0, 1,
 
-        0.4, 0.8,       // v56
-        0.4, 1,         // v57
-        0.87, 1,        // v58
-        0.87, 0.8,      // v59
-        0.48, 0.51,     // v60
-        0.87, 0.51,     // v61
-        1, 0.51,        // v62
-        1, 0.32,        // v63
-        0.87, 0.32,     // v64
-        1, 0,           // v65
-        0.87, 0,        // v66
-        0.4, 0,         // v67
-        0.4, 0.3,       // v68
-        0, 0.3,         // v69
-        0, 0.51,        // v70
-        0, 0.8,         // v71
+        0.76275, 0.93,       // v56
+        0.76275, 1,         // v57
+        0.93, 1,        // v58
+        0.93, 0.93,      // v59
+        0.76275, 0.84,     // v60
+        0.93, 0.84,     // v61
+        0.98, 0.84,        // v62
+        0.98, 0.77,        // v63
+        0.93, 0.778,     // v64
+        0.98, 0.66,           // v65
+        0.93, 0.66,        // v66
+        0.76275, 0.66,         // v67
+        0.76275, 0.778,       // v68
+        0.58, 0.778,        // v70
+        0.58, 0.84,         // v69
+        0.58, 0.93,         // v71
     ]);
 
     const normals = new Float32Array([
@@ -1074,8 +1074,34 @@ function Build_WTC4(){
     WTC4_Upper_Geo.setAttribute( 'normal', new THREE.BufferAttribute( normals, 3 ) );
     WTC4_Upper_Geo.setAttribute( 'uv', new THREE.BufferAttribute( uvs, 2 ) );
     // const WTC4_Upper_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
-    const WTC4_Upper_Mat = makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 6, 1);
-    const WTC4_Upper_Mesh = makeShape(WTC4_Upper_Geo, WTC4_Upper_Mat, 0, -6.81, 0);
+    WTC4_Upper_Geo.addGroup(0, 48, 0);
+    WTC4_Upper_Geo.addGroup(48, 6, 1);
+    WTC4_Upper_Geo.addGroup(54, 6, 2);
+    WTC4_Upper_Geo.addGroup(60, 6, 3);
+    WTC4_Upper_Geo.addGroup(66, 6, 4);
+    WTC4_Upper_Geo.addGroup(72, 6, 5);
+    WTC4_Upper_Geo.addGroup(78, 6, 6);
+    WTC4_Upper_Geo.addGroup(84, 6, 7);
+    WTC4_Upper_Geo.addGroup(90, 6, 8);
+    WTC4_Upper_Geo.addGroup(96, 6, 9);
+    WTC4_Upper_Geo.addGroup(102, 6, 10);
+    WTC4_Upper_Geo.addGroup(108, 48, 11);
+
+    const WTC4_Upper_Mats = [
+        makeMaterial("Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", 1, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 6, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 6, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 6, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 6, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 6, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 6, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 6, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 6, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 6, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 6, 1),
+        makeMaterial("Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", 1, 1),
+    ];
+    const WTC4_Upper_Mesh = makeShape(WTC4_Upper_Geo, WTC4_Upper_Mats, 0, -6.81, 0);
     WTC4.add(WTC4_Upper_Mesh);
 
     WTC4_Base_Geo.setIndex( Indices );
@@ -1310,25 +1336,25 @@ function Build_WTC5(){
     ]);
 
     const uvs = new Float32Array([
-        0.05, 0.95,
-        0.05, 1,
-        0.33, 1,
-        0.33, 0.95,
-        0.76, 0.95,
-        0.76, 0.6,
-        0.33, 0.6,
-        0.33, 0.52,
-        0.33, 0.48,
-        0.47, 0.48,
-        0.47, 0,
-        0.44, 0,
-        0.05, 0,
-        0.05, 0.48,
-        0, 0,
-        0, 0.48,
-        0, 0.52,
-        0.05, 0.52,
-        0.05, 0.6,
+        0.33, 0.753,
+        0.33, 0.775,
+        0.51, 0.775,
+        0.51, 0.753,
+        0.69, 0.753,
+        0.69, 0.595,
+        0.51, 0.595,
+        0.51, 0.56,
+        0.51, 0.53,
+        0.549, 0.53,
+        0.549, 0.34,
+        0.51, 0.34,
+        0.33, 0.34,
+        0.33, 0.53,
+        0.302, 0.34,
+        0.302, 0.53,
+        0.302, 0.56,
+        0.33, 0.56,
+        0.33, 0.595,
 
         0, 0,
         1, 0,
@@ -1390,25 +1416,25 @@ function Build_WTC5(){
         1, 1,
         0, 1,
 
-        0.05, 0.95,
-        0.05, 1,
-        0.33, 1,
-        0.33, 0.95,
-        0.76, 0.95,
-        0.76, 0.6,
-        0.33, 0.6,
-        0.33, 0.52,
-        0.33, 0.48,
-        0.47, 0.48,
-        0.47, 0,
-        0.44, 0,
-        0.05, 0,
-        0.05, 0.48,
-        0, 0,
-        0, 0.48,
-        0, 0.52,
-        0.05, 0.52,
-        0.05, 0.6,
+        0.055, 0.936,
+        0.055, 0.958,
+        0.232, 0.958,
+        0.232, 0.936,
+        0.413, 0.936,
+        0.413, 0.777,
+        0.232, 0.777,
+        0.232, 0.74,
+        0.232, 0.715,
+        0.27, 0.715,
+        0.27, 0.522,
+        0.232, 0.522,
+        0.055, 0.522,
+        0.055, 0.715,
+        0.025, 0.522,
+        0.025, 0.715,
+        0.025, 0.74,
+        0.055, 0.74,
+        0.055, 0.777,
     ]);
     
     const Base_Vertices = new Float32Array([
@@ -1589,9 +1615,38 @@ function Build_WTC5(){
     WTC5_Upper_Geo.setAttribute( 'position', new THREE.BufferAttribute( Upper_Vertices, 3 ) );
     WTC5_Upper_Geo.setAttribute( 'normal', new THREE.BufferAttribute( normals, 3 ) );
     WTC5_Upper_Geo.setAttribute( 'uv', new THREE.BufferAttribute( uvs, 2 ) );
+    WTC5_Upper_Geo.addGroup(0, 54, 0);
+    WTC5_Upper_Geo.addGroup(54, 6, 1);
+    WTC5_Upper_Geo.addGroup(60, 6, 2);
+    WTC5_Upper_Geo.addGroup(66, 6, 3);
+    WTC5_Upper_Geo.addGroup(72, 6, 4);
+    WTC5_Upper_Geo.addGroup(78, 6, 5);
+    WTC5_Upper_Geo.addGroup(84, 6, 6);
+    WTC5_Upper_Geo.addGroup(90, 6, 7);
+    WTC5_Upper_Geo.addGroup(96, 6, 8);
+    WTC5_Upper_Geo.addGroup(102, 6, 9);
+    WTC5_Upper_Geo.addGroup(108, 6, 10);
+    WTC5_Upper_Geo.addGroup(114, 6, 11);
+    WTC5_Upper_Geo.addGroup(120, 6, 12);
+    WTC5_Upper_Geo.addGroup(126, 54, 13);
     //const WTC5_Upper_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
-    const WTC5_Upper_Mat = makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 10, 1);
-    const WTC5_Upper_Mesh = makeShape(WTC5_Upper_Geo, WTC5_Upper_Mat, 0, -6.81, 0);
+    const WTC5_Upper_Mats = [
+        makeMaterial("Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5UpperWindow_Texture.png", 1, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 10, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 10, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 10, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 10, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 10, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 10, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 10, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 10, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 10, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 10, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 10, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 10, 1),
+        makeMaterial("Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", 1, 1),
+    ];
+    const WTC5_Upper_Mesh = makeShape(WTC5_Upper_Geo, WTC5_Upper_Mats, 0, -6.81, 0);
     WTC5.add(WTC5_Upper_Mesh);
 
     WTC5_Base_Geo.setIndex( Indices );
@@ -1860,47 +1915,47 @@ function Build_WTC6(){
         1, 1,
         0, 1,
 
-        0.10, 1,
-        0.37, 1,
-        0.43, 1,
-        0.10, 0.625,
-        0.37, 0.625,
-        0.43, 0.625,
-        0.55, 0.625,
-        0, 0.56,
-        0.10, 0.56,
-        0.37, 0.56,
-        0.43, 0.56,
-        0.55, 0.56,
-        0, 0.24,
-        0.10, 0.24,
-        0.37, 0.24,
-        0.43, 0.24,
-        0.55, 0.24,
-        0, 0,
-        0.10, 0,
-        0.37, 0,
+        0.764, 0.647,
+        0.912, 0.647,
+        0.948, 0.647,
+        0.764, 0.493,
+        0.912, 0.493,
+        0.948, 0.493,
+        1, 0.493,
+        0.727, 0.454,
+        0.764, 0.454,
+        0.912, 0.454,
+        0.948, 0.454,
+        1, 0.454,
+        0.727, 0.312,
+        0.764, 0.312,
+        0.912, 0.312,
+        0.948, 0.312,
+        1, 0.312,
+        0.727, 0.216,
+        0.764, 0.216,
+        0.912, 0.216,
 
-        0.10, 1,
-        0.37, 1,
-        0.43, 1,
-        0.10, 0.625,
-        0.37, 0.625,
-        0.43, 0.625,
-        0.55, 0.625,
-        0, 0.56,
-        0.10, 0.56,
-        0.37, 0.56,
-        0.43, 0.56,
-        0.55, 0.56,
-        0, 0.24,
-        0.10, 0.24,
-        0.37, 0.24,
-        0.43, 0.24,
-        0.55, 0.24,
-        0, 0,
-        0.10, 0,
-        0.37, 0,
+        0.038, 0.464,
+        0.186, 0.464,
+        0.221, 0.464,
+        0.038, 0.311,
+        0.186, 0.311,
+        0.221, 0.311,
+        0.273, 0.311,
+        0, 0.27,
+        0.038, 0.27,
+        0.186, 0.27,
+        0.221, 0.27,
+        0.273, 0.27,
+        0, 0.129,
+        0.038, 0.129,
+        0.186, 0.129,
+        0.221, 0.129,
+        0.273, 0.129,
+        0, 0.033,
+        0.038, 0.033,
+        0.186, 0.033,
     ]);
     
     const Base_Vertices = new Float32Array([
@@ -2029,9 +2084,35 @@ function Build_WTC6(){
     WTC6_Upper_Geo.setAttribute( 'position', new THREE.BufferAttribute( Upper_Vertices, 3 ) );
     WTC6_Upper_Geo.setAttribute( 'normal', new THREE.BufferAttribute( normals, 3 ) );
     WTC6_Upper_Geo.setAttribute( 'uv', new THREE.BufferAttribute( uvs, 2 ) );
+    WTC6_Upper_Geo.addGroup(0, 6, 0);
+    WTC6_Upper_Geo.addGroup(6, 6, 1);
+    WTC6_Upper_Geo.addGroup(12, 6, 2);
+    WTC6_Upper_Geo.addGroup(18, 6, 3);
+    WTC6_Upper_Geo.addGroup(24, 6, 4);
+    WTC6_Upper_Geo.addGroup(30, 6, 5);
+    WTC6_Upper_Geo.addGroup(36, 6, 6);
+    WTC6_Upper_Geo.addGroup(42, 6, 7);
+    WTC6_Upper_Geo.addGroup(48, 6, 8);
+    WTC6_Upper_Geo.addGroup(54, 6, 9);
+    WTC6_Upper_Geo.addGroup(60, 66, 10);
+    WTC6_Upper_Geo.addGroup(126, 66, 11);
     //const WTC6_Upper_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
-    const WTC6_Upper_Mat = makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 30, 1);
-    const WTC6_Upper_Mesh = makeShape(WTC6_Upper_Geo, WTC6_Upper_Mat, 0, -6.81, 0);
+    const WTC6_Upper_Mats = [
+        makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 30, 1),
+        makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 30, 1),
+        makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 30, 1),
+        makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 30, 1),
+        makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 30, 1),
+        makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 30, 1),
+        makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 30, 1),
+        makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 30, 1),
+        makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 30, 1),
+        makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 30, 1),
+        makeMaterial("Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", 1, 1),
+        makeMaterial("Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", 1, 1),
+
+    ];
+    const WTC6_Upper_Mesh = makeShape(WTC6_Upper_Geo, WTC6_Upper_Mats, 0, -6.81, 0);
     WTC6.add(WTC6_Upper_Mesh);
 
     WTC6_Base_Geo.setIndex( Indices );
