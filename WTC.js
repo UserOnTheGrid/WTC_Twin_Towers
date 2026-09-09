@@ -188,8 +188,12 @@ function Build_Towers(){
     const antenna_radius = 0.1;
     const antenna_geo = new THREE.CylinderGeometry(antenna_radius, antenna_radius, antenna_height, 32);
     //const antenna_mat = new THREE.MeshPhongMaterial({color: 0xffffff});
-    const antenna_mat = makeMaterial("Materials/Antenna_Map.png", "Materials/Antenna_Map.png", "Materials/Antenna_Map.png", 1, 1);
-    const antenna_mesh = makeShape(antenna_geo, antenna_mat, 0, (tower_height / 2) + (antenna_height / 2), 0);
+    const antenna_mats = [
+        makeMaterial("Materials/Antenna_Map.png", "Materials/Antenna_Map.png", "Materials/Antenna_Map.png", 1, 1),
+        new THREE.MeshStandardMaterial({Color: 0x353535}),
+        new THREE.MeshStandardMaterial({Color: 0x353535}),
+    ];
+    const antenna_mesh = makeShape(antenna_geo, antenna_mats, 0, (tower_height / 2) + (antenna_height / 2), 0);
 
     WTC1.add(tower1_mesh);
     WTC1.add(antenna_mesh);
@@ -1087,18 +1091,18 @@ function Build_WTC4(){
     WTC4_Upper_Geo.addGroup(102, 6, 10);
     WTC4_Upper_Geo.addGroup(108, 48, 11);
 
-    const WTC4_Upper_Mats = [
+    const WTC4_Upper_Mats = [ // Windows are 11.7 ft long
         makeMaterial("Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", 1, 1),
         makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 6, 1),
-        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 6, 1),
-        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 6, 1),
-        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 6, 1),
-        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 6, 1),
-        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 6, 1),
-        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 6, 1),
-        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 6, 1),
-        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 6, 1),
-        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 6, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 12, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 13, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 3, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 16, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 15, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 10, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 14, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 12, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 14, 1),
         makeMaterial("Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", 1, 1),
     ];
     const WTC4_Upper_Mesh = makeShape(WTC4_Upper_Geo, WTC4_Upper_Mats, 0, -6.81, 0);
@@ -1632,18 +1636,18 @@ function Build_WTC5(){
     //const WTC5_Upper_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
     const WTC5_Upper_Mats = [
         makeMaterial("Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5UpperWindow_Texture.png", 1, 1),
-        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 10, 1),
-        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 10, 1),
-        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 10, 1),
-        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 10, 1),
-        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 10, 1),
-        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 10, 1),
-        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 10, 1),
-        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 10, 1),
-        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 10, 1),
-        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 10, 1),
-        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 10, 1),
-        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 10, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 12, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 2, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 13, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 13, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 13, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 6, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 2, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 16, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 17, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 18, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 3, 1),
+        makeMaterial("Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", "Materials/WTC4-5UpperWindow_Texture.png", 18, 1),
         makeMaterial("Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", 1, 1),
     ];
     const WTC5_Upper_Mesh = makeShape(WTC5_Upper_Geo, WTC5_Upper_Mats, 0, -6.81, 0);
@@ -2097,17 +2101,17 @@ function Build_WTC6(){
     WTC6_Upper_Geo.addGroup(60, 66, 10);
     WTC6_Upper_Geo.addGroup(126, 66, 11);
     //const WTC6_Upper_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
-    const WTC6_Upper_Mats = [
-        makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 30, 1),
-        makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 30, 1),
-        makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 30, 1),
-        makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 30, 1),
-        makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 30, 1),
-        makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 30, 1),
-        makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 30, 1),
-        makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 30, 1),
-        makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 30, 1),
-        makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 30, 1),
+    const WTC6_Upper_Mats = [ // Windows are 5.9 ft
+        makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 33, 1),
+        makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 25, 1),
+        makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 8, 1),
+        makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 29, 1),
+        makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 13, 1),
+        makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 16, 1),
+        makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 27, 1),
+        makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 45, 1),
+        makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 6, 1),
+        makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 25, 1),
         makeMaterial("Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", 1, 1),
         makeMaterial("Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", 1, 1),
 
