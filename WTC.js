@@ -31,10 +31,10 @@ function main(){
     const color = 0xFFFFFF;
     const intensity = 3;
     const shadow_intensity = 1;
-    const light = new THREE.AmbientLight(color, intensity);
-    //light.castShadow = true;
-    //light.shadow.intensity = shadow_intensity;
-    //light.position.set(5, 7, 7);
+    const light = new THREE.DirectionalLight(color, intensity);
+    light.castShadow = true;
+    light.shadow.intensity = shadow_intensity;
+    light.position.set(5, 7, 7);
     scene.add(light);
 
     //const helper = new THREE.DirectionalLightHelper(light);
@@ -50,7 +50,7 @@ function main(){
 
     const sphere_rad = 0.17 / 2;
     const sphere_geo = new THREE.SphereGeometry(sphere_rad, 16, 12)
-    const sphere_mat = new THREE.MeshPhongMaterial({color: 0x696611}, {emissive: 0x8a6500}, {specular: 0xcbd265}, {shininess: 13.3});
+    const sphere_mat = new THREE.MeshPhongMaterial({color: 0x7e7b1b}, {emissive: 0x7e4a01}, {specular: 0x7f7c1a}, {shininess: 61.5});
 
     const WTC_Sphere_Mesh = makeShape(sphere_geo, sphere_mat, -0.25, -6.81 + sphere_rad, -3.4);
     scene.add(WTC_Sphere_Mesh);
@@ -1148,6 +1148,42 @@ function Build_WTC4(){
     ];
     const WTC4_Base_Mesh = makeShape(WTC4_Base_Geo, WTC4_Base_Mats, 0, -6.81, 0);
     WTC4.add(WTC4_Base_Mesh);
+
+    // Make Sign
+    const sign_geo = new THREE.BufferGeometry();
+    const sign_vertices = new Float32Array([
+        0, 0, 0,
+        3, 0, 0,
+        3, 2, 0,
+        0, 2, 0,
+    ]);
+    const sign_normals = new Float32Array([
+        1, 1, 1,
+        1, 1, 1,
+        1, 1, 1,
+        1, 1, 1,
+    ]);
+    const sign_uvs = new Float32Array([
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+    ]);
+    const sign_indices = [
+        0, 1, 2,
+        0, 2, 3,
+    ];
+    sign_geo.setIndex(sign_indices);
+    sign_geo.setAttribute( 'position', new THREE.BufferAttribute( sign_vertices, 3 ) );
+    sign_geo.setAttribute( 'normal', new THREE.BufferAttribute( sign_normals, 3 ) );
+    sign_geo.setAttribute( 'uv', new THREE.BufferAttribute( sign_uvs, 2 ) );
+    const sign_mat = makeMaterial("Materials/TheMallAtTheWTC_Logo.png", "Materials/TheMallAtTheWTC_Logo.png", "Materials/TheMallAtTheWTC_Logo.png", 1, 1);
+    const sign_mesh = makeShape(sign_geo, sign_mat, 4.3, -6.75, -4.34);
+    sign_mesh.rotation.y = 1.57;
+    sign_mesh.scale.x = 0.09;
+    sign_mesh.scale.y = 0.1;
+    sign_mesh.scale.z = 0.09;
+    WTC4.add(sign_mesh);
 
     WTC_Complex.add(WTC4);
 }
