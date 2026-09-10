@@ -9,14 +9,13 @@ const TwinTowers = new THREE.Group();
 
 function main(){
     // Make our canvas
-    scene.background = new THREE.Color(0xff0000);
     const canvas = document.querySelector('#c');
     const renderer = new THREE.WebGLRenderer({antialias: true, canvas});
     renderer.setSize(500, 728);
 
     // Set up Camera
     // Frustrum settings
-    const fov = 60; // Field of View
+    const fov = 55; // Field of View
     const aspect = 500 / 728; // Ratio of view's height and width
     const near = 0.1; // Minimum fov value closest to the camera
     const far = 70; // Maximum fov value farthest from the camera
@@ -38,8 +37,8 @@ function main(){
     light.position.set(5, 7, 7);
     scene.add(light);
 
-    const helper = new THREE.DirectionalLightHelper(light);
-    scene.add(helper);
+    //const helper = new THREE.DirectionalLightHelper(light);
+    //scene.add(helper);
 
     // Build World Trade Center Complex + Sphere
     Build_Towers();
@@ -3271,9 +3270,7 @@ function makeTexture(source, tileX, tileY){
     const texture = new THREE.TextureLoader().load(source);
     texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
     texture.magFilter = THREE.NearestFilter;
-    //texture.minFilter = THREE.NearestFilter;
     texture.repeat.set(tileX, tileY);
-
     return texture;
 }
 
