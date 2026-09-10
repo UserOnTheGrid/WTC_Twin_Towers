@@ -15,15 +15,15 @@ function main(){
 
     // Set up Camera
     // Frustrum settings
-    const fov = 55; // Field of View
+    const fov = 58; // Field of View
     const aspect = 500 / 728; // Ratio of view's height and width
     const near = 0.1; // Minimum fov value closest to the camera
     const far = 70; // Maximum fov value farthest from the camera
     const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
     const controls = new OrbitControls(camera, renderer.domElement);
 
-    camera.position.set(6.294, -6.199, 11.319);
-    camera.rotation.set(0.525, 0.337, -0.189);
+    camera.position.set(6.45, -6.539, 11.408);
+    camera.rotation.set(0.484, 0.356, -0.182);
 
     //camera.position.set(0, 0, 10);
 
@@ -31,10 +31,10 @@ function main(){
     const color = 0xFFFFFF;
     const intensity = 3;
     const shadow_intensity = 1;
-    const light = new THREE.DirectionalLight(color, intensity);
-    light.castShadow = true;
-    light.shadow.intensity = shadow_intensity;
-    light.position.set(5, 7, 7);
+    const light = new THREE.AmbientLight(color, intensity);
+    //light.castShadow = true;
+    //light.shadow.intensity = shadow_intensity;
+    //light.position.set(5, 7, 7);
     scene.add(light);
 
     //const helper = new THREE.DirectionalLightHelper(light);
@@ -82,6 +82,8 @@ function main(){
     renderer.render(scene, camera);
 
     function render(time){
+        console.log("Camera X: " + camera.position.x + "\nCamera Y: " + camera.position.y + "\nCamera Z: " + camera.position.z);
+        console.log("Camera Rotation X: " + camera.rotation.x + "\nCamera Rotation Y: " + camera.rotation.y + "\nCamera Rotation Z: " + camera.rotation.z);
         renderer.render(scene, camera);
 
         requestAnimationFrame(render);
@@ -2551,19 +2553,19 @@ function Build_Winter_Garden(){
 
     const atrium_mats = [
         new THREE.MeshStandardMaterial({color: 0xfaeacf, side: THREE.DoubleSide}),
-        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 3, 1),
-        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 1, 1),
-        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 3, 1),
-        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 1, 1),
-        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 3, 1),
-        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 2, 1),
-        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 3, 1),
-        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 5, 1),
-        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 2, 1),
-        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 2, 1),
-        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 12, 1),
-        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 2, 1),
-        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 1, 1),
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", 3, 1),
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", 1, 1),
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", 4, 1),
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", 1, 1),
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", 9, 1),
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", 2, 1),
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", 3, 1),
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", 5, 1),
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", 3, 1),
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", 2, 1),
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", 12, 1),
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", 2, 1),
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", 1, 1),
         new THREE.MeshStandardMaterial({color: 0xfaeacf, side: THREE.DoubleSide}),
     ];
     const atrium_mesh = makeShape(atrium_geo, atrium_mats, 0, -6.81, 0);
@@ -2584,7 +2586,7 @@ function Build_Winter_Garden(){
 
     const tower1_geo = new THREE.CylinderGeometry(0.7, 0.7, atrium_height + 0.01, 8);
     const tower1_mats = [
-        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 8, 1),
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", 8, 1),
         new THREE.MeshStandardMaterial({color: 0xfaeacf, side: THREE.DoubleSide}),
         new THREE.MeshStandardMaterial({color: 0xfaeacf, side: THREE.DoubleSide})
     ];
@@ -2707,7 +2709,7 @@ function Build_BP1(){
     base_geo.addGroup(24, 12, 1);
     const base_mats = [
         roof_mat,
-        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 6, 1)
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", 6, 1)
     ];
     const base_mesh = makeShape(base_geo, base_mats, 0, (-tower_height / 2) + 0.4, 0);
     BP1.add(base_mesh);
@@ -2785,7 +2787,7 @@ function Build_BP1(){
     left_base_geo.addGroup(24, 12, 1);
     const left_base_mats = [
         roof_mat,
-        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 1, 1)
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", 2, 1)
     ];
     const left_base_mesh = makeShape(left_base_geo, left_base_mats, -1.23, (-tower_height / 2) + 0.4, 0);
     BP1.add(left_base_mesh);
@@ -2806,7 +2808,7 @@ function Build_BP1(){
 
     const tower2_geo = new THREE.CylinderGeometry(0.7, 0.7, base_height + 0.01, 8);
     const tower2_mats = [
-        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", "Materials/Winter_Garden_Atrium_Window_Texture.png", 8, 1),
+        makeMaterial("Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", "Materials/Winter_Garden_Atrium_Window_Texture_Deluxe.png", 8, 1),
         roof_mat,
         roof_mat
     ];
@@ -3008,10 +3010,30 @@ function Build_Gateway_Tower(){
     ]);
 
     const uvs = new Float32Array([
+        1, 0,
+        0, 0,
+        0, 1,
+        1, 1,
+
         0, 0,
         1, 0,
         1, 1,
         0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1,
+
+        1, 0,
+        0, 0,
+        0, 1,
+        1, 1,
 
         1, 0,
         0, 0,
@@ -3038,11 +3060,6 @@ function Build_Gateway_Tower(){
         1, 1,
         0, 1,
 
-        0, 0,
-        1, 0,
-        1, 1,
-        0, 1,
-
         1, 0,
         0, 0,
         0, 1,
@@ -3052,21 +3069,6 @@ function Build_Gateway_Tower(){
         0, 0,
         0, 1,
         1, 1,
-
-        0, 0,
-        1, 0,
-        1, 1,
-        0, 1,
-
-        0, 0,
-        1, 0,
-        1, 1,
-        0, 1,
-
-        0, 0,
-        1, 0,
-        1, 1,
-        0, 1,
 
         0, 0.25,
         0, 0.75,
@@ -3140,17 +3142,17 @@ function Build_Gateway_Tower(){
 
     const penthouse_mats = [
         makeMaterial("Materials/Gateway_Penthouse_EW_Windows_Texture.png", "Materials/Gateway_Penthouse_EW_Windows_Texture.png", "Materials/Gateway_Penthouse_EW_Windows_Texture.png", 1, 2),
-        makeMaterial("Materials/Gateway_Penthouse_EW_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_EW_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_EW_Inner_Windows_Texture.png", 1, 2),
         makeMaterial("Materials/Gateway_Penthouse_NS_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_NS_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_NS_Inner_Windows_Texture.png", 1, 2),
+        makeMaterial("Materials/Gateway_Penthouse_EW_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_EW_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_EW_Inner_Windows_Texture.png", 1, 2),
         makeMaterial("Materials/Gateway_Penthouse_NS_Windows_Texture.png", "Materials/Gateway_Penthouse_NS_Windows_Texture.png", "Materials/Gateway_Penthouse_NS_Windows_Texture.png", 1, 2),
-        makeMaterial("Materials/Gateway_Penthouse_NS_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_NS_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_NS_Inner_Windows_Texture.png", 1, 2),
         makeMaterial("Materials/Gateway_Penthouse_EW_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_EW_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_EW_Inner_Windows_Texture.png", 1, 2),
+        makeMaterial("Materials/Gateway_Penthouse_NS_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_NS_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_NS_Inner_Windows_Texture.png", 1, 2),
         makeMaterial("Materials/Gateway_Penthouse_EW_Windows_Texture.png", "Materials/Gateway_Penthouse_EW_Windows_Texture.png", "Materials/Gateway_Penthouse_EW_Windows_Texture.png", 1, 2),
-        makeMaterial("Materials/Gateway_Penthouse_EW_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_EW_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_EW_Inner_Windows_Texture.png", 1, 2),
         makeMaterial("Materials/Gateway_Penthouse_NS_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_NS_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_NS_Inner_Windows_Texture.png", 1, 2),
+        makeMaterial("Materials/Gateway_Penthouse_EW_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_EW_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_EW_Inner_Windows_Texture.png", 1, 2),
         makeMaterial("Materials/Gateway_Penthouse_NS_Windows_Texture.png", "Materials/Gateway_Penthouse_NS_Windows_Texture.png", "Materials/Gateway_Penthouse_NS_Windows_Texture.png", 1, 2),
-        makeMaterial("Materials/Gateway_Penthouse_NS_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_NS_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_NS_Inner_Windows_Texture.png", 1, 2),
         makeMaterial("Materials/Gateway_Penthouse_EW_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_EW_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_EW_Inner_Windows_Texture.png", 1, 2),
+        makeMaterial("Materials/Gateway_Penthouse_NS_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_NS_Inner_Windows_Texture.png", "Materials/Gateway_Penthouse_NS_Inner_Windows_Texture.png", 1, 2),
         new THREE.MeshStandardMaterial({color: 0xffffff, side: THREE.DoubleSide}),
 
     ];
