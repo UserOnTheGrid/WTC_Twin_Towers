@@ -1,6 +1,7 @@
 // Import three.js
 import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+//import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { FlyControls } from 'three/addons/controls/FlyControls.js';
 
 const scene = new THREE.Scene(); // Scene
 const WTC_Complex = new THREE.Group();
@@ -20,16 +21,21 @@ function main(){
     const near = 0.1; // Minimum fov value closest to the camera
     const far = 70; // Maximum fov value farthest from the camera
     const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-    const controls = new OrbitControls(camera, renderer.domElement);
-
     camera.position.set(6.45, -6.539, 11.408);
     camera.rotation.set(0.484, 0.356, -0.182);
+
+    const controls = new FlyControls(camera, renderer.domElement);
+    controls.movementSpeed = 2.5;
+    controls.rollSpeed = 1;
+    controls.autoForward = false;
+    controls.dragToLook = true;
+
 
     //camera.position.set(0, 0, 10);
 
     // Apply lighting
     const color = 0xFFFFFF;
-    const intensity = 3;
+    const intensity = 4;
     const shadow_intensity = 1;
     const light = new THREE.DirectionalLight(color, intensity);
     light.castShadow = true;
@@ -84,6 +90,7 @@ function main(){
     function render(time){
         console.log("Camera X: " + camera.position.x + "\nCamera Y: " + camera.position.y + "\nCamera Z: " + camera.position.z);
         console.log("Camera Rotation X: " + camera.rotation.x + "\nCamera Rotation Y: " + camera.rotation.y + "\nCamera Rotation Z: " + camera.rotation.z);
+        controls.update(0.01);
         renderer.render(scene, camera);
 
         requestAnimationFrame(render);
@@ -2271,7 +2278,7 @@ function Build_Millennium_NYC(){
         makeMaterial("Materials/Millennium_Hotel_Window_Texture.png", "Materials/Millennium_Hotel_Window_Texture.png", "Materials/Millennium_Hotel_Window_Texture.png", 20, 28),
         makeMaterial("Materials/Millennium_Hotel_Window_Texture.png", "Materials/Millennium_Hotel_Window_Texture.png", "Materials/Millennium_Hotel_Window_Texture.png", 20, 28),
     ];
-    const tower_mesh = makeShape(tower_geo, tower_mats, -0.8, -3.80, -8.65); // Make a mesh
+    const tower_mesh = makeShape(tower_geo, tower_mats, -0.8, -3.88, -8.65); // Make a mesh
 
     scene.add(tower_mesh);
 
@@ -2298,7 +2305,7 @@ function Build_One_Liberty_Plaza(){
         makeMaterial("Materials/One_Liberty_Plaza_Window_Texture.png", "Materials/One_Liberty_Plaza_Window_Texture.png", "Materials/One_Liberty_Plaza_Window_Texture.png", 3, 1), // Right
         makeMaterial("Materials/One_Liberty_Plaza_Window_Texture.png", "Materials/One_Liberty_Plaza_Window_Texture.png", "Materials/One_Liberty_Plaza_Window_Texture.png", 3, 1), // Left
     ];
-    const tower_mesh = makeShape(tower_geo, tower_mats, 4.1, -3, -10); // Make a mesh
+    const tower_mesh = makeShape(tower_geo, tower_mats, 4.1, -3.08, -10); // Make a mesh
 
     scene.add(tower_mesh);
 }
