@@ -12,30 +12,34 @@ function main(){
     scene.background = new THREE.Color(0xff0000);
     const canvas = document.querySelector('#c');
     const renderer = new THREE.WebGLRenderer({antialias: true, canvas});
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(500, 728);
 
     // Set up Camera
     // Frustrum settings
     const fov = 60; // Field of View
-    const aspect = window.innerWidth / window.innerHeight; // Ratio of view's height and width
+    const aspect = 500 / 728; // Ratio of view's height and width
     const near = 0.1; // Minimum fov value closest to the camera
-    const far = 40; // Maximum fov value farthest from the camera
+    const far = 70; // Maximum fov value farthest from the camera
     const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
     const controls = new OrbitControls(camera, renderer.domElement);
 
-    // camera.position.set(0, 10, -2);
-    // camera.rotation.set(-1.5, 0, 0);
+    camera.position.set(6.294, -6.199, 11.319);
+    camera.rotation.set(0.525, 0.337, -0.189);
 
-    //camera.position.set(-1.5, -6, 2);
-
-    camera.position.set(0, 0, 10);
+    //camera.position.set(0, 0, 10);
 
     // Apply lighting
     const color = 0xFFFFFF;
-    const intensity = 2;
+    const intensity = 3;
+    const shadow_intensity = 1;
     const light = new THREE.DirectionalLight(color, intensity);
-    light.position.set(-1, 2, 4);
+    light.castShadow = true;
+    light.shadow.intensity = shadow_intensity;
+    light.position.set(5, 7, 7);
     scene.add(light);
+
+    const helper = new THREE.DirectionalLightHelper(light);
+    scene.add(helper);
 
     // Build World Trade Center Complex + Sphere
     Build_Towers();
@@ -67,16 +71,18 @@ function main(){
 
     Build_Manhattan_Island();
 
+    const skybox = new THREE.CubeTextureLoader().load([
+            "Materials/Skybox/Daylight Box_Right.bmp",
+            "Materials/Skybox/Daylight Box_Left.bmp",
+            "Materials/Skybox/Daylight Box_Top.bmp",
+            "Materials/Skybox/Daylight Box_Bottom.bmp",
+            "Materials/Skybox/Daylight Box_Front.bmp",
+            "Materials/Skybox/Daylight Box_Back.bmp"]);
+    scene.background = skybox;
+
     renderer.render(scene, camera);
 
     function render(time){
-        time *= 0.001; // Time is in SECONDS
-            const speed = 1;
-            const rot = time * speed;
-            //WTC_Complex.rotation.y = rot;
-            //console.log("Camera X: " + camera.position.x + "\nCamera Y: " + camera.position.y + "\nCamera Z: " + camera.position.z);
-            //console.log("Camera Rotation X: " + camera.rotation.x + "\nCamera Rotation Y: " + camera.rotation.y + "\nCamera Rotation Z: " + camera.rotation.z);
-
         renderer.render(scene, camera);
 
         requestAnimationFrame(render);
@@ -2928,65 +2934,65 @@ function Build_Gateway_Tower(){
     ]);
 
     const normals = new Float32Array([
+        1, 1, 1,
+        1, 1, 1,
+        1, 1, 1,
+        1, 1, 1,
+
+        1, 1, 1,
+        1, 1, 1,
+        1, 1, 1,
+        1, 1, 1,
+
+        1, 1, 1,
+        1, 1, 1,
+        1, 1, 1,
+        1, 1, 1,
+
+        1, 1, 1,
+        1, 1, 1,
+        1, 1, 1,
+        1, 1, 1,
+
+        -1, 0, -1,
+        -1, 0, -1,
+        -1, 0, -1,
+        -1, 0, -1,
+
+        1, 1, 1,
+        1, 1, 1,
+        1, 1, 1,
+        1, 1, 1,
+
+        -1, 0, -1,
+        -1, 0, -1,
+        -1, 0, -1,
+        -1, 0, -1,
+
+        -1, 0, -1,
+        -1, 0, -1,
+        -1, 0, -1,
+        -1, 0, -1,
+
+        -1, 0, -1,
+        -1, 0, -1,
+        -1, 0, -1,
+        -1, 0, -1,
+
+        -1, 0, -1,
+        -1, 0, -1,
+        -1, 0, -1,
+        -1, 0, -1,
+
         0, 0, -1,
         0, 0, -1,
         0, 0, -1,
         0, 0, -1,
 
-        -1, 0, 0,
-        -1, 0, 0,
-        -1, 0, 0,
-        -1, 0, 0,
-
-        0, 0, -1,
-        0, 0, -1,
-        0, 0, -1,
-        0, 0, -1,
-
-        -1, 0, 0,
-        -1, 0, 0,
-        -1, 0, 0,
-        -1, 0, 0,
-
-        0, 0, 1,
-        0, 0, 1,
-        0, 0, 1,
-        0, 0, 1,
-
-        -1, 0, 0,
-        -1, 0, 0,
-        -1, 0, 0,
-        -1, 0, 0,
-
-        0, 0, 1,
-        0, 0, 1,
-        0, 0, 1,
-        0, 0, 1,
-
-        1, 0, 0,
-        1, 0, 0,
-        1, 0, 0,
-        1, 0, 0,
-
-        0, 0, 1,
-        0, 0, 1,
-        0, 0, 1,
-        0, 0, 1,
-
-        1, 0, 0,
-        1, 0, 0,
-        1, 0, 0,
-        1, 0, 0,
-
-        0, 0, -1,
-        0, 0, -1,
-        0, 0, -1,
-        0, 0, -1,
-
-        1, 0, 0,
-        1, 0, 0,
-        1, 0, 0,
-        1, 0, 0,
+        -1, 0, -1,
+        -1, 0, -1,
+        -1, 0, -1,
+        -1, 0, -1,
 
         0, -1, 0,
         0, -1, 0,
@@ -3256,7 +3262,7 @@ function makeMaterial(albedoSource, normalSource, aoSource, tileX, tileY){
     const aoTex = makeTexture(aoSource, tileX, tileY);
     //const specularTex = makeTexture(specularSource, tileX, tileY);
 
-    var mat = new THREE.MeshStandardMaterial({map: albedoTex, side: THREE.DoubleSide});
+    var mat = new THREE.MeshPhongMaterial({map: albedoTex, side: THREE.DoubleSide});
 
     return mat;
 }
