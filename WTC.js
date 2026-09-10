@@ -1119,9 +1119,34 @@ function Build_WTC4(){
     WTC4_Base_Geo.setAttribute( 'position', new THREE.BufferAttribute( Base_Vertices, 3 ) );
     WTC4_Base_Geo.setAttribute( 'normal', new THREE.BufferAttribute( normals, 3 ) );
     WTC4_Base_Geo.setAttribute( 'uv', new THREE.BufferAttribute( uvs, 2 ) );
+    WTC4_Base_Geo.addGroup(0, 48, 0);
+    WTC4_Base_Geo.addGroup(48, 6, 1);
+    WTC4_Base_Geo.addGroup(54, 6, 2);
+    WTC4_Base_Geo.addGroup(60, 6, 3);
+    WTC4_Base_Geo.addGroup(66, 6, 4);
+    WTC4_Base_Geo.addGroup(72, 6, 5);
+    WTC4_Base_Geo.addGroup(78, 6, 6);
+    WTC4_Base_Geo.addGroup(84, 6, 7);
+    WTC4_Base_Geo.addGroup(90, 6, 8);
+    WTC4_Base_Geo.addGroup(96, 6, 9);
+    WTC4_Base_Geo.addGroup(102, 6, 10);
+    WTC4_Base_Geo.addGroup(108, 48, 11);
     //const WTC4_Base_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide});
-    const WTC4_Base_Mat = makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 3, 1);
-    const WTC4_Base_Mesh = makeShape(WTC4_Base_Geo, WTC4_Base_Mat, 0, -6.81, 0);
+    const WTC4_Base_Mats = [ // Windows are 11.7 ft long
+        makeMaterial("Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", 1, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 2, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 4, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 5, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 1, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 5, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 5, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 4, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 5, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 4, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 5, 1),
+        makeMaterial("Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", 1, 1),
+    ];
+    const WTC4_Base_Mesh = makeShape(WTC4_Base_Geo, WTC4_Base_Mats, 0, -6.81, 0);
     WTC4.add(WTC4_Base_Mesh);
 
     WTC_Complex.add(WTC4);
@@ -1664,9 +1689,38 @@ function Build_WTC5(){
     WTC5_Base_Geo.setAttribute( 'position', new THREE.BufferAttribute( Base_Vertices, 3 ) );
     WTC5_Base_Geo.setAttribute( 'normal', new THREE.BufferAttribute( normals, 3 ) );
     WTC5_Base_Geo.setAttribute( 'uv', new THREE.BufferAttribute( uvs, 2 ) );
+    WTC5_Base_Geo.addGroup(0, 54, 0);
+    WTC5_Base_Geo.addGroup(54, 6, 1);
+    WTC5_Base_Geo.addGroup(60, 6, 2);
+    WTC5_Base_Geo.addGroup(66, 6, 3);
+    WTC5_Base_Geo.addGroup(72, 6, 4);
+    WTC5_Base_Geo.addGroup(78, 6, 5);
+    WTC5_Base_Geo.addGroup(84, 6, 6);
+    WTC5_Base_Geo.addGroup(90, 6, 7);
+    WTC5_Base_Geo.addGroup(96, 6, 8);
+    WTC5_Base_Geo.addGroup(102, 6, 9);
+    WTC5_Base_Geo.addGroup(108, 6, 10);
+    WTC5_Base_Geo.addGroup(114, 6, 11);
+    WTC5_Base_Geo.addGroup(120, 6, 12);
+    WTC5_Base_Geo.addGroup(126, 54, 13);
     //const WTC5_Base_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide , wireframe: false});
-    const WTC5_Base_Mat = makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 6, 1);
-    const WTC5_Base_Mesh = makeShape(WTC5_Base_Geo, WTC5_Base_Mat, 0, -6.81, 0);
+    const WTC5_Base_Mats = [
+        makeMaterial("Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", 1, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 4, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 1, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 5, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 4, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 5, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 3, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 1, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 5, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 6, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 6, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 1, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 7, 1),
+        makeMaterial("Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", 1, 1),
+    ];
+    const WTC5_Base_Mesh = makeShape(WTC5_Base_Geo, WTC5_Base_Mats, 0, -6.81, 0);
     WTC5.add(WTC5_Base_Mesh);
 
     WTC_Complex.add(WTC5);
@@ -2121,7 +2175,6 @@ function Build_WTC6(){
         makeMaterial("Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", "Materials/WTC6UpperWindow_Texture.png", 25, 1),
         makeMaterial("Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", 1, 1),
         makeMaterial("Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", "Materials/WTC4-5-6Roof_Textures.png", 1, 1),
-
     ];
     const WTC6_Upper_Mesh = makeShape(WTC6_Upper_Geo, WTC6_Upper_Mats, 0, -6.81, 0);
     WTC6.add(WTC6_Upper_Mesh);
@@ -2130,9 +2183,30 @@ function Build_WTC6(){
     WTC6_Base_Geo.setAttribute( 'position', new THREE.BufferAttribute( Base_Vertices, 3 ) );
     WTC6_Base_Geo.setAttribute( 'normal', new THREE.BufferAttribute( normals, 3 ) );
     WTC6_Base_Geo.setAttribute( 'uv', new THREE.BufferAttribute( uvs, 2 ) );
+    WTC6_Base_Geo.addGroup(0, 6, 0);
+    WTC6_Base_Geo.addGroup(6, 6, 1);
+    WTC6_Base_Geo.addGroup(12, 6, 2);
+    WTC6_Base_Geo.addGroup(18, 6, 3);
+    WTC6_Base_Geo.addGroup(24, 6, 4);
+    WTC6_Base_Geo.addGroup(30, 6, 5);
+    WTC6_Base_Geo.addGroup(36, 6, 6);
+    WTC6_Base_Geo.addGroup(42, 6, 7);
+    WTC6_Base_Geo.addGroup(48, 6, 8);
+    WTC6_Base_Geo.addGroup(54, 6, 9);
     //const WTC6_Base_Mat = new THREE.MeshPhongMaterial({color: 0x3127f5, side: THREE.DoubleSide , wireframe: false});
-    const WTC6_Base_Mat = makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 6, 1);
-    const WTC6_Base_Mesh = makeShape(WTC6_Base_Geo, WTC6_Base_Mat, 0, -6.81, 0);
+    const WTC6_Base_Mats = [ // Windows are 5.9 ft
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 4, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 5, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 2, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 5, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 3, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 3, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 4, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 7, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 1, 1),
+        makeMaterial("Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", "Materials/WTC4-5-6LowerWindow_Texture.png", 6, 1),
+    ];
+    const WTC6_Base_Mesh = makeShape(WTC6_Base_Geo, WTC6_Base_Mats, 0, -6.81, 0);
     WTC6.add(WTC6_Base_Mesh);
 
     WTC_Complex.add(WTC6);
