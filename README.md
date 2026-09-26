@@ -3,7 +3,7 @@
 
 A Three.js Recreation the Original World Trade Center in New York City. Intended as a 9/11 Tribute.
 # Software Requirements
-You only need Servez with its path set to wherever you've downloaded the repository.
+You only need [Servez](https://greggman.github.io/servez/) with its path set to wherever you've downloaded the repository.
 # Introduction
 ## The World Trade Center
 ![The Twin Towers seen from Battery Park](docs/images/References/Reference_Image_3.jpg)
